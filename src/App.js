@@ -1,9 +1,10 @@
 import "./App.css";
+import Auth from "./Route/Auth";
 
 function App() {
   return (
     <div className="App">
-      <h1>Home</h1>
+      <Auth />
     </div>
   );
 }
