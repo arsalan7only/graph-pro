@@ -1,6 +1,6 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
-import LoginImage from "../../Assets/image/login_image.png";
+import LoginImage from "../../Assets/Images/logo512.png";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
