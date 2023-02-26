@@ -23,8 +23,7 @@ const Login = () => {
       username: username,
       password: password,
     };
-    const res = dispatch(userLogin(payload));
-    console.log(res);
+    dispatch(userLogin(payload));
   };
   return (
     <div>
