@@ -8,15 +8,23 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { userLogin } from "../../Redux/Actions/userAction";
+import { useDispatch } from "react-redux";
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleLogin = async () => {
-    console.log(username, password);
+    const payload = {
+      username: username,
+      password: password,
+    };
+    const res = dispatch(userLogin(payload));
+    console.log(res);
   };
   return (
     <div>
