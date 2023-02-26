@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Pages/PostLogin/Home";
+import SideBar from "../Pages/PostLogin/Nav/SideBar";
 
 const PrivateRoute = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<SideBar />} />
       </Routes>
     </div>
   );
