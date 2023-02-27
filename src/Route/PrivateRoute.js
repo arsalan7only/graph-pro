@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../Pages/Postlogin/Home";
 import SideBar from "../Pages/Postlogin/Nav/SideBar";
 import OrderList from "../Pages/Postlogin/Order/OrderList";
-import ProductsList from "../Pages/Postlogin/Product/ProductsList";
+import ProductList from "../Pages/Postlogin/Product/ProductList";
 
 const PrivateRoute = () => {
   return (
@@ -12,7 +12,7 @@ const PrivateRoute = () => {
         <SideBar>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Product/ProductsList" element={<ProductsList />} />
+            <Route path="/product/productlist" element={<ProductList />} />
             <Route path="/order/orderList" element={<OrderList />} />
             <Route path="*" element={<> not found</>} />
           </Routes>

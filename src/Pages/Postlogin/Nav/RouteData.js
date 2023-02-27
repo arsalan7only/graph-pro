@@ -22,10 +22,9 @@ export const route = [
     icone: "fa-sharp fa-solid fa-box-archive",
     subRoutes: [
       {
-        path: "/Product/ProductsList",
+        path: "/product/productlist",
         name: "Product List",
-        icone: "",
-        
+        icone: "fa fahome",
       },
     ],
   },
