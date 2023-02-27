@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { route } from "./RouteData";
-import { AnimatePresence, motion } from "framer-motion";
-import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import "./SideBar.css";
+import { route } from "./RouteData";
 
-const SideBar = () => {
+const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -26,78 +25,87 @@ const SideBar = () => {
       },
     },
   };
+
   return (
-    <div className="main-container">
-      <motion.div
-        animate={{
-          width: isOpen ? "200px" : "45px",
-          transition: {
-            duration: 0.5,
-            type: "spring",
-            damping: 10,
-          },
-        }}
-        className={"sidebar"}
-      >
-        <div className="top-section">
-          <AnimatePresence>
-            {isOpen && (
-              <motion.h1
-                variants={showAnimation}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                classNam="logo"
-              >
-                Admin Panel
-              </motion.h1>
-            )}
-          </AnimatePresence>
+    <>
+      <div className="main-container">
+        <motion.div
+          animate={{
+            width: isOpen ? "200px" : "45px",
 
-          <div className="bars">
-            <MenuIcon onClick={toggle} />
+            transition: {
+              duration: 0.5,
+              type: "spring",
+              damping: 10,
+            },
+          }}
+          className={`sidebar `}
+        >
+          <div className="top_section">
+            <AnimatePresence>
+              {isOpen && (
+                <motion.h1
+                  variants={showAnimation}
+                  initial="hidden"
+                  animate="show"
+                  exit="hidden"
+                  className="logo"
+                >
+                  ECOM ADMIN
+                </motion.h1>
+              )}
+            </AnimatePresence>
+
+            <div className="bars">
+              <i class="fa-solid fa-bars" onClick={toggle}></i>
+            </div>
           </div>
-        </div>
 
-        <section className="routes">
-          {route.map((item, index) => {
-            if (item.subRoutes) {
+          <section className="routes">
+            {route.map((route, index) => {
+              if (route.subRoutes) {
+                return (
+                  <SidebarMenu
+                    setIsOpen={setIsOpen}
+                    route={route}
+                    showAnimation={showAnimation}
+                    isOpen={isOpen}
+                  />
+                );
+              }
+
               return (
-                <SidebarMenu
-                  showAnimation={showAnimation}
-                  setIsOpen={setIsOpen}
-                  route={item}
-                  isOpen={isOpen}
-                />
+                <NavLink
+                  to={route.path}
+                  key={index}
+                  className="link"
+                  activeClassName="active"
+                >
+                  <div className="icon">
+                    <i class={route.icone}></i>
+                  </div>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        variants={showAnimation}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        className="link_text"
+                      >
+                        {route.name}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavLink>
               );
-            }
-            return (
-              <NavLink
-                to={item.path}
-                key={index}
-                className="link"
-                activeClassName="active"
-              >
-                <div className="icon">{item.icone}</div>
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      variants={showAnimation}
-                      initial="hidden"
-                      animate="show"
-                      exit="hidden"
-                      classNam="link_text"
-                    >
-                      {item.name}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </NavLink>
-            );
-          })}
-        </section>
-      </motion.div>
-    </div>
+            })}
+          </section>
+        </motion.div>
+
+        <main>{children}</main>
+      </div>
+    </>
   );
 };
 
