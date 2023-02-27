@@ -1,5 +1,5 @@
 const initialState = {
-  token: null,
+  token: "",
 };
 
 const UserReducer = (state = initialState, action) => {
