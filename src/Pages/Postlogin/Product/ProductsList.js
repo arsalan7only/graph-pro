@@ -109,9 +109,10 @@ const ProductList = () => {
       <div className="card-container">
         <Card>
           <CardContent>
-            <div>
+            <div className="option-container">
               <TextField variant="outlined" label="search" />
-              <FormControl>
+              
+              <FormControl sx={{width :200}}>
                 <InputLabel id="demo-simple-select-label">Age</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -125,7 +126,7 @@ const ProductList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-              <FormControl>
+              <FormControl sx={{width :200}}>
                 <InputLabel id="demo-simple-select-label">Age</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -143,9 +144,12 @@ const ProductList = () => {
             </div>
             <Paper sx={{ width: "100%" }}>
               <TableContainer>
-                <Table stickyHeader aria-label="sticky table">
+                <Table >
                   <TableHead>
                     <TableRow>
+                        <TableCell>
+                            <Checkbox/>
+                        </TableCell>
                       {columns.map((column) => (
                         <TableCell
                           key={column.id}
@@ -189,11 +193,12 @@ const ProductList = () => {
                 </Table>
               </TableContainer>
               <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
+                rowsPerPageOptions={[5, 10,15, 20, 25,]}
                 component="div"
                 count={rows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
+                
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
