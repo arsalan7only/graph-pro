@@ -1,27 +1,24 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const menuAnimation = {
   hidden: {
-    width: 0,
     opacity: 0,
-    transition: {
-      duration: 0.3,
-      when: "afterChildern",
-    },
+    height: 0,
+    padding: 0,
+    transition: { duration: 0.3, when: "afterChildren" },
   },
   show: {
     opacity: 1,
-    width: "auto",
+    height: "auto",
     transition: {
       duration: 0.3,
-      when: "beforeChildern",
+      when: "beforeChildren",
     },
   },
 };
-
 const menuItemAnimation = {
   hidden: (i) => ({
     padding: 0,
@@ -38,9 +35,8 @@ const menuItemAnimation = {
   }),
 };
 
-const SidebarMenu = ({ showAnimation, route, setIsOpen, isOpen }) => {
+const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
@@ -55,28 +51,37 @@ const SidebarMenu = ({ showAnimation, route, setIsOpen, isOpen }) => {
     <>
       <div className="menu" onClick={toggleMenu}>
         <div className="menu_item">
+          <div className="icon">
+            <i class={route.icone}></i>
+          </div>
           <AnimatePresence>
-            {!isOpen && <i class={route.icone}></i>}
             {isOpen && (
               <motion.div
                 variants={showAnimation}
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                classNam="link_text"
+                className="link_text"
               >
-                <i class={route.icone}></i>
-                <span style={{ marginLeft: "5px" }}> {route.name}</span>
+                {route.name}
               </motion.div>
             )}
           </AnimatePresence>
         </div>
         {isOpen && (
-          <motion.div animate={isMenuOpen ? { rotate: -90 } : { rotate: 0 }}>
-            <KeyboardArrowDownIcon />
+          <motion.div
+            animate={
+              isMenuOpen
+                ? {
+                    rotate: -90,
+                  }
+                : { rotate: 0 }
+            }
+          >
+            <FaAngleDown />
           </motion.div>
         )}
-      </div>
+      </div>{" "}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -86,23 +91,18 @@ const SidebarMenu = ({ showAnimation, route, setIsOpen, isOpen }) => {
             exit="hidden"
             className="menu_container"
           >
-            {route.subRoutes.map((item, index) => {
-              return (
-                <motion.div
-                  variants={menuItemAnimation}
-                  key={index}
-                  custom={index}
-                >
-                  <NavLink to={item.path} className="link">
-                    {/* <i class={item.icone} aria-hidden="true"></i> */}
-                    {/* <div className="icon">{item.icone}</div> */}
-                    <motion.div className="link_text">{item.name}</motion.div>
-                  </NavLink>
-                </motion.div>
-              );
-            })}
+            {route.subRoutes.map((subRoute, i) => (
+              <motion.div variants={menuItemAnimation} key={i} custom={i}>
+                <NavLink to={subRoute.path} className="link">
+                  <div className="icon">
+                    <i class={route.icone}></i>
+                  </div>
+                  <motion.div className="link_text">{subRoute.name}</motion.div>
+                </NavLink>
+              </motion.div>
+            ))}
           </motion.div>
-        )}
+        )}{" "}
       </AnimatePresence>
     </>
   );
