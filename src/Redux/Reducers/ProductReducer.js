@@ -9,8 +9,6 @@ export const ProductReducer = (state = initialState, action) => {
         ...state,
         product: action.payload,
       };
-
-      break;
   }
   return state;
 };

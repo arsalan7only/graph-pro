@@ -2,121 +2,128 @@ export const route = [
   {
     path: "/",
     name: "Home",
-    icon: <i class="fa-sharp fa-solid fa-house"></i>
-
+    icone: "fa fa-home",
   },
   {
     path: "/order",
     name: "Order",
-    icon: <i class="fa-solid fa-bag-shopping"></i>,
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
-    name: "Productr",
-    icon: <i class="fa-solid fa-box-archive"></i>,
+    path: "/Product",
+    name: "Product",
+    icone: "fa-sharp fa-solid fa-box-archive",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
-        icon: "fa fahome",
+        path: "/product/productlist",
+        name: "Product List",
       },
     ],
   },
   {
-    path: "/order",
+    path: "/catogery",
+    name: "Catogery",
+    icone: "fa-solid fa-list",
+    subRoutes: [
+      {
+        path: "/catogery/catogeryList",
+        name: "Catogery List",
+      },
+    ],
+  },
+  {
+    path: "/brand",
     name: "Brand",
-    icon: <i class="fa-solid fa-bag-shopping"></i>,
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
-        icon: "fa fahome",
+        path: "/brand/brandList",
+        name: "Brand List",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
+    path: "/customer",
     name: "Customer",
-    icon: <i class="fa-solid fa-user"></i>,
+    icone: "fa-solid fa-user",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
-        icon: "fa fahome",
+        path: "/customer/customerlist",
+        name: "Customer List",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
+    path: "/mastermanagment",
     name: "Master Management",
-    icon: <i class="fa-solid fa-user-gear"></i>,
+    icone: "fa-solid fa-user-gear",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
-    name: "Coupon Code",
-    icon: <i class="fa-solid fa-tag"></i>,
+    path: "/coupencode",
+    name: "Coupen Code",
+    icone: "fa-solid fa-tag",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
-    name: "Apperance",
-    icon: <i class="fa-solid fa-bag-shopping"></i>,
+    path: "/appearance",
+    name: "Appearance",
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
+    path: "/media",
     name: "Media",
-    icon: <i class="fa-solid fa-circle-play"></i>,
+    icone: "fa-solid fa-circle-play",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
+        icone: "fa fahome",
       },
     ],
   },
   {
-    path: "/order",
+    path: "/gallery",
     name: "Gallery",
-    icon:<i class="fa-solid fa-image"></i>,
+    icone: "fa-solid fa-image",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icon: "fa fahome",
+        icone: "fa fahome",
       },
     ],
   },
   {
     path: "/transaction",
     name: "Transaction",
-    icon: <i class="fa-solid fa-money-check"></i>
-
+    icone: "fa-solid fa-money-check",
   },
 ];

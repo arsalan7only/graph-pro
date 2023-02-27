@@ -1,17 +1,15 @@
-import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
-import LoginImage from "../../Assets/Image/admin_panel7.jpg";
+// import LoginImage from "../../Assets/image/login_image.png";
 import IconButton from "@mui/material/IconButton";
-import Input from "@mui/material/Input";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import axios from "axios";
-import { userLogin } from "../../Redux/Actions/useAction";
+import { userLogin } from "../../Redux/Actions/userAction";
 import { useDispatch } from "react-redux";
-
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [username, setUserName] = useState("");
@@ -25,69 +23,56 @@ const Login = () => {
       username: username,
       password: password,
     };
-
     dispatch(userLogin(payload));
   };
-
   return (
-    <div className="dv">
-      <Grid container className="container">
-        <Grid item xs={6} className="grid1">
-          <img src={LoginImage} />
+    <div>
+      <Grid container>
+        <Grid item xs={6}>
+          <img
+            src="https://www.netguru.com/hubfs/Admin_Panel_Design_Tools_and_Techniques.jpg"
+            width={650}
+            height={500}
+          />
         </Grid>
-        <Grid item xs={6} className="grid2">
-          <div className="dv2">
-            {" "}
-            <br />
-            <br />
-            <h1 className="heading">Login</h1>
-            <br /> <br /> <br />
-            <br />
-            <TextField
-              id="standard-number"
-              label="Number or Email"
-              type="number,email"
-              autoComplete="current-password"
-              variant="standard"
-              onChange={(e) => setUserName(e.target.value)}
-            />{" "}
-            <br /> <br />
-            {/* <FormControl
-              fullWidth
-              sx={{ m: 1 }}
-              variant="standard"
-            ></FormControl> */}
-            <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-password">
-                Password
-              </InputLabel>
-              <Input
-                id="standard-adornment-password"
-                type={showPassword ? "text" : "password"}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </FormControl>
-            <br />
-            <br /> <br />
-            <Button variant="contained" color="primary" onClick={handleLogin}>
-              Login
-            </Button>
-            <br /> <br /> <br />
-            <h4>
-              {" "}
-              <a href=""> Forgot Password ? </a>{" "}
-            </h4>
-          </div>
+        <Grid item xs={6} sx={{ mt: 10 }}>
+          <h2 style={{ marginLeft: "280px" }}>Login Page</h2>
+          <TextField
+            variant="outlined"
+            label="username"
+            fullWidth
+            sx={{ mt: 2 }}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <FormControl sx={{ mt: 3 }} variant="outlined" fullWidth>
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              onChange={(e) => setPassword(e.target.value)}
+              label="Password"
+            />
+          </FormControl>
+          <Button
+            variant="contained"
+            sx={{ mt: 2, ml: 36 }}
+            onClick={handleLogin}
+          >
+            Login
+          </Button>
         </Grid>
       </Grid>
     </div>

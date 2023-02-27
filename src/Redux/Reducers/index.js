@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { ProductReducer } from "./ProductReducer";
-import UserReducer from "./User.Reducer";
+import UserReducer from "./UserReducer";
 
 const appReducer = combineReducers({
   ProductReducer: ProductReducer,

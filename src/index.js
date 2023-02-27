@@ -7,24 +7,20 @@ import { Provider } from "react-redux";
 import configStore from "./Redux/Store";
 import { persistStore } from "redux-persist";
 import { BrowserRouter } from "react-router-dom";
-
 const store = configStore();
 
-const root= ReactDOM.createRoot(document.getElementById("root"))
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 persistStore(store, {}, () => {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        {/* <BrowserRouter> */}
+        <App />
+        {/* </BrowserRouter> */}
       </Provider>
-    </React.StrictMode>,
+    </React.StrictMode>
   );
 });
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
