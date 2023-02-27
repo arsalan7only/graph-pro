@@ -3,11 +3,23 @@ export const route = [
   {
     path: "/",
     name: "Home",
-    icone:  <i class="fa-sharp fa-solid fa-house"></i>,
+    icone:  <i  class="fa-sharp fa-solid fa-house"></i>,
   },
-  {
+   {
     path: "/order",
     name: "Order",
+    icone: <i class="fa-sharp fa-solid fa-bag-shopping"></i>,
+    subRoutes: [
+      {
+        path: "/order/orderList",
+        name: "Order List",
+        icone: "fa fahome",
+      },
+    ],
+  },
+  {
+    path: "/products",
+    name: "Products",
     icone: <i class="fa-sharp fa-solid fa-box-archive"></i>,
     subRoutes: [
       {
@@ -18,7 +30,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/brand",
     name: "Brand",
     icone: <i class="fa-sharp fa-solid fa-bag-shopping"></i>,
     subRoutes: [
@@ -30,7 +42,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/customer",
     name: "Customer",
     icone: <i class="fa-solid fa-user"></i>,
     subRoutes: [
@@ -42,8 +54,8 @@ export const route = [
     ],
   },
   {
-    path: "/order",
-    name: "Master Managment",
+    path: "/mastermanagment",
+    name: "Master Management",
     icone: <i class="fa-solid fa-user-gear"></i>,
     subRoutes: [
       {
@@ -54,7 +66,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/coupencode",
     name: "Coupen Code",
     icone: <i class="fa-solid fa-tag"></i>,
     subRoutes: [
@@ -66,8 +78,8 @@ export const route = [
     ],
   },
   {
-    path: "/order",
-    name: "Apperance",
+    path: "/appearance",
+    name: "Appearance",
     icone: <i class="fa-solid fa-palette"></i>,
     subRoutes: [
       {
@@ -78,7 +90,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/media",
     name: "Media",
     icone: <i class="fa-solid fa-circle-play"></i>,
     subRoutes: [
@@ -90,7 +102,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/gallary",
     name: "Gallary",
     icone: <i class="fa-solid fa-image"></i>,
     subRoutes: [
@@ -102,7 +114,7 @@ export const route = [
     ],
   },
   {
-    path: "",
+    path: "transaction",
     name: "Transaction",
     icone: <i class="fa-solid fa-money-check-dollar"></i>,
   },

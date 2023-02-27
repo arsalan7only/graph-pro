@@ -19,10 +19,12 @@
 }
 
 .sidebar {
-  background-color: rgb(54, 69, 79);
-  color: #fff;
+  background-color: rgb(236, 231, 231);
+  color: black;
   height: 100vh;
   overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 .top-section {
@@ -53,11 +55,12 @@
 
 .link {
   display: flex;
-  color: white;
-  gap: 10px;
+  color: #00003B;
+  gap: 40px;
   padding: 5px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0, 045);
+  justify-content: unset;
 }
 
 link:hover {
@@ -67,7 +70,7 @@ link:hover {
 
 .active {
   border-right: 4px solid white;
-  background: rgb(45, 51, 89);
+  background: #F5FAFA;
 }
 
 .link_text {
@@ -84,15 +87,17 @@ ul {
 
 li {
   list-style: none;
+  
 }
 
 .menu {
   display: flex;
-  color: white;
+  color: black;
   padding: 5px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  justify-content: space-between;
+  justify-content: space-around;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .menu_item {
   display: flex;
