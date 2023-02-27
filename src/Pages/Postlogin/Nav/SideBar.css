@@ -55,8 +55,8 @@
 
 .link {
   display: flex;
-  color: #00003B;
-  gap: 40px;
+  color: black;
+  gap: 10px;
   padding: 5px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0, 045);
@@ -64,13 +64,13 @@
 }
 
 link:hover {
-  background-color: rgb(45, 51, 89);
+  background-color: #c6c6d4;
   border-right: 4px solid white;
 }
 
 .active {
   border-right: 4px solid white;
-  background: #F5FAFA;
+  background: #c6c6d4;
 }
 
 .link_text {
@@ -101,8 +101,8 @@ li {
 }
 .menu_item {
   display: flex;
-  flex-direction: column;
-}
+   flex-direction: column;
+} 
 .menu_container {
   display: flex;
   flex-direction: column;

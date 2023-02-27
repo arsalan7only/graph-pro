@@ -30,7 +30,7 @@ const SideBar = () => {
     <div className="main-container">
       <motion.div
         animate={{
-          width: isOpen ? "200px" : "45px",
+          width: isOpen ? "230px" : "45px",
           transition: {
             duration: 0.5,
             type: "spring",
@@ -42,15 +42,15 @@ const SideBar = () => {
         <div className="top-section">
           <AnimatePresence>
             {isOpen && (
-              <motion.h1
+              <motion.h3
                 variants={showAnimation}
                 initial="hidden"
                 animate="show"
                 exit="hidden"
                 classNam="logo"
               >
-                Admin Panel
-              </motion.h1>
+                ECOM MANG
+              </motion.h3>
             )}
           </AnimatePresence>
 
@@ -78,7 +78,8 @@ const SideBar = () => {
                 className="link"
                 activeClassName="active"
               >
-                <div className="icon">{item.icone}</div>
+                <i class={item.icone} aria-hidden="true"></i>
+                {/* <div className="icon">{item.icone}</div> */}
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
