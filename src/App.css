@@ -107,3 +107,18 @@ main {
   padding-left: 20px;
   border-bottom: #fff 0.5px solid;
 }
+
+.Top-Nav-Container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: #c6c6d4;
+}
+.Nav-logo-comtainer{
+
+}
+
+.Nav-setting-container{
+  margin-right: 30px;
+}
