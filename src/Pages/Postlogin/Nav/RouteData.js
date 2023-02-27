@@ -22,8 +22,8 @@ export const route = [
     icone: "fa-sharp fa-solid fa-box-archive",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/product/productlist",
+        name: "Product List",
         icone: "fa fahome",
       },
     ],
