@@ -11,6 +11,7 @@ const PrivateRoute = () => {
         <SideBar>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/order/orderList" element={<OrderList />} />
             <Route path="*" element={<> not found</>} />
           </Routes>
         </SideBar>
