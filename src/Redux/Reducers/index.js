@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { ProductReducer } from "./ProductReducer";
-import userReducer from "./UserReducer";
+import UserReducer from "./UserReducer";
 
 const appReducer = combineReducers({
   ProductReducer: ProductReducer,
-  userReducer: userReducer,
+  UserReducer: UserReducer,
 });
 
 const rootReducer = (state, action) => {

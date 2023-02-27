@@ -1,0 +1,33 @@
+.Product_Top_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 183%;
+}
+.Product-Top-button Button {
+  margin: 0px 5px;
+}
+.card-container {
+  width: 185%;
+}
+.options-container {
+  display: flex;
+  align-items: center;
+}
+.options-container Button {
+  margin-left: 10px;
+}
+.Top-Nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  background-color:  #2874f0;
+}
+.Nav-logo-container {
+  margin-left: 20px;
+  color: white;
+}
+.Nav-setting-container {
+  margin-right: 30px;
+}

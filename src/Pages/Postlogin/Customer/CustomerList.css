@@ -1,0 +1,21 @@
+.Product_Top_container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 145%;
+  }
+  .Product-Top-button1 Button {
+    margin: 0px 5px;
+  }
+  .card-container1 {
+    width: 145%;
+  }
+  .options-container1 {
+    display: flex;
+    align-items: center;
+  }
+  .options-container1 Button {
+    margin-left: 10px;
+  }
+
+  

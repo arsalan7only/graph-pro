@@ -1,16 +1,16 @@
 const initialState = {
-  token:"",
+  token: "",
 };
 
-const userReducer = (state = initialState, action) => {
+const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case "USER_LOGGED":
       return {
         ...state,
-        token:action.payload,
+        token: action.payload,
       };
   }
-  return state
+  return state;
 };
 
-export default userReducer;
+export default UserReducer;

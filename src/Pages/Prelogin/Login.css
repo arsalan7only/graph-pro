@@ -1,0 +1,35 @@
+body {
+  font-family: "Poppins", sans-serif; 
+}
+#p {
+  color: black;
+  margin-bottom: 1.5em;
+  font-weight: 300;
+  font-size: 35px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.form{
+  border: 2px solid white;
+  background-color: white;
+  border-radius: 50% 20% / 10% 40%;
+  margin-left: 200px;
+  margin-top: 90px;
+  height: 600px;
+  width: 400px;
+}
+#P{
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+#icons{
+  margin-left: 163px;
+  margin-top: 70px;
+}

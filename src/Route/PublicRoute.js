@@ -1,14 +1,15 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "../Pages/PreLogin/Login";
 
 const PublicRoute = () => {
   return (
-    <div>
+    <Router>
       <Routes>
-        <Route path="/" element={<Login/>} />
+        <Route path="/" element={<Login />} />
+        <Route path="*" element={<> not found</>} />
       </Routes>
-    </div>
+    </Router>
   );
 };
 
