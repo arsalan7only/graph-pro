@@ -2,12 +2,12 @@ export const route = [
   {
     path: "/",
     name: "Home",
-    icone:  <i className="fa-sharp fa-solid fa-house"></i>,
+    icone: "fa fa-home",
   },
   {
     path: "/order",
     name: "Order",
-    icone:<i className="fa-solid fa-bag-shopping"></i>,
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -17,9 +17,9 @@ export const route = [
     ],
   },
   {
-    path: "/product",
+    path: "/Product",
     name: "Product",
-    icone: <i className="fa-solid fa-box-archive"></i>,
+    icone: "fa-sharp fa-solid fa-box-archive",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -31,7 +31,7 @@ export const route = [
   {
     path: "/brand",
     name: "Brand",
-    icone: <i className="fa-sharp fa-solid fa-bag-shopping"></i>,
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -43,7 +43,7 @@ export const route = [
   {
     path: "/customer",
     name: "Customer",
-    icone: <i className="fa-solid fa-user"></i>,
+    icone: "fa-solid fa-user",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -53,9 +53,9 @@ export const route = [
     ],
   },
   {
-    path: "/master Managment",
-    name: "Master Managment",
-    icone: <i className="fa-solid fa-user-gear"></i>,
+    path: "/mastermanagment",
+    name: "MasterManagement",
+    icone: "fa-solid fa-user-gear",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -65,9 +65,9 @@ export const route = [
     ],
   },
   {
-    path: "/coupen Code",
+    path: "/coupencode",
     name: "Coupen Code",
-    icone: <i className="fa-solid fa-tag"></i>,
+    icone: "fa-solid fa-tag",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -77,9 +77,9 @@ export const route = [
     ],
   },
   {
-    path: "/appereance",
-    name: "Appereance",
-    icone: <i className="fa-solid fa-palette"></i>,
+    path: "/appearance",
+    name: "Appearance",
+    icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -91,7 +91,7 @@ export const route = [
   {
     path: "/media",
     name: "Media",
-    icone: <i className="fa-solid fa-circle-play"></i>,
+    icone: "fa-solid fa-circle-play",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -101,9 +101,9 @@ export const route = [
     ],
   },
   {
-    path: "/gallary",
-    name: "Gallary",
-    icone: <i className="fa-solid fa-image"></i>,
+    path: "/gallery",
+    name: "Gallery",
+    icone: "fa-solid fa-image",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -112,11 +112,9 @@ export const route = [
       },
     ],
   },
-
   {
     path: "/transaction",
     name: "Transaction",
-    icone: <i className="fa-solid fa-money-check-dollar"></i>,
+    icone: "fa-solid fa-money-check",
   },
- 
 ];

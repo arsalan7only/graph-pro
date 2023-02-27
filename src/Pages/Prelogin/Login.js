@@ -1,7 +1,6 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
-// import LoginImage from "../../Assets/Images/icon.jpg";
-import LoginImage from "../../Assets/Images/logo.jpg";
+// import LoginImage from "../../Assets/image/login_image.png";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -31,7 +30,11 @@ const Login = () => {
     <div>
       <Grid container >
         <Grid item xs={6}>
-          <img src={LoginImage} style={{width:400, height:400, marginLeft:200, marginTop:50 }}/>
+          <img
+            src="https://www.netguru.com/hubfs/Admin_Panel_Design_Tools_and_Techniques.jpg"
+            width={650}
+            height={500}
+          />
         </Grid>
         <Grid item xs={6} sx={{ mt: 10 }}>
           <h1 style={{ marginLeft: "280px" }}>Login Page</h1>
