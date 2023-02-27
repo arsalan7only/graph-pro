@@ -19,8 +19,8 @@
 }
 
 .sidebar {
-  background-color: rgb(91, 105, 210);
-  color: #fff;
+  background-color: rgb(236, 231, 231);
+  color: black;
   height: 100vh;
   overflow-y: auto;
 }
@@ -53,7 +53,7 @@
 
 .link {
   display: flex;
-  color: white;
+  color: black;
   gap: 60px;
   padding: 7px 10px;
   border-right: 4px solid transparent;
@@ -61,12 +61,12 @@
 }
 
 link:hover {
-  background-color: rgb(45, 51, 89);
-  border-right: 4px solid white;
+  background-color: #c6c6d4;
+  border-right: 4px solid black;
 }
 
 .active {
-  border-right: 0px solid white;
+  border-right: 0px solid black;
   background: rgb(45, 51, 89);
 }
 
@@ -88,7 +88,7 @@ li {
 
 .menu {
   display: flex;
-  color: white;
+  color: black;
   padding: 10px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);

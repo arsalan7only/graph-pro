@@ -7,7 +7,7 @@ export const route = [
   {
     path: "/order",
     name: "Order",
-    icone: <i className="fa-sharp fa-solid fa-box-archive"></i>,
+    icone:<i class="fa-solid fa-bag-shopping"></i>,
     subRoutes: [
       {
         path: "/order/orderList",
@@ -17,7 +17,19 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/product",
+    name: "Product",
+    icone: <i class="fa-solid fa-box-archive"></i>,
+    subRoutes: [
+      {
+        path: "/order/orderList",
+        name: "Order List",
+        icone: "fa fahome",
+      },
+    ],
+  },
+  {
+    path: "/brand",
     name: "Brand",
     icone: <i className="fa-sharp fa-solid fa-bag-shopping"></i>,
     subRoutes: [
@@ -29,7 +41,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/customer",
     name: "Customer",
     icone: <i className="fa-solid fa-user"></i>,
     subRoutes: [
@@ -41,7 +53,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/master Managment",
     name: "Master Managment",
     icone: <i className="fa-solid fa-user-gear"></i>,
     subRoutes: [
@@ -53,7 +65,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/coupen Code",
     name: "Coupen Code",
     icone: <i className="fa-solid fa-tag"></i>,
     subRoutes: [
@@ -65,8 +77,8 @@ export const route = [
     ],
   },
   {
-    path: "/order",
-    name: "Apperance",
+    path: "/appereance",
+    name: "Appereance",
     icone: <i className="fa-solid fa-palette"></i>,
     subRoutes: [
       {
@@ -77,7 +89,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/media",
     name: "Media",
     icone: <i className="fa-solid fa-circle-play"></i>,
     subRoutes: [
@@ -89,7 +101,7 @@ export const route = [
     ],
   },
   {
-    path: "/order",
+    path: "/gallary",
     name: "Gallary",
     icone: <i className="fa-solid fa-image"></i>,
     subRoutes: [
