@@ -7,7 +7,7 @@ export const route = [
   {
     path: "/order",
     name: "Order",
-    icone:<i class="fa-solid fa-bag-shopping"></i>,
+    icone:<i className="fa-solid fa-bag-shopping"></i>,
     subRoutes: [
       {
         path: "/order/orderList",
@@ -19,7 +19,7 @@ export const route = [
   {
     path: "/product",
     name: "Product",
-    icone: <i class="fa-solid fa-box-archive"></i>,
+    icone: <i className="fa-solid fa-box-archive"></i>,
     subRoutes: [
       {
         path: "/order/orderList",

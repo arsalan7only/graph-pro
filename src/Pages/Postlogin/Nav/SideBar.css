@@ -5,7 +5,7 @@
 }
 
 .main-container {
-  display: flex;
+  display: flex; 
 }
 
 .main {
@@ -61,7 +61,7 @@
 }
 
 link:hover {
-  background-color: #c6c6d4;
+  background-color: rgb(45, 51, 89);
   border-right: 4px solid black;
 }
 
@@ -108,4 +108,5 @@ li {
 }
 .icon{
   font-size: 25px;
+  
 }
