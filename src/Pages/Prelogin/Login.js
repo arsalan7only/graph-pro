@@ -1,6 +1,7 @@
 import { Button, Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
-import LoginImage from "../../Assets/image/login_image.png";
+// import LoginImage from "../../Assets/Images/icon.jpg";
+import LoginImage from "../../Assets/Images/logo.jpg";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -10,6 +11,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { userLogin } from "../../Redux/Actions/userAction";
 import { useDispatch } from "react-redux";
+import { WidthFull } from "@mui/icons-material";
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [username, setUserName] = useState("");
@@ -27,22 +29,22 @@ const Login = () => {
   };
   return (
     <div>
-      <Grid container>
+      <Grid container >
         <Grid item xs={6}>
-          <img src={LoginImage} />
+          <img src={LoginImage} style={{width:400, height:400, marginLeft:200, marginTop:50 }}/>
         </Grid>
         <Grid item xs={6} sx={{ mt: 10 }}>
-          <h2 style={{ marginLeft: "280px" }}>Login Page</h2>
+          <h1 style={{ marginLeft: "280px" }}>Login Page</h1>
           <TextField
             variant="outlined"
-            label="username"
+            label="username*"
             fullWidth
             sx={{ mt: 2 }}
             onChange={(e) => setUserName(e.target.value)}
-          />
+            /> 
           <FormControl sx={{ mt: 3 }} variant="outlined" fullWidth>
             <InputLabel htmlFor="outlined-adornment-password">
-              Password
+              Password*
             </InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
@@ -68,7 +70,8 @@ const Login = () => {
             onClick={handleLogin}
           >
             Login
-          </Button>
+          </Button> <br /><br /> <br />
+          <a href="">Forget Password</a>
         </Grid>
       </Grid>
     </div>

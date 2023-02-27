@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NavLink } from "react-router-dom";
-import { padding } from "@mui/system";
 
 const menuAnimation = {
   hidden: {
@@ -55,8 +54,8 @@ const SidebarMenu = ({ showAnimation, route, setIsOpen, isOpen }) => {
   return (
     <>
       <div className="menu" onClick={toggleMenu}>
-        <div className="menu_item">
           <div className="icon">{route.icone}</div>
+        <div className="menu_item">
           <AnimatePresence>
             {isOpen && (
               <motion.div
