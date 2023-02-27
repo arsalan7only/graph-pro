@@ -1,0 +1,14 @@
+.Product_Top_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 206%;
+}
+.Product-Top-button button{
+    margin: 0px 5px; 
+
+}
+.card-container{
+    width: 206%;
+}
