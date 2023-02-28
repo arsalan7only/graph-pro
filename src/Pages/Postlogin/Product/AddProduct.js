@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import {
   Button,
   Card,
   CardContent,
-  Checkbox,
   FormControl,
   Grid,
   InputLabel,
@@ -18,43 +18,45 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-
-import React, { useState } from "react";
 import JoditEditorComp from "../../../Components/JoditEditorComp";
 import "./AddProduct.css";
-
 const AddProduct = () => {
   const [value, setValue] = useState("");
   const [status, setStatus] = useState("");
-  const [category, setcategory] = useState([
+  const [category, setCategory] = useState([
     {
       name: "Accessories",
       expend: false,
-      subCategory: [{ name: "Wallets" }, { name: "perfumes" }],
+      subCategory: [
+        {
+          name: "Wallets",
+        },
+        { name: "perfumes" },
+      ],
     },
     {
       name: "Mens",
       expend: true,
       subCategory: [
-        { name: "Formal Shirts" },
-
+        {
+          name: "Formal Shirts",
+        },
         { name: "Top Wear" },
-        { name: "Bottom Waer" },
+        { name: "Bottom Wear" },
       ],
     },
   ]);
-
   const config = {
     readonly: false,
     placeholder: "Start typings...",
   };
 
-  const handleExpendChange = (index, preExpend) => {
+  const handleExpendChange = (index, PreExpend) => {
     const changeData = category.map((item, ind) => {
       if (index == ind) {
         return {
           ...item,
-          expend: !preExpend,
+          expend: !PreExpend,
         };
       } else {
         return {
@@ -63,7 +65,7 @@ const AddProduct = () => {
         };
       }
     });
-    setcategory(changeData);
+    setCategory(changeData);
   };
 
   return (
@@ -79,19 +81,19 @@ const AddProduct = () => {
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Add_Product_container">
-        <Grid container spacing={4} sx={{mt:0.1}}>
+      <div className="Add_product_container">
+        <Grid container spacing={4} sx={{ mt: 0.1 }}>
           <Grid item xs={8}>
             <Card>
               <CardContent>
                 <TextField label="Title" variant="outlined" />
-                <Typography> Short Product Decription</Typography>
+                <Typography>Short Product Description</Typography>
                 <JoditEditorComp
                   setValue={setValue}
                   value={value}
                   config={config}
                 />
-                <Typography> Long Product Decription</Typography>
+                <Typography>Long Product Description</Typography>
                 <JoditEditorComp
                   setValue={setValue}
                   value={value}
@@ -99,7 +101,8 @@ const AddProduct = () => {
                 />
               </CardContent>
             </Card>
-            <Card sx={{mt:2}}>
+
+            <Card sx={{ mt: 3 }}>
               <CardContent>
                 <Typography>Media</Typography>
                 <Button variant="contained">Upload Media</Button>
@@ -107,7 +110,7 @@ const AddProduct = () => {
             </Card>
           </Grid>
           <Grid item xs={4}>
-            <Card >
+            <Card>
               <CardContent>
                 <FormControl sx={{ width: 200 }}>
                   <InputLabel id="demo-simple-select-label">Status</InputLabel>
@@ -118,150 +121,134 @@ const AddProduct = () => {
                     label="Status"
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <MenuItem value={1}>Avtive</MenuItem>
+                    <MenuItem value={1}>Active</MenuItem>
                     <MenuItem value={0}>Inactive</MenuItem>
                   </Select>
                 </FormControl>
               </CardContent>
             </Card>
-            <Card sx={{mt:3}}>
+
+            <Card sx={{ mt: 3 }}>
               <CardContent>
-                <Typography>Product Category</Typography>
+                <Typography>Product Categories</Typography>
                 <ul>
                   {category.map((item, index) => {
                     return (
-                
-                        <li>
-                          <span
-                            onClick={() =>
-                              handleExpendChange(index, item.expend)
-                            }
-                          >
-                            {item.expend ? "-" : "+"} {item.name}
-                          </span>
-                          
+                      <li>
+                        <span
+                          onClick={() => handleExpendChange(index, item.expend)}
+                        >
+                          {item.expend ? "-" : "+"} {item.name}
+                        </span>
                         <ul>
                           {item.expend &&
                             item.subCategory.map((elem) => {
                               return (
                                 <li>
-                                  <input type="radio" name={"select"} />
+                                  <input type="radio" name="category" />
                                   <label>{elem.name}</label>
                                 </li>
                               );
                             })}
                         </ul>
-                        </li>
-                      
-                      
-                      
+                      </li>
                     );
                   })}
                 </ul>
+
                 <Typography>Tags</Typography>
                 <TextField />
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-        <Card sx={{mt:3}}>
+
+        <Card sx={{ mt: 3 }}>
           <CardContent>
-            <Typography>Product Informetion</Typography>
+            <Typography>Product Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>SKU</Typography>
-                <TextField variant="outlined" label="SKU" />
+                <TextField label="SKU" />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Model Number</Typography>
-                <TextField variant="outlined" label="Model Number" />
+                <TextField label="Model Number" />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Quantity</Typography>
-                <TextField variant="outlined" label="Product Quantity" />
+                <TextField label="Product Quantity" />
               </Grid>
             </Grid>
           </CardContent>
         </Card>
-        <Card sx={{mt:3}}>
+
+        <Card sx={{ mt: 3 }}>
           <CardContent>
             <Typography>Pricing</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
-                <Typography>Base Price</Typography>
-                <TextField variant="outlined" />
+                <Typography>Best Price</Typography>
+                <TextField label="Best Price" />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Original Price</Typography>
-                <TextField variant="outlined" />
+                <TextField label="Original Price" />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Selling Price</Typography>
-                <TextField variant="outlined" />
+                <TextField label="Selling Price" />
               </Grid>
             </Grid>
           </CardContent>
         </Card>
-        <Card sx={{mt:3}}>
+        <Card sx={{ mt: 3 }}>
           <CardContent>
-            <Typography>Shipping Information</Typography>
+            <Typography>Shopping Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Shipping Charges</Typography>
-                <TextField variant="outlined" />
+                <TextField label="Best Price" />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Weight</Typography>
-                <TextField variant="outlined" />
+                <TextField label="Original Price" />
               </Grid>
             </Grid>
           </CardContent>
         </Card>
-        <Card sx={{mt:3}}>
+        <Card sx={{ mt: 3 }}>
           <CardContent>
-            <Typography>Tax Informetion</Typography>
+            <Typography>Tax Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Tax Amount</Typography>
-                <TextField variant="outlined" />
+                <TextField label="Tax Amount" />
               </Grid>
             </Grid>
           </CardContent>
         </Card>
-        <Card sx={{mt:3}}>
+        <Card sx={{ mt: 3 }}>
           <CardContent>
             <Typography>SEO</Typography>
             <Grid container spacing={4}>
-              <Grid item xs={3}>
-                <Typography>Meta Tags </Typography>
+              <Grid item xs={12}>
+                <label>Meta Tags</label>
+                <TextField label="Meta Tags" />
               </Grid>
-
-              <Grid item xs={3}>
-                <TextField variant="outlined" />
+              <Grid item xs={12}>
+                <label>Description</label>
+                <TextField label="Description" />
               </Grid>
-              <Grid item xs={6}></Grid>
-
-              <Grid item xs={3}>
-                <Typography>Description</Typography>
+              <Grid item xs={12}>
+                <label>Keyword</label>
+                <TextField label="Keyword" />
               </Grid>
-
-              <Grid item xs={3}>
-                <TextField variant="outlined" />
-              </Grid>
-              <Grid item xs={6}></Grid>
-              <Grid item xs={3}>
-                <Typography>Keyword</Typography>
-              </Grid>
-
-              <Grid item xs={3}>
-                <TextField variant="outlined" />
-              </Grid>
-              <Grid item xs={6}></Grid>
             </Grid>
           </CardContent>
         </Card>
 
-        <Paper sx={{mt:3}}>
+        <Paper sx={{ mt: 3 }}>
           <TableContainer>
             <Table>
               <TableHead>
@@ -274,22 +261,21 @@ const AddProduct = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>
-                    <TextField/>
+                    <TextField />
                   </TableCell>
                   <TableCell>
-                    <TextField/>
+                    <TextField />
                   </TableCell>
                   <TableCell>
-                    <Button variant="outlined" color="error">Remove</Button>
+                    <Button variant="outlined" color="error">
+                      Remove
+                    </Button>
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
+            <Button variant="contained">Add</Button>
           </TableContainer>
-          <Button variant="contained" color="success">
-            Add
-          </Button>
-          
         </Paper>
       </div>
     </div>

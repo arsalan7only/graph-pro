@@ -1,16 +1,9 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  Checkbox,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
-import React, { useState } from "react";
-import "./ProductList.css";
+import React from "react";
+import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -19,32 +12,32 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import ImportExportIcon from '@mui/icons-material/ImportExport';
+
+import "./ProductList.css";
+
 const columns = [
-  { id: "product", label: "Product", minWidth: 10 },
-  { id: "product_type", label: "Product Type", minWidth: 10 },
+  { id: "product", label: "Product" },
+  { id: "product_type", label: "Product Type" },
   {
     id: "category",
-    label: "Category",
-    minWidth: 10,
+    label: "category",
+    // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "quantity",
     label: "Quantity",
-    minWidth: 10,
+    // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "status",
     label: "Status",
-    minWidth: 10,
     format: (value) => value.toFixed(2),
   },
   {
     id: "action",
     label: "Action",
-    minWidth: 10,
     format: (value) => value.toFixed(2),
   },
 ];
@@ -70,15 +63,11 @@ const rows = [
   createData("Nigeria", "NG", 200962417, 923768),
   createData("Brazil", "BR", 210147125, 8515767),
 ];
-
 const ProductList = () => {
   const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -87,6 +76,11 @@ const ProductList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <div>
       <div className="Product_Top_container">
@@ -102,10 +96,10 @@ const ProductList = () => {
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Card-container">
+      <div className="card-container">
         <Card>
           <CardContent>
-            <div className="opetion-container">
+            <div className="options-container">
               <TextField variant="outlined" label="search" />
               <FormControl sx={{ width: 200 }}>
                 <InputLabel id="demo-simple-select-label">Age</InputLabel>
@@ -135,9 +129,9 @@ const ProductList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-              <Button variant="contained">Searchs</Button>
+              <Button variant="contained">Search</Button>
             </div>
-            <Paper sx={{ width: "100%" }}>
+            <Paper>
               <TableContainer>
                 <Table>
                   <TableHead>
@@ -146,13 +140,8 @@ const ProductList = () => {
                         <Checkbox />
                       </TableCell>
                       {columns.map((column) => (
-                        <TableCell
-                          key={column.id}
-                          align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}
-                        >
+                        <TableCell key={column.id} align={column.align}>
                           {column.label}
-                          <ImportExportIcon sx={{mb:-1}}/>
                         </TableCell>
                       ))}
                     </TableRow>
@@ -188,12 +177,8 @@ const ProductList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="error">
-                Inactive
-              </Button>
-              <Button variant="contained">Apply</Button>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 15, 20, 25]}
+                rowsPerPageOptions={[5, 10, 25, 100]}
                 component="div"
                 count={rows.length}
                 rowsPerPage={rowsPerPage}

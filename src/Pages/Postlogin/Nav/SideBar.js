@@ -1,13 +1,12 @@
-import React from "react"
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { route } from "./RouteData";
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import "./SideBar.css"
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +40,7 @@ const SideBar = ({ children }) => {
   return (
     <>
       <div className="Top-Nav-container">
-        <div className="Nav-Logo-container">
+        <div className="Nav-logo-container">
           <h1>Career Next</h1>
         </div>
         <div className="Nav-setting-container">

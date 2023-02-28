@@ -23,21 +23,12 @@ export const route = [
       {
         path: "/product/productlist",
         name: "Product List",
+        icone: "fa fahome",
       },
       {
         path: "/product/addproduct",
         name: "Add Product",
-      },
-    ],
-  },
-  {
-    path: "/catogery",
-    name: "Catogery",
-    icone: "fa-solid fa-list",
-    subRoutes: [
-      {
-        path: "/catogery/catogeryList",
-        name: "Catogery List",
+        icone: "fa fahome",
       },
     ],
   },
