@@ -1,0 +1,18 @@
+.Product_Top_Add_Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    
+}
+
+li{
+    list-style: none;
+    margin-top: 5px;
+}
+.Add_Product_Container{
+    width:  100%;
+}
+
+

@@ -2,9 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: auto;
     height: 40px;
-    width: 148%;
+    width: 150%;
 }
 .Product_Top_Button Button{
     margin: 0px 5px;
