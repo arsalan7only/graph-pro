@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../Pages/Postlogin/Home";
 import SideBar from "../Pages/Postlogin/Nav/SideBar";
 import OrderList from "../Pages/Postlogin/Order/OrderList";
-import AddProduct from "../Pages/Postlogin/Product/AddProduct";
 import ProductList from "../Pages/Postlogin/Product/ProductList";
+import CatogeryList from "../Pages/Postlogin/Category/CatogeryList";
+import Brand from "../Pages/Postlogin/Brand/Brand";
+import CustomerList from "../Pages/Postlogin/Customer/CustomerList";
+import AddProduct from "../Pages/Postlogin/Product/AddProduct";
 
 const PrivateRoute = () => {
   return (
