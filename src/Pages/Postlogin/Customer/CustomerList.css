@@ -1,19 +1,19 @@
-.Product_Top_container1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 115%;   
+.Product_Top_container1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110%;
 }
-.Product-Top-button button{
-margin: 0px 5px;
+.Product-Top-button button {
+  margin: 0px 5px;
 }
-.Card-container1{
-    width: 115%;
+.Card-container1 {
+  width: 110%;
 }
-.opetion-container{
-    display: flex;
-    align-items: center;
+.opetion-container {
+  display: flex;
+  align-items: center;
 }
-.opetion-container button{
-    margin-left: 10px
+.opetion-container button {
+  margin-left: 10px;
 }

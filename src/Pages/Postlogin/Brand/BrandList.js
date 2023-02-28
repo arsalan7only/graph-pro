@@ -20,6 +20,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
+import "./Brand.css";
 const columns = [
   { id: "brand", label: "Brand", minWidth: 10 },
   { id: "brand_name", label: "Brand Name", minWidth: 10 },
@@ -47,7 +48,7 @@ const rows = [
   createData("Italy", "IT", 60483973, 301340),
 ];
 
-const Brand = () => {
+const BrandList = () => {
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -169,4 +170,4 @@ const Brand = () => {
   );
 };
 
-export default Brand;
+export default BrandList;
