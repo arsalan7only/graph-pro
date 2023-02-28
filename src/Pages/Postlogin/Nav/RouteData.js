@@ -28,7 +28,17 @@ export const route = [
       {
         path: "/product/addproduct",
         name: "Add Product",
-        icone: "fa fahome",
+      },
+    ],
+  },
+  {
+    path: "/catogery",
+    name: "Catogery",
+    icone: "fa-solid fa-list",
+    subRoutes: [
+      {
+        path: "/catogery/catogeryList",
+        name: "Catogery List",
       },
     ],
   },
