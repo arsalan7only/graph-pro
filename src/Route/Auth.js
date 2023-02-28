@@ -6,7 +6,9 @@ import PublicRoute from "./PublicRoute";
 const Auth = () => {
   const select = useSelector((state) => state);
   const token = select.UserReducer.token;
+
   const [Logged, setLogged] = useState(false);
+
 
   useEffect(() => {
     if (token.length > 0) {
@@ -15,7 +17,6 @@ const Auth = () => {
       setLogged(false);
     }
   }, [token]);
-
   return <div>{Logged ? <PrivateRoute /> : <PublicRoute />}</div>;
 };
 
