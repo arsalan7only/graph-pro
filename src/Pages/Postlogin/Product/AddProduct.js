@@ -7,7 +7,14 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   TextField,
   Typography,
 } from "@mui/material";
@@ -62,7 +69,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
+    <div className="Product_main_container">
       <div className="Product_Top_Add_container">
         <div>
           <h3>Product</h3>
@@ -74,8 +81,8 @@ const AddProduct = () => {
         </div>
       </div>
       {/* Top container closed */}
-      <div>
-        <Grid container spacing={4}>
+      <div className="Add_product_container">
+        <Grid container spacing={4} sx={{ mt: 0.1 }}>
           <Grid item xs={8}>
             <Card>
               <CardContent>
@@ -92,6 +99,13 @@ const AddProduct = () => {
                   value={value}
                   config={config}
                 />
+              </CardContent>
+            </Card>
+
+            <Card sx={{ mt: 3 }}>
+              <CardContent>
+                <Typography>Media</Typography>
+                <Button variant="contained">Upload Media</Button>
               </CardContent>
             </Card>
           </Grid>
@@ -114,7 +128,7 @@ const AddProduct = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card sx={{ mt: 3 }}>
               <CardContent>
                 <Typography>Product Categories</Typography>
                 <ul>
@@ -148,6 +162,121 @@ const AddProduct = () => {
             </Card>
           </Grid>
         </Grid>
+
+        <Card sx={{ mt: 3 }}>
+          <CardContent>
+            <Typography>Product Information</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={3}>
+                <Typography>SKU</Typography>
+                <TextField label="SKU" />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Model Number</Typography>
+                <TextField label="Model Number" />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Product Quantity</Typography>
+                <TextField label="Product Quantity" />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mt: 3 }}>
+          <CardContent>
+            <Typography>Pricing</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={3}>
+                <Typography>Best Price</Typography>
+                <TextField label="Best Price" />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Original Price</Typography>
+                <TextField label="Original Price" />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Selling Price</Typography>
+                <TextField label="Selling Price" />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+        <Card sx={{ mt: 3 }}>
+          <CardContent>
+            <Typography>Shopping Information</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={3}>
+                <Typography>Shipping Charges</Typography>
+                <TextField label="Best Price" />
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Product Weight</Typography>
+                <TextField label="Original Price" />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+        <Card sx={{ mt: 3 }}>
+          <CardContent>
+            <Typography>Tax Information</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={3}>
+                <Typography>Tax Amount</Typography>
+                <TextField label="Tax Amount" />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+        <Card sx={{ mt: 3 }}>
+          <CardContent>
+            <Typography>SEO</Typography>
+            <Grid container spacing={4}>
+              <Grid item xs={12}>
+                <label>Meta Tags</label>
+                <TextField label="Meta Tags" />
+              </Grid>
+              <Grid item xs={12}>
+                <label>Description</label>
+                <TextField label="Description" />
+              </Grid>
+              <Grid item xs={12}>
+                <label>Keyword</label>
+                <TextField label="Keyword" />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+
+        <Paper sx={{ mt: 3 }}>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Question</TableCell>
+                  <TableCell>Answer</TableCell>
+                  <TableCell>Action</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <TextField />
+                  </TableCell>
+                  <TableCell>
+                    <TextField />
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="outlined" color="error">
+                      Remove
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+            <Button variant="contained">Add</Button>
+          </TableContainer>
+        </Paper>
       </div>
     </div>
   );

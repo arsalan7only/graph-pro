@@ -3,10 +3,18 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  width: 145%;
+  width: 110%;
 }
 
 li {
   list-style: none;
   margin-top: 5px;
 }
+
+.Add_product_container {
+  width: 110%;
+}
+/* 
+.Product_main_container {
+  background-color: aliceblue;
+} */
