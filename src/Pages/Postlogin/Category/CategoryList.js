@@ -1,9 +1,5 @@
 import React from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,24 +8,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./ProductList.css";
+import "./CategoryList.css";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 const columns = [
-  { id: "product", label: "Product" },
-  { id: "product_type", label: "Product Type" },
-  {
-    id: "category",
-    label: "category",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "quantity",
-    label: "Quantity",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
+  { id: "category_name", label: "Category Name" },
+  { id: "parent_category_name", label: "ParentCategory Name" },
+ 
   {
     id: "status",
     label: "Status",
@@ -42,8 +27,8 @@ const columns = [
   },
 ];
 
-function createData(product, product_type, category, quantity, status, action) {
-  return { product, product_type, category, quantity, status, action };
+function createData(category_name, parent_category_name,  status, action) {
+  return { category_name, parent_category_name,  status, action };
 }
 
 const rows = [
@@ -63,8 +48,7 @@ const rows = [
   createData("Nigeria", "NG", 200962417, 923768),
   createData("Brazil", "BR", 210147125, 8515767),
 ];
-const ProductList = () => {
-  const [age, setAge] = React.useState("");
+const CategoryList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -77,58 +61,29 @@ const ProductList = () => {
     setPage(0);
   };
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+
 
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container2">
         <div>
-          <h3>Product</h3>
+          <h3>Product Category List</h3>
         </div>
         <div className="Product-Top-button">
-          <Button variant="contained">Export CSV</Button>
-          <Button variant="contained">Import CSV</Button>
+          
           <Button variant="contained" color="success">
-            Add Product
+            Add Category
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="card-container">
+      <div className="card-container2">
         <Card>
           <CardContent>
             <div className="options-container">
               <TextField variant="outlined" label="search" />
-              <FormControl sx={{ width: 200 }}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl sx={{ width: 200 }}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+             
+             
               <Button variant="contained">Search</Button>
             </div>
             <Paper>
@@ -197,4 +152,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default CategoryList;

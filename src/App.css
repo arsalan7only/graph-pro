@@ -67,7 +67,7 @@ main {
 .link {
   display: flex;
   color: black;
-  gap: 10px;
+  gap: 30px;
   padding: 5px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -97,7 +97,7 @@ main {
 }
 .menu_item {
   display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 .menu_container {
   display: flex;
@@ -121,4 +121,7 @@ main {
 }
 .Nav-setting-container {
   margin-right: 30px;
+}
+.icon{
+  font-size: 25px;
 }

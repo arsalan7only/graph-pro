@@ -12,24 +12,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./ProductList.css";
+import "./BrandList.css";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 const columns = [
-  { id: "product", label: "Product" },
-  { id: "product_type", label: "Product Type" },
-  {
-    id: "category",
-    label: "category",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "quantity",
-    label: "Quantity",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
+  { id: "brand", label: "Brand" },
+  { id: "brand_name", label: "Brand Name" },
+
   {
     id: "status",
     label: "Status",
@@ -42,8 +31,8 @@ const columns = [
   },
 ];
 
-function createData(product, product_type, category, quantity, status, action) {
-  return { product, product_type, category, quantity, status, action };
+function createData(brand, brand_name,  status, action) {
+  return { brand, brand_name,  status, action };
 }
 
 const rows = [
@@ -63,7 +52,7 @@ const rows = [
   createData("Nigeria", "NG", 200962417, 923768),
   createData("Brazil", "BR", 210147125, 8515767),
 ];
-const ProductList = () => {
+const BrandList = () => {
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -83,20 +72,19 @@ const ProductList = () => {
 
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container1">
         <div>
-          <h3>Product</h3>
+          <h3>BrandList</h3>
         </div>
         <div className="Product-Top-button">
-          <Button variant="contained">Export CSV</Button>
-          <Button variant="contained">Import CSV</Button>
+          
           <Button variant="contained" color="success">
-            Add Product
+            Add Brand
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="card-container">
+      <div className="card-container1">
         <Card>
           <CardContent>
             <div className="options-container">
@@ -115,20 +103,7 @@ const ProductList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-              <FormControl sx={{ width: 200 }}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
+             
               <Button variant="contained">Search</Button>
             </div>
             <Paper>
@@ -197,4 +172,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default BrandList;

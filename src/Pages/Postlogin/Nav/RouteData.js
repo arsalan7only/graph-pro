@@ -29,13 +29,25 @@ export const route = [
     ],
   },
   {
+    path: "/category",
+    name: "Category",
+    icone: "fa-sharp fa-solid fa-box-archive",
+    subRoutes: [
+      {
+        path: "/category/categorytlist",
+        name: "category List",
+        icone: "fa fahome",
+      },
+    ],
+  },
+  {
     path: "/brand",
     name: "Brand",
     icone: "fa-solid fa-bag-shopping",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/brand/brandList",
+        name: "Brand List",
         icone: "fa fahome",
       },
     ],
@@ -46,8 +58,8 @@ export const route = [
     icone: "fa-solid fa-user",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/customer/customerList",
+        name: "Customer List",
         icone: "fa fahome",
       },
     ],

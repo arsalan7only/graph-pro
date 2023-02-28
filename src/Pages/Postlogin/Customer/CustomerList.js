@@ -1,16 +1,5 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  Checkbox,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
 import React from "react";
-import "./ProductList.css";
+import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -19,41 +8,44 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import "./CustomerList.css";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+
 const columns = [
-  { id: "product", label: "Product", minWidth: 50 },
-  { id: "product_type", label: "product Type", minWidth: 100 },
+  { id: "customer_name", label: "Customer Name" },
+  { id: "mobile_number", label: "Mobile Number" },
   {
-    id: "category",
-    label: "Category",
-    minWidth: 50,
+    id: "email",
+    label: "Email",
     // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "quantity",
-    label: "Quantity",
-    minWidth: 50,
+    id: "oders_placed",
+    label: "Oders Placed",
+    // align: "right",
+    format: (value) => value.toLocaleString("en-US"),
+  },
+  {
+    id: "total_seles",
+    label: "Total Seles",
     // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "status",
     label: "Status",
-    minWidth: 50,
-    // align: "right",
     format: (value) => value.toFixed(2),
   },
   {
     id: "action",
     label: "Action",
-    minWidth: 50,
-    // align: "right",
     format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(product, product_type, category, quantity, status, action) {
-  return { product, product_type, category, quantity, status, action };
+function createData(customer_name, mobile_number, email, oders_placed, total_seles,status, action) {
+  return { customer_name, mobile_number, email, oders_placed, total_seles,status, action };
 }
 
 const rows = [
@@ -73,15 +65,10 @@ const rows = [
   createData("Nigeria", "NG", 200962417, 923768),
   createData("Brazil", "BR", 210147125, 8515767),
 ];
-
-const ProductList = () => {
-  const [age, setAge] = React.useState("");
+const CustomerList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -91,72 +78,42 @@ const ProductList = () => {
     setPage(0);
   };
 
+
+
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container3">
         <div>
-          <h3>Product</h3>
+          <h3>CustomerList</h3>
         </div>
         <div className="Product-Top-button">
-          <Button variant="contained">Export CSV</Button>
-          <Button variant="contained">Import CSV</Button>
+         
           <Button variant="contained" color="success">
-            Add Product
+            Add Customer
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="card-container">
+      <div className="card-container3">
         <Card>
           <CardContent>
-            <div className="option-container">
+            <div className="options-container">
               <TextField variant="outlined" label="search" />
               
-              <FormControl sx={{width :200}}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl sx={{width :200}}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <Button variant="contained">Searchs</Button>
+              <Button variant="contained">Search</Button>
             </div>
-            <Paper sx={{ width: "100%" }}>
+            <Paper>
               <TableContainer>
-                <Table >
+                <Table>
                   <TableHead>
                     <TableRow>
-                        <TableCell>
-                            <Checkbox/>
-                        </TableCell>
+                      <TableCell>
+                        <Checkbox />
+                      </TableCell>
                       {columns.map((column) => (
-                        <TableCell
-                          key={column.id}
-                          align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}
-                        >
+                        <TableCell key={column.id} align={column.align}>
                           {column.label}
+                          <ImportExportIcon sx={{mb:-1}}/>
                         </TableCell>
                       ))}
                     </TableRow>
@@ -192,13 +149,14 @@ const ProductList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
+              <Button variant="outlined" color="error">Inactive</Button>
+              <Button variant="contained">Apply</Button>
               <TablePagination
-                rowsPerPageOptions={[5, 10,15, 20, 25,]}
+                rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
                 count={rows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
@@ -210,4 +168,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default CustomerList;
