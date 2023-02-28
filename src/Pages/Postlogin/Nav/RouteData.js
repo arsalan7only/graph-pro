@@ -26,6 +26,11 @@ export const route = [
         name: "Product List",
         icone: "fa fahome",
       },
+      {
+        path: "/product/addproduct",
+        name: "Add Product",
+        icone: "fa fahome",
+      },
     ],
   },
   {
