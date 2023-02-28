@@ -6,6 +6,7 @@ import CustomerList from "../Pages/PostLogin/Customer/CustomerList";
 import Home from "../Pages/PostLogin/Home";
 import SideBar from "../Pages/PostLogin/Nav/SideBar";
 import OrderList from "../Pages/PostLogin/Order/OrderList";
+import AddProduct from "../Pages/PostLogin/Product/AddProduct";
 import ProductList from "../Pages/PostLogin/Product/ProductList";
 
 const PrivateRoute = () => {
@@ -17,6 +18,7 @@ const PrivateRoute = () => {
             <Route path="/" element={<Home />} />
             <Route path="/order/orderList" element={< OrderList />} />
             <Route path="/product/productlist" element={<ProductList />} />
+            <Route path="/product/addproduct" element={<AddProduct />} />
             <Route path="/category/categoryList" element={<CategoryList />} />
             <Route path="/brand/brandList" element={<BrandList />} />
             <Route path="/costomer/costomerList" element={<CustomerList />} />

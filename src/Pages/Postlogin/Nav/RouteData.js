@@ -23,7 +23,11 @@ export const route = [
     subRoutes: [
       {
         path: "/product/productlist",
-        name: "product List",
+        name: "Product List",
+      },
+      {
+        path: "/product/addproduct",
+        name: "Add Product",
       },
     ],
   },
