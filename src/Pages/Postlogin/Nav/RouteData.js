@@ -24,6 +24,10 @@ export const route = [
         path: "/product/productlist",
         name: "Product List",
       },
+      {
+        path: "/product/addproduct",
+        name: "Add Product",
+      },
     ],
   },
   {

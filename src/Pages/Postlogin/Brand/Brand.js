@@ -47,7 +47,7 @@ const rows = [
   createData("Italy", "IT", 60483973, 301340),
 ];
 
-const ProductList = () => {
+const Brand = () => {
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -169,4 +169,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Brand;
