@@ -14,7 +14,6 @@ const rootReducer = (state, action) => {
     state = undefined;
     window.location.reload(true);
   }
-
   return appReducer(state, action);
 };
 
