@@ -69,17 +69,17 @@ const AddProduct = () => {
     setCategory(changeData);
   };
   return (
-    <div className="product_main_container">
-      <div className="Product_Top_Add_container">
+    <div className="product_main_container0">
+      <div className="Product_Top_Add_container0">
         <div>
-          <h2>Product</h2>
+          <h2>Add Product</h2>
         </div>
-        <div className="Product-Top-button">
+        <div className="Product-Top-button0">
           <Button variant="contained">Add Product</Button>
         </div>
       </div>
       {/* Top Container Closed */}
-      <div className="Add_product-container">
+      <div className="Add_product-container0">
         <Grid container spacing={4} sx={{mt:0.1}}>
           <Grid item xs={8}>
             <Card>

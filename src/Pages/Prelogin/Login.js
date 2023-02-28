@@ -28,11 +28,16 @@ const Login = () => {
     dispatch(userLogin(payload));
   };
   return (
-    <div style={{ backgroundColor: "darkslateblue", height: 792 }}>
+    <div style={{ backgroundColor: "darkslateblue", height: 713  }}>
+        <h1
+        style={{color:"white" , display:"flex", justifyContent:"center"}}
+        
+        >E-COMMERCE Admin Panal</h1>
+        <p style={{color:"white", display:"flex", justifyContent:"center"}}>Made with ♥ by Developer KHUZI</p>
       <Grid container>
-        <img src={i} style={{ width: 810, marginLeft: 80, marginTop: 100 }} />
+        <img src={i} style={{ width: 700, marginLeft: 100, marginTop: 60 }} />
         <div className="form">
-          <p id="p">Login Here</p>
+          <p id="p">Sign in</p>
           <TextField
             variant="outlined"
             label="Username"
@@ -69,7 +74,7 @@ const Login = () => {
           <Link
             style={{
               fontSize: 12,
-              marginLeft: 225,
+              marginLeft: 211,
               textDecoration: "none",
               cursor: "pointer",
             }}
@@ -81,7 +86,7 @@ const Login = () => {
             onClick={handleLogin}
             style={{ marginLeft: 163, borderRadius: "50px", marginTop: 30 }}
           >
-            Login
+            Sign in
           </Button>
           <h3 id="P">
             Don't have an accout?{" "}

@@ -1,14 +1,14 @@
-.Product_Top_Add_container{
+.Product_Top_Add_container0{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 122%;
+    width: 106%;
     height: 40px;
 }
 li{
     list-style: none;
     margin-top: 5px;
 }
-.Add_product-container{
-    width: 110%;
+.Add_product-container0{
+    width: 106%;
 }

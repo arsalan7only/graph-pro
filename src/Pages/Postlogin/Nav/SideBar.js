@@ -8,8 +8,8 @@ import { route } from "./RouteData";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import "../Nav/SideBar.css"
-import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
+import "../Nav/SideBar.css";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,17 +46,15 @@ const SideBar = ({ children }) => {
           <h1>E-Commerce</h1>
         </div>
         <div className="Nav-setting-container">
-          <Button
+          <SettingsIcon
             id="demo-positioned-button"
             aria-controls={open ? "demo-positioned-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            sx={{backgroundColor:"black", borderRadius:50}}
-            variant="contained"
-          >
-            <SettingsTwoToneIcon/>
-          </Button>
+            style={{cursor:"pointer"}}
+          />
+
           <Menu
             id="demo-positioned-menu"
             aria-labelledby="demo-positioned-button"
@@ -81,7 +79,7 @@ const SideBar = ({ children }) => {
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "250px" : "60px",
+            width: isOpen ? "250px" : "53px",
             transition: {
               duration: 0.5,
               type: "spring",

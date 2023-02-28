@@ -1,0 +1,18 @@
+.Product_Top_container6 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 302%;
+  }
+  .card-container6 {
+    width: 302%;
+    margin-top: 1%;
+  }
+  .options-container6 {
+    display: flex;
+    align-items: center;
+  }
+  .options-container6 Button {
+    margin-left: 10px;
+  }
+  

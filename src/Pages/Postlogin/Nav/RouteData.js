@@ -79,7 +79,7 @@ export const route = [
   {
     path: "/coupencode",
     name: "Coupen Code",
-    icone: "fa-solid fa-tag",
+    icone: "fa-solid fa-gift",
     subRoutes: [
       {
         path: "/order/orderList",
@@ -118,8 +118,8 @@ export const route = [
     icone: "fa-solid fa-image",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/gallery/gelleryList",
+        name: "Gallery List",
         icone: "fa fahome",
       },
     ],

@@ -1,0 +1,10 @@
+.Product_Top_container12 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 121%;
+  }
+  .card-container12 {
+    width: 121%;
+    margin-top: 1%;
+  }

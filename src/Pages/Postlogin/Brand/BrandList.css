@@ -1,22 +1,25 @@
-.Product_Top_container5 {
+.Product_Top_container2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 113%;
+    width: 224%;
   }
-  .Product-Top-button5 Button {
+  .Product-Top-button2 Button {
     margin: 0px 5px;
   }
-  .card-container5 {
-    width: 113%;
+  .card-container2 {
+    width: 224%;
     margin-top: 20px;
   }
-  .options-container5 {
+  .options-container2 {
     display: flex;
     align-items: center;
   }
-  .options-container5 Button {
+  .options-container2 Button {
     margin-left: 10px;
+  }
+  #button{
+    margin-top: 1%;
   }
 
   

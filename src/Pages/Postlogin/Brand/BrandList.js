@@ -19,6 +19,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
+import "./BrandList.css"
 
 const columns = [
   { id: "brand", label: "Brand", minWidth: 10 },
@@ -60,20 +61,20 @@ const BrandList = () => {
   };
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container2">
         <div>
           <h2>Brand List</h2>
         </div>
-        <div className="Product-Top-button">
+        <div className="Product-Top-button2">
           <Button variant="contained">
             Add Brand
           </Button>
         </div>
       </div>
-      <div className="card-container">
+      <div className="card-container2">
         <Card>
           <CardContent>
-            <div className="options-container">
+            <div className="options-container2">
               <TextField variant="outlined" label="Search" />
               <FormControl sx={{ width: 200 }}>
                 <InputLabel id="demo-simple-select-label">Age</InputLabel>
@@ -152,12 +153,14 @@ const BrandList = () => {
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
             </Paper>
+            <div id="button">
             <Button variant="outlined" color="error">
               Inactive
             </Button>{" "}
             <Button variant="contained" color="success">
               Apply
             </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

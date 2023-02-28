@@ -8,50 +8,64 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
-import "./CategoryList.css"
+import ImportExportIcon from '@mui/icons-material/ImportExport';
+import "./Transaction.css"
 
 const columns = [
-  { id: "category_name", label: "Category Name", minWidth: 10 },
-  { id: "parent_Ctg_name", label: "Parent Category Name", minWidth: 10 },
+  { id: "customer_name", label: "Customer Name", minWidth: 10 },
+  { id: "transaction_amount", label: "Transaction Amount", minWidth: 10 },
+  {
+    id: "transaction_id",
+    label: "Transaction  ID",
+    minWidth: 10,
+    format: (value) => value.toLocaleString("en-US"),
+  },
+  {
+    id: "transaction_date",
+    label: "Transaction Date",
+    minWidth: 10,
+    format: (value) => value.toLocaleString("en-US"),
+  },
+  {
+    id: "transaction_mode",
+    label: "Transaction Mode",
+    minWidth: 10,
+    format: (value) => value.toFixed(2),
+  },
   {
     id: "status",
     label: "Status",
     minWidth: 10,
     format: (value) => value.toFixed(2),
   },
-  {
-    id: "action",
-    label: "Action",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
 ];
 
-function createData(category_name, parent_Ctg_name, status, action) {
-  return { category_name, parent_Ctg_name, status, action };
+function createData(
+  customer_name,
+  transaction_amount,
+  transaction_id,
+  transaction_date,
+  transaction_mode,
+  status
+) {
+  return {
+    customer_name,
+    transaction_amount,
+    transaction_id,
+    transaction_date,
+    transaction_mode,
+    status,
+  };
 }
-const rows = [
-  createData(
-    "India",
-    "IN",
-    <Button variant="contained" color="success">
-      Active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{ color: "blue" }}></i>
-  ),
-  createData(
-    "Russian",
-    "RU",
-    <Button variant="contained" color="success">
-      Active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{ color: "blue" }}></i>
-  ),
-];
-const CategoryList = () => {
+const rows = [];
+const Transaction = () => {
+  const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -59,24 +73,21 @@ const CategoryList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   return (
     <div>
-      <div className="Product_Top_container3">
-        <div>
-          <h2>Product Category List</h2>
-        </div>
-        <div className="Product-Top-button3">
-          <Button variant="contained">Add Category</Button>
-        </div>
+      <div className="Product_Top_container12"></div>
+      {/*Top Container closed*/}
+      <div>
+        <h2>Transaction</h2>
       </div>
-      <div className="card-container3">
+      <div className="card-container12">
         <Card>
           <CardContent>
-            <div className="options-container3">
-              <TextField variant="outlined" label="Search" />
-              <Button variant="contained">Search</Button>
+            <div className="options-container12">
+              <TextField variant="outlined" placeholder="Search" sx={{width:0.4}} />
             </div>
-            <Paper>
+            <Paper sx={{ mt: 3 }}>
               <TableContainer>
                 <Table>
                   <TableHead>
@@ -91,7 +102,7 @@ const CategoryList = () => {
                           style={{ top: 57, minWidth: column.minWidth }}
                         >
                           {column.label}
-                          <SwapVertTwoToneIcon sx={{ mb: -1 }} />
+                          <ImportExportIcon sx={{mb:-1}}/>
                         </TableCell>
                       ))}
                     </TableRow>
@@ -144,4 +155,4 @@ const CategoryList = () => {
   );
 };
 
-export default CategoryList;
+export default Transaction;

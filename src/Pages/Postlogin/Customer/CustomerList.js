@@ -8,8 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import SwapVertTwoToneIcon from '@mui/icons-material/SwapVertTwoTone';
-import "./CustomerList.css"
+import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
+import "./CustomerList.css";
 
 const columns = [
   { id: "customer_name", label: "Customer Name", minWidth: 10 },
@@ -45,14 +45,32 @@ const columns = [
     format: (value) => value.toFixed(2),
   },
 ];
-  
-function createData(customer_name, mobile_no, email, ordplaced, TS, status, action)  {
+
+function createData(
+  customer_name,
+  mobile_no,
+  email,
+  ordplaced,
+  TS,
+  status,
+  action
+) {
   return { customer_name, mobile_no, email, ordplaced, TS, status, action };
 }
 const rows = [
-  createData("India", "IN")
+  createData(
+    "Khuzaim Shaikh",
+    9767744766,
+    "khuzishaikh766@gmail.com",
+    "",
+    "",
+    <Button variant="contained" color="success">
+      Active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square" style={{color:"blue"}}></i> 
+  ),
 ];
-const CustomerList   = () => {
+const CustomerList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -66,21 +84,19 @@ const CustomerList   = () => {
 
   return (
     <div>
-      <div className="Product_Top_container1">
+      <div className="Product_Top_container5">
         <div>
           <h2>Customer List</h2>
         </div>
-        <div className="Product-Top-button1">
-          <Button variant="contained">
-            Add Customer
-          </Button>
+        <div className="Product-Top-button5">
+          <Button variant="contained">Add Customer</Button>
         </div>
       </div>
-      <div className="card-container1">
+      <div className="card-container5">
         <Card>
           <CardContent>
-            <div className="options-container1">
-              <TextField variant="outlined" label="Search"/>
+            <div className="options-container5">
+              <TextField variant="outlined" label="Search" />
               <Button variant="contained">Search</Button>
             </div>
             <Paper>
@@ -96,9 +112,9 @@ const CustomerList   = () => {
                           key={column.id}
                           align={column.align}
                           style={{ top: 57, minWidth: column.minWidth }}
-                          > 
+                        >
                           {column.label}
-                          <SwapVertTwoToneIcon sx={{mb:-1}} />
+                          <SwapVertTwoToneIcon sx={{ mb: -1 }} />
                         </TableCell>
                       ))}
                     </TableRow>
