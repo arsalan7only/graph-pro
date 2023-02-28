@@ -1,60 +1,70 @@
-import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
+import { Card, CardContent, Checkbox, TextField } from "@mui/material";
 import React from "react";
-import "./OrderList.css"
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-
+import "./Transaction.css";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import SwapVertIcon from "@mui/icons-material/SwapVert";
 
 const columns = [
-  { id: 'order_id', label: 'Order ID', minWidth: 5 },
-  { id: 'order_data', label: 'Order Data', minWidth: 100 },
+  { id: "customer_name", label: "Customer Name", minWidth: 5 },
+  { id: "transaction_amount", label: "Transaction Amount", minWidth: 100 },
   {
-    id: 'zip_code',
-    label: 'Zip Code',
+    id: "transaction_id",
+    label: "Transaction ID",
     minWidth: 5,
     //   align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
+    format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: 'price',
-    label: 'Price',
+    id: "transaction_date",
+    label: "Transaction Date",
     minWidth: 5,
     //   align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
+    format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: 'order_status',
-    label: 'Order Status',
+    id: "transaction_mode",
+    label: "Transaction Mode",
     minWidth: 5,
     //   align: 'right',
     format: (value) => value.toFixed(2),
   },
   {
-    id: 'action',
-    label: 'Action',
+    id: "satus",
+    label: "Status",
     minWidth: 1,
     //   align: 'right',
     format: (value) => value.toFixed(2),
   },
 ];
 
-function createData(order_id, order_data, zip_code, price, order_status, action) {
-
-  return { order_id, order_data, zip_code, price, order_status, action };
+function createData(
+  customer_name,
+  transaction_amount,
+  transaction_id,
+  transaction_date,
+  transaction_mode,
+  satus
+) {
+  return {
+    customer_name,
+    transaction_amount,
+    transaction_id,
+    transaction_date,
+    transaction_mode,
+    satus,
+  };
 }
 
-const rows = [
+const rows = [];
 
-];
-
-const OrderList = () => {
-
+const Transaction = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -68,11 +78,9 @@ const OrderList = () => {
   };
 
   return (
-
     <div>
-
       <div>
-        <h1>Order List</h1>
+        <h1>Transaction</h1>
       </div>
 
       {/* //Top contaner Closed */}
@@ -82,16 +90,12 @@ const OrderList = () => {
           <CardContent>
             <div className="options-contaner1">
               <TextField variant="outlined" label="search" />
-              <TextField type="datetime-local" />
-              <TextField type="datetime-local" />
-              <Button variant="contained" >Search</Button>
             </div>
 
-            <Paper sx={{ width: '100%' }}>
+            <Paper sx={{ width: "100%" }}>
               <TableContainer sx={{ maxHeight: 440 }}>
-                <Table >
+                <Table>
                   <TableHead>
-
                     <TableRow>
                       <TableCell>
                         <Checkbox></Checkbox>
@@ -100,21 +104,32 @@ const OrderList = () => {
                         <TableCell
                           key={column.id}
                           align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}>
+                          style={{ top: 57, minWidth: column.minWidth }}
+                          >  
                           {column.label}
+                          <SwapVertIcon  sx={{mb: -1}}/>
                         </TableCell>
                       ))}
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {rows
-                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
                       .map((row) => {
                         return (
-                          <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                          <TableRow
+                            hover
+                            role="checkbox"
+                            tabIndex={-1}
+                            key={row.code}
+                          >
                             <TableCell>
                               <Checkbox />
                             </TableCell>
+
                             {columns.map((column) => {
                               const value = row[column.id];
                               return (
@@ -129,6 +144,7 @@ const OrderList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
+
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25, 100]}
                 component="div"
@@ -138,14 +154,13 @@ const OrderList = () => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
-              <Button variant="contained" sx={{ ml: 3 }}>ACTION</Button>
-              <Button variant="contained" color="success" sx={{ ml: 2 }}>APPLY</Button>
             </Paper>
           </CardContent>
         </Card>
+        
       </div>
     </div>
-  )
+  );
 };
 
-export default OrderList;
+export default Transaction;

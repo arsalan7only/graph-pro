@@ -1,0 +1,28 @@
+.Product_Top_Container3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 130%;
+}
+.Product_Top_Button3 Button{
+    margin: 0px 5px;
+    margin-top: 10px;
+
+}
+.card-contaner3{
+    width: 130%;
+    margin-top: 20px;
+    
+
+}
+.options-contaner3{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.options-contaner3 button{
+
+    margin-left: 10px;
+}

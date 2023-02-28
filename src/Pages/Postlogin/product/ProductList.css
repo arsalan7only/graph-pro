@@ -3,21 +3,26 @@
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    width: 150%;
+    width: 146%;
+    
 }
 .Product_Top_Button Button{
     margin: 0px 5px;
+    
 
 }
 .card-contaner{
-    width: 150%;
+    
+    width: 146%;
+    
 
 }
 .options-contaner{
     display: flex;
     align-items: center;
-
+    
 }
+
 .options-contaner button{
 
     margin-left: 20px;

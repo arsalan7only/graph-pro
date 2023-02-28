@@ -1,0 +1,23 @@
+.Product_Top_Container4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 255%;
+}
+
+.card-contaner4{
+    width: 255%;
+    margin-top: 20px;
+
+}
+.options-contaner4{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.options-contaner4 button{
+
+    margin-left: 10px;
+}

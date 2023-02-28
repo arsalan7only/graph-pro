@@ -1,0 +1,26 @@
+.Product_Top_Container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 185%;
+}
+.Product_Top_Button2 Button{
+    margin: 0px 5px;
+
+}
+.card-contaner2{
+    width: 185%;
+    margin-top: 20px;
+
+}
+.options-contaner2{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.options-contaner2 button{
+
+    margin-left: 10px;
+}

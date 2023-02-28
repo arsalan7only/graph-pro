@@ -1,0 +1,29 @@
+.Product_Top_Container5{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 180%;
+}
+.Product_Top_Button5 Button{
+    margin: 0px 5px;
+
+}
+.card-contaner5{
+    width: 180%;
+    margin-top: 20px;
+
+}
+.options-contaner5{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.options-contaner5 button{
+
+    margin-left: 10px;
+}
+#a{color: blue;
+  font-size: 30px; 
+}
