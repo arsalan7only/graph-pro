@@ -23,15 +23,22 @@ export const route = [
       {
         path: "/product/productlist",
         name: "Product List",
-        icone: "fa fahome",
       },
       {
         path: "/product/addproduct",
         name: "Add Product",
-        icone: "fa fahome",
       },
     ],
   },
+  {
+    path: "/category",
+    name: "Category",
+    icone: "fa-sharp fa-solid fa-box-archive",
+    subRoutes: [
+      {
+        path: "/category/categorylist",
+        name: "Category List",
+      }]},
   {
     path: "/brand",
     name: "Brand",
@@ -40,7 +47,6 @@ export const route = [
       {
         path: "/brand/brandList",
         name: "Brand List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -52,7 +58,6 @@ export const route = [
       {
         path: "/customer/customerlist",
         name: "Customer List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -64,7 +69,6 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -76,7 +80,6 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -88,7 +91,6 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -100,7 +102,6 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -110,9 +111,8 @@ export const route = [
     icone: "fa-solid fa-image",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
-        icone: "fa fahome",
+        path: "/gallery/galleryList",
+        name: "Gallery List",
       },
     ],
   },

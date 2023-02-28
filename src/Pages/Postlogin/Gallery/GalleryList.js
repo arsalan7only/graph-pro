@@ -1,6 +1,16 @@
-import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  Checkbox,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import React, { useState } from "react";
-import "./CustomerList.css";
+import "./GalleryList.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,27 +20,9 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
+import { blue, red } from "@mui/material/colors";
 const columns = [
-  { id: "customer_name", label: "Customer Name", minWidth: 10 },
-  { id: "mobile_number", label: "Mobile Number", minWidth: 10 },
-  {
-    id: "email",
-    label: "Eamil",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "orders_placed",
-    label: "Order Placed",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "total_sales",
-    label: "Total Sales",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
+  { id: "gallery_name", label: "Gallery Name", minWidth: 10 },
   {
     id: "status",
     label: "Status",
@@ -45,33 +37,13 @@ const columns = [
   },
 ];
 
-function createData(
-  customer_name,
-  mobile_number,
-  email,
-  orders_placed,
-  total_sales,
-  status,
-  action
-) {
-  return {
-    customer_name,
-    mobile_number,
-    email,
-    orders_placed,
-    total_sales,
-    status,
-    action,
-  };
+function createData(gallery_name, status, action) {
+  return { gallery_name, status, action };
 }
 
 const rows = [
   createData(
     "India",
-    "IN",
-    1324171354,
-    3287263,
-    "",
     <Button variant="contained" color="success">
       active
     </Button>,
@@ -79,10 +51,6 @@ const rows = [
   ),
   createData(
     "China",
-    "CN",
-    1403500365,
-    9596961,
-    "",
     <Button variant="contained" color="success">
       active
     </Button>,
@@ -90,142 +58,6 @@ const rows = [
   ),
   createData(
     "Italy",
-    "IT",
-    60483973,
-    301340,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "United States",
-    "US",
-    327167434,
-    9833520,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Canada",
-    "CA",
-    37602103,
-    9984670,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Australia",
-    "AU",
-    25475400,
-    7692024,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Germany",
-    "DE",
-    83019200,
-    357578,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Ireland",
-    "IE",
-    4857000,
-    70273,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Mexico",
-    "MX",
-    126577691,
-    1972550,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Japan",
-    "JP",
-    126317000,
-    377973,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "France",
-    "FR",
-    67022000,
-    640679,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "United Kingdom",
-    "GB",
-    67545757,
-    242495,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Russia",
-    "RU",
-    146793744,
-    17098246,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Nigeria",
-    "NG",
-    200962417,
-    923768,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Brazil",
-    "BR",
-    210147125,
-    8515767,
-    "",
     <Button variant="contained" color="success">
       active
     </Button>,
@@ -233,7 +65,12 @@ const rows = [
   ),
 ];
 
-const CustomerList = () => {
+const GalleryList = () => {
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const handleChangePage = (event, newPage) => {
@@ -246,21 +83,16 @@ const CustomerList = () => {
   };
   return (
     <div>
-      <div className="Product_Top_container1">
+      <div className="Product_Top_container1f">
         <div>
-          <h3>Customer List</h3>
-        </div>
-        <div className="Product-Top-button1">
-          <Button variant="contained" color="success">
-            Add Customer
-          </Button>
+          <h3>Gallery List</h3>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Card-container1">
+      <div className="Card-container1f">
         <Card>
           <CardContent>
-            <div className="opetion-container1">
+            <div className="opetion-container1f">
               <TextField variant="outlined" label="search" />
               <Button variant="contained">Searchs</Button>
             </div>
@@ -336,4 +168,4 @@ const CustomerList = () => {
   );
 };
 
-export default CustomerList;
+export default GalleryList;

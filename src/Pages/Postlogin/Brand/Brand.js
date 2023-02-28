@@ -42,9 +42,30 @@ function createData(brand, brand_name, status, action) {
 }
 
 const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
+  createData(
+    "India",
+    "IN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "China",
+    "CN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Italy",
+    "IT",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
 ];
 
 const Brand = () => {
@@ -65,21 +86,21 @@ const Brand = () => {
   };
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container1e">
         <div>
           <h3>Brand List</h3>
         </div>
-        <div className="Product-Top-button">
+        <div className="Product-Top-button1e">
           <Button variant="contained" color="success">
             Add Brand
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Card-container">
+      <div className="Card-container1e">
         <Card>
           <CardContent>
-            <div className="opetion-container">
+            <div className="opetion-container1e">
               <TextField variant="outlined" label="search" />
               <FormControl sx={{ width: 200 }}>
                 <InputLabel id="demo-simple-select-label">Age</InputLabel>
@@ -148,10 +169,12 @@ const Brand = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="error">
+              <div className="botom_button1e">
+              <Button variant="outlined" color="inherit" sx={{ml:2,mt:3}}>
                 Inactive
               </Button>
-              <Button variant="contained">Apply</Button>
+              <Button variant="contained" sx={{ml:2,mt:3}}>Apply</Button>
+              </div>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"

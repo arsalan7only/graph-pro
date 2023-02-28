@@ -1,0 +1,13 @@
+.card-container1g {
+  width: 110%;
+  margin-top: 50px;
+}
+
+.options-container1g {
+  display: flex;
+  align-items: center;
+}
+
+.options-container1g button {
+  margin-left: 10px;
+}

@@ -8,53 +8,54 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./OrderList.css";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+import "./Transaction.css";
 
 const columns = [
-  { id: "order_id", label: "Order ID" },
-  { id: "order_date", label: "Order Date" },
+  { id: "customer_name", label: "Customer List" },
+  { id: "transaction_amount", label: "Transaction Amount" },
   {
-    id: "zip_code",
-    label: "Zip Code",
+    id: "transection_id",
+    label: "Transection ID",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "price",
-    label: "Price",
+    id: "transection_date",
+    label: "Transection Date",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "order_status",
-    label: "Order Status",
+    id: "transection_mode",
+    label: "Transection Mode",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "action",
-    label: "Action",
+    id: "status",
+    label: "Status",
     format: (value) => value.toFixed(2),
   },
 ];
 
 function createData(
-  order_id,
-  order_date,
-  zip_code,
-  price,
-  order_status,
-  action
+  procustomer_nameduct,
+  transaction_amount,
+  transection_id,
+  transection_date,
+  transection_mode,
+  status
 ) {
   return {
-    order_id,
-    order_date,
-    zip_code,
-    price,
-    order_status,
-    action,
+    procustomer_nameduct,
+    transaction_amount,
+    transection_id,
+    transection_date,
+    transection_mode,
+    status,
   };
 }
 
 const rows = [];
-const OrderList = () => {
+const Transaction = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -70,19 +71,15 @@ const OrderList = () => {
   return (
     <div>
       {/* Top container closed */}
-      <div className="card-container1b">
-        <div>
-          <h3>Order List</h3>
-        </div>
+      <div className="card-container1g">
         <Card>
           <CardContent>
-            <div className="options-container1a">
-              <TextField variant="outlined" label="search" />
-              <TextField type="datetime-local" />
-              <TextField type="datetime-local" />
-              <Button variant="contained" color="info">
-                search
-              </Button>
+            <div className="options-container1g">
+              <TextField
+                variant="outlined"
+                label="search"
+                style={{ width: 800 }}
+              />
             </div>
             <Paper sx={{ mt: 3 }}>
               <TableContainer>
@@ -95,6 +92,7 @@ const OrderList = () => {
                       {columns.map((column) => (
                         <TableCell key={column.id} align={column.align}>
                           {column.label}
+                          <ImportExportIcon sx={{ mb: -1 }} />
                         </TableCell>
                       ))}
                     </TableRow>
@@ -130,10 +128,6 @@ const OrderList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="inherit" sx={{ml:2,mt:3}} >
-                Action
-              </Button>
-              <Button variant="contained" sx={{ml:2,mt:3}}>Apply</Button>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25, 100]}
                 component="div"
@@ -151,4 +145,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default Transaction;

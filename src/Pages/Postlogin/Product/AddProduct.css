@@ -1,9 +1,9 @@
-.Product_Top_Add_container {
+.Product_Top_Add_container1c {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  width: 110%;
+  width: 100%;
 }
 
 li {
@@ -11,10 +11,14 @@ li {
   margin-top: 5px;
 }
 
-.Add_product_container {
-  width: 110%;
+.Add_product_container1c {
+  width: 100%;
 }
-/* 
-.Product_main_container {
-  background-color: aliceblue;
+/* .card1c{
+  align-items: center;
+  justify-content: space-around;
+} */
+
+/* .Product_main_container1c {
+padding-top: 20px;
 } */

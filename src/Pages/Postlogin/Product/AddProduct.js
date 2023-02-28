@@ -69,22 +69,22 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="Product_main_container">
-      <div className="Product_Top_Add_container">
+    <div className="Product_main_container1c">
+      <div className="Product_Top_Add_container1c">
         <div>
           <h3>Product</h3>
         </div>
-        <div className="Product-Top-button">
+        <div className="Product-Top-button1c">
           <Button variant="contained" color="success">
             Add Product
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Add_product_container">
+      <div className="Add_product_container1c">
         <Grid container spacing={4} sx={{ mt: 0.1 }}>
           <Grid item xs={8}>
-            <Card>
+            <Card className="card1c">
               <CardContent>
                 <TextField label="Title" variant="outlined" />
                 <Typography>Short Product Description</Typography>
@@ -169,15 +169,15 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>SKU</Typography>
-                <TextField label="SKU" />
+                <TextField />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Model Number</Typography>
-                <TextField label="Model Number" />
+                <TextField />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Quantity</Typography>
-                <TextField label="Product Quantity" />
+                <TextField />
               </Grid>
             </Grid>
           </CardContent>
@@ -189,15 +189,15 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Best Price</Typography>
-                <TextField label="Best Price" />
+                <TextField />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Original Price</Typography>
-                <TextField label="Original Price" />
+                <TextField />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Selling Price</Typography>
-                <TextField label="Selling Price" />
+                <TextField />
               </Grid>
             </Grid>
           </CardContent>
@@ -208,11 +208,11 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Shipping Charges</Typography>
-                <TextField label="Best Price" />
+                <TextField />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Weight</Typography>
-                <TextField label="Original Price" />
+                <TextField />
               </Grid>
             </Grid>
           </CardContent>
@@ -223,7 +223,7 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Tax Amount</Typography>
-                <TextField label="Tax Amount" />
+                <TextField />
               </Grid>
             </Grid>
           </CardContent>
@@ -232,18 +232,27 @@ const AddProduct = () => {
           <CardContent>
             <Typography>SEO</Typography>
             <Grid container spacing={4}>
-              <Grid item xs={12}>
+              <Grid item xs={3}>
                 <label>Meta Tags</label>
-                <TextField label="Meta Tags" />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={3}>
+                <TextField />
+              </Grid>
+              <Grid item xs={6}></Grid>
+              <Grid item xs={3}>
                 <label>Description</label>
-                <TextField label="Description" />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={3}>
+                <TextField />
+              </Grid>
+              <Grid item xs={6}></Grid>
+              <Grid item xs={3}>
                 <label>Keyword</label>
-                <TextField label="Keyword" />
               </Grid>
+              <Grid item xs={3}>
+                <TextField />
+              </Grid>
+              <Grid item xs={6}></Grid>
             </Grid>
           </CardContent>
         </Card>
@@ -274,7 +283,7 @@ const AddProduct = () => {
                 </TableRow>
               </TableBody>
             </Table>
-            <Button variant="contained">Add</Button>
+            <Button variant="contained" sx={{ml:5,m:2}}>Add</Button>
           </TableContainer>
         </Paper>
       </div>

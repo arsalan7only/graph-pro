@@ -1,6 +1,6 @@
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
 import React, { useState } from "react";
-// import "./CatogeryList.css";
+import "./CategoryList.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -32,24 +32,129 @@ function createData(categoryname, perent_category_name, status, action) {
 }
 
 const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
-  createData("United States", "US", 327167434, 9833520),
-  createData("Canada", "CA", 37602103, 9984670),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
+  createData(
+    "India",
+    "IN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "China",
+    "CN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Italy",
+    "IT",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "United States",
+    "US",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Canada",
+    "CA",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Australia",
+    "AU",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Germany",
+    "DE",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Ireland",
+    "IE",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Mexico",
+    "MX",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Japan",
+    "JP",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "France",
+    "FR",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "United Kingdom",
+    "GB",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Russia",
+    "RU",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Nigeria",
+    "NG",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Brazil",
+    "BR",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
 ];
 
-const CatogeryList = () => {
+const CategoryList = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const handleChangePage = (event, newPage) => {
@@ -62,21 +167,21 @@ const CatogeryList = () => {
   };
   return (
     <div>
-      <div className="Product_Top_container">
+      <div className="Product_Top_container1d">
         <div>
           <h3>Product Category List</h3>
         </div>
-        <div className="Product-Top-button">
+        <div className="Product-Top-button1d">
           <Button variant="contained" color="success">
             Add Catogery
           </Button>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="Card-container">
+      <div className="Card-container1d">
         <Card>
           <CardContent>
-            <div className="opetion-container">
+            <div className="option-container1d">
               <TextField variant="outlined" label="search" />
 
               <Button variant="contained">Searchs</Button>
@@ -132,10 +237,10 @@ const CatogeryList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="error">
+              <Button variant="outlined" color="inherit" sx={{ml:2,mt:3}}>
                 Inactive
               </Button>
-              <Button variant="contained">Apply</Button>
+              <Button variant="contained" sx={{ml:2,mt:3}}>Apply</Button>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
@@ -153,4 +258,4 @@ const CatogeryList = () => {
   );
 };
 
-export default CatogeryList;
+export default CategoryList;

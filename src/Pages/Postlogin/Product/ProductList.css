@@ -1,24 +1,34 @@
-.Product_Top_container {
+.Product_Top_container1b {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  width: 150%;
+  width: 130%;
 }
 
-.Product-Top-button button {
+.Product-Top-button1b button {
   margin: 0px 5px;
+  margin-top: 10px;
 }
 
-.card-container {
-  width: 150%;
+.card-container1b {
+  width: 130%;
+  margin-top: 20px;
 }
 
-.options-container {
+.options-container1b {
   display: flex;
   align-items: center;
+  gap: 25px;
 }
 
-.options-container button {
+.options-container1b button {
   margin-left: 10px;
+}
+.bottom_button1b {
+  padding-top: 20px;
+}
+i {
+  color: blue;
+  font-size: 20px;
 }
