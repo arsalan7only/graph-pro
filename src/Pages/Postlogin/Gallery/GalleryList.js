@@ -1,9 +1,5 @@
 import React from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,27 +8,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./OrderList.css";
+import "./GalleryList.css";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 const columns = [
-  { id: "order_id", label: "Order ID" },
-  { id: "order_date", label: "Order Date" },
+  { id: "gallery_name", label: "Gallery Name" },
+  ,
   {
-    id: "zip_code",
-    label: "Zip Code",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "price",
-    label: "Price",
-    // align: "right",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "order_status",
-    label: "Order Status",
+    id: "status",
+    label: "Status",
     format: (value) => value.toFixed(2),
   },
   {
@@ -42,19 +26,133 @@ const columns = [
   },
 ];
 
-function createData(
-  order_id,
-  order_date,
-  zip_code,
-  price,
-  order_status,
-  action
-) {
-  return { order_id, order_date, zip_code, price, order_status, action };
+function createData(gallery_name, status, action) {
+  return { gallery_name, status, action };
 }
 
-const rows = [];
-const OrderList = () => {
+const rows = [
+  createData(
+    "India",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    3287263
+  ),
+  createData(
+    "China",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    9596961
+  ),
+  createData(
+    "Italy",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    301340
+  ),
+  createData(
+    "United States",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    9833520
+  ),
+  createData(
+    "Canada",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    9984670
+  ),
+  createData(
+    "Australia",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    7692024
+  ),
+  createData(
+    "Germany",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    357578
+  ),
+  createData(
+    "Ireland",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    70273
+  ),
+  createData(
+    "Mexico",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    1972550
+  ),
+  createData(
+    "Japan",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    377973
+  ),
+  createData(
+    "France",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    640679
+  ),
+  createData(
+    "United Kingdom",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    242495
+  ),
+  createData(
+    "Russia",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    17098246
+  ),
+  createData(
+    "Nigeria",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    923768
+  ),
+  createData(
+    "Brazil",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>,
+    8515767
+  ),
+];
+const GalleryList = () => {
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -68,25 +166,19 @@ const OrderList = () => {
     setPage(0);
   };
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
   return (
     <div>
-      <div className="Product_Top_container8">
-        <div>
-          <h3>Order List</h3>
-        </div>
+      <div>
+        <h3>Gallery List</h3>
       </div>
+
       {/* Top container closed */}
-      <div className="card-container8 ">
+      <div className="card-container9">
         <Card>
           <CardContent>
-            <div className="options-container8">
+            <div className="options-container9">
               <TextField variant="outlined" label="search" />
-              <TextField type="datetime-local" sx={{ml:1}}/>
-              <TextField type="datetime-local"  sx={{ml:1}}/>
+              
               <Button variant="contained" sx={{ml:1}}>Search</Button>
             </div>
             <Paper>
@@ -146,7 +238,7 @@ const OrderList = () => {
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
               <Button variant="outlined" color="error">
-                Action
+                Inactive
               </Button>
               <Button variant="contained" sx={{ ml: 3 }}>
                 Apply
@@ -159,4 +251,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default GalleryList;

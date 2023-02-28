@@ -1,9 +1,5 @@
 import React from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,49 +8,56 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./OrderList.css";
+import "./Transaction.css";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 const columns = [
-  { id: "order_id", label: "Order ID" },
-  { id: "order_date", label: "Order Date" },
+  { id: "customer_name", label: "Customer Name" },
+  { id: "transaction_amount", label: "Transaction Amount" },
   {
-    id: "zip_code",
-    label: "Zip Code",
+    id: "transaction_id",
+    label: "Transaction ID",
     // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "price",
-    label: "Price",
+    id: "transaction_date",
+    label: "Transaction Date",
     // align: "right",
     format: (value) => value.toLocaleString("en-US"),
   },
   {
-    id: "order_status",
-    label: "Order Status",
+    id: "transaction_mode",
+    label: "Transaction Mode",
     format: (value) => value.toFixed(2),
   },
   {
-    id: "action",
-    label: "Action",
+    id: "status",
+    label: "Status",
     format: (value) => value.toFixed(2),
   },
 ];
 
 function createData(
-  order_id,
-  order_date,
-  zip_code,
-  price,
-  order_status,
-  action
+  customer_name,
+  transaction_amount,
+  transaction_id,
+  transaction_date,
+  transaction_mode,
+  status
 ) {
-  return { order_id, order_date, zip_code, price, order_status, action };
+  return {
+    customer_name,
+    transaction_amount,
+    transaction_id,
+    transaction_date,
+    transaction_mode,
+    status,
+  };
 }
 
 const rows = [];
-const OrderList = () => {
+const Transaction = () => {
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -68,26 +71,24 @@ const OrderList = () => {
     setPage(0);
   };
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
   return (
     <div>
-      <div className="Product_Top_container8">
+      <div className="Product_Top_container7">
         <div>
-          <h3>Order List</h3>
+          <h3>Transaction</h3>
         </div>
       </div>
       {/* Top container closed */}
-      <div className="card-container8 ">
+      <div className="card-container7">
         <Card>
           <CardContent>
-            <div className="options-container8">
-              <TextField variant="outlined" label="search" />
-              <TextField type="datetime-local" sx={{ml:1}}/>
-              <TextField type="datetime-local"  sx={{ml:1}}/>
-              <Button variant="contained" sx={{ml:1}}>Search</Button>
+            <div className="options-container7 ">
+              <TextField
+                variant="outlined"
+                label="search"
+                sx={{width:0.5}}
+              />
+              {/* <Button variant="contained">Search</Button> */}
             </div>
             <Paper>
               <TableContainer>
@@ -136,6 +137,7 @@ const OrderList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
+
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
@@ -145,12 +147,6 @@ const OrderList = () => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
-              <Button variant="outlined" color="error">
-                Action
-              </Button>
-              <Button variant="contained" sx={{ ml: 3 }}>
-                Apply
-              </Button>
             </Paper>
           </CardContent>
         </Card>
@@ -159,4 +155,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default Transaction;

@@ -14,7 +14,7 @@ import ImportExportIcon from "@mui/icons-material/ImportExport";
 const columns = [
   { id: "category_name", label: "Category Name" },
   { id: "parent_category_name", label: "ParentCategory Name" },
- 
+
   {
     id: "status",
     label: "Status",
@@ -27,26 +27,99 @@ const columns = [
   },
 ];
 
-function createData(category_name, parent_category_name,  status, action) {
-  return { category_name, parent_category_name,  status, action };
+function createData(category_name, parent_category_name, status, action) {
+  return { category_name, parent_category_name, status, action };
 }
 
 const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
-  createData("United States", "US", 327167434, 9833520),
-  createData("Canada", "CA", 37602103, 9984670),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
+  createData(
+    "India",
+    "IN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "China",
+    "CN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Italy",
+    "IT",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "United States",
+    "US",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Canada",
+    "CA",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Australia",
+    "AU",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Germany",
+    "DE",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Ireland",
+    "IE",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Mexico",
+    "MX",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Japan",
+    "JP",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "France",
+    "FR",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
 ];
 const CategoryList = () => {
   const [page, setPage] = React.useState(0);
@@ -61,8 +134,6 @@ const CategoryList = () => {
     setPage(0);
   };
 
-
-
   return (
     <div>
       <div className="Product_Top_container2">
@@ -70,7 +141,6 @@ const CategoryList = () => {
           <h3>Product Category List</h3>
         </div>
         <div className="Product-Top-button">
-          
           <Button variant="contained" color="success">
             Add Category
           </Button>
@@ -82,8 +152,7 @@ const CategoryList = () => {
           <CardContent>
             <div className="options-container">
               <TextField variant="outlined" label="search" />
-             
-             
+
               <Button variant="contained">Search</Button>
             </div>
             <Paper>
@@ -97,7 +166,7 @@ const CategoryList = () => {
                       {columns.map((column) => (
                         <TableCell key={column.id} align={column.align}>
                           {column.label}
-                          <ImportExportIcon sx={{mb:-1}}/>
+                          <ImportExportIcon sx={{ mb: -1 }} />
                         </TableCell>
                       ))}
                     </TableRow>
@@ -133,8 +202,12 @@ const CategoryList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="error">Inactive</Button>
-              <Button variant="contained">Apply</Button>
+              <Button variant="outlined" color="error">
+                Inactive
+              </Button>
+              <Button variant="contained" sx={{ ml: 3 }}>
+                Apply
+              </Button>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"

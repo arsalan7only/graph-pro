@@ -26,6 +26,11 @@ export const route = [
         name: "Product List",
         icone: "fa fahome",
       },
+      {
+        path: "/product/addproduct",
+        name: "Add Product",
+        icone: "fa fahome",
+      },
     ],
   },
   {
@@ -118,8 +123,8 @@ export const route = [
     icone: "fa-solid fa-image",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/gallery/galleryList",
+        name: "Gallery List",
         icone: "fa fahome",
       },
     ],

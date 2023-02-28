@@ -31,26 +31,59 @@ const columns = [
   },
 ];
 
-function createData(brand, brand_name,  status, action) {
-  return { brand, brand_name,  status, action };
+function createData(brand, brand_name, status, action) {
+  return { brand, brand_name, status, action };
 }
 
 const rows = [
-  createData("India", "IN", 1324171354, 3287263),
-  createData("China", "CN", 1403500365, 9596961),
-  createData("Italy", "IT", 60483973, 301340),
-  createData("United States", "US", 327167434, 9833520),
-  createData("Canada", "CA", 37602103, 9984670),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
+  createData(
+    "India",
+    "IN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "China",
+    "CN",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Italy",
+    "IT",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "United States",
+    "US",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Canada",
+    "CA",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
+  createData(
+    "Australia",
+    "AU",
+    <Button variant="contained" color="success">
+      active
+    </Button>,
+    <i class="fa-solid fa-pen-to-square"></i>
+  ),
 ];
 const BrandList = () => {
   const [age, setAge] = React.useState("");
@@ -77,7 +110,6 @@ const BrandList = () => {
           <h3>BrandList</h3>
         </div>
         <div className="Product-Top-button">
-          
           <Button variant="contained" color="success">
             Add Brand
           </Button>
@@ -90,7 +122,7 @@ const BrandList = () => {
             <div className="options-container">
               <TextField variant="outlined" label="search" />
               <FormControl sx={{ width: 200 }}>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                <InputLabel id="demo-simple-select-label">Select Category</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -103,7 +135,7 @@ const BrandList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-             
+
               <Button variant="contained">Search</Button>
             </div>
             <Paper>
@@ -117,7 +149,7 @@ const BrandList = () => {
                       {columns.map((column) => (
                         <TableCell key={column.id} align={column.align}>
                           {column.label}
-                          <ImportExportIcon sx={{mb:-1}}/>
+                          <ImportExportIcon sx={{ mb: -1 }} />
                         </TableCell>
                       ))}
                     </TableRow>
@@ -153,8 +185,12 @@ const BrandList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="error">Inactive</Button>
-              <Button variant="contained">Apply</Button>
+              <Button variant="outlined" color="error">
+                Inactive
+              </Button>
+              <Button variant="contained" sx={{ ml: 3 }}>
+                Apply
+              </Button>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
