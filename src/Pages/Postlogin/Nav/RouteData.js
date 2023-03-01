@@ -7,19 +7,18 @@ export const route = [
   {
     path: "/order",
     name: "Order",
-    icone: "fa-solid fa-bag-shopping",
+    icone: "fa-solid fa-dolly",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
   {
     path: "/Product",
     name: "Product",
-    icone: "fa-sharp fa-solid fa-box-archive",
+    icone: "fa-brands fa-product-hunt",
     subRoutes: [
       {
         path: "/product/productlist",
@@ -34,11 +33,15 @@ export const route = [
   {
     path: "/category",
     name: "Category",
-    icone: "fa-sharp fa-solid fa-box-archive",
+    icone: "fa-solid fa-list-ul",
     subRoutes: [
       {
         path: "/category/categoryList",
         name: "Category List",
+      },
+      {
+        path: "/category/addCategory",
+        name: "Add Category",
       },
     ],
   },
@@ -62,17 +65,20 @@ export const route = [
         path: "/costomer/costomerList",
         name: "Customer List",
       },
+      {
+        path: "/costomer/addcustomer",
+        name: "Add Customer",
+      },
     ],
   },
   {
     path: "/mastermanagment",
-    name: "MasterManagement",
+    name: "Master Management",
     icone: "fa-solid fa-user-gear",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -82,21 +88,19 @@ export const route = [
     icone: "fa-solid fa-gift",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
-        icone: "fa fahome",
+        path: "/coupen/coupencode",
+        name: "Coupen Code",
       },
     ],
   },
   {
     path: "/appearance",
     name: "Appearance",
-    icone: "fa-solid fa-bag-shopping",
+    icone: "fa-solid fa-palette",
     subRoutes: [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -108,7 +112,6 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
-        icone: "fa fahome",
       },
     ],
   },
@@ -120,13 +123,12 @@ export const route = [
       {
         path: "/gallery/gelleryList",
         name: "Gallery List",
-        icone: "fa fahome",
       },
     ],
   },
   {
     path: "/transaction",
     name: "Transaction",
-    icone: "fa-solid fa-money-check",
+    icone: "fa-solid fa-credit-card",
   },
 ];

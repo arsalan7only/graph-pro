@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: cursive;
 }
 .main-container {
   display: flex;
@@ -16,7 +16,7 @@ main {
   place-items: center;
 }
 .sidebar {
-  background-color: darkslateblue;
+  background-color: #f40009;
   color: white;
   height: 100vh;
   overflow-y: auto;
@@ -28,7 +28,7 @@ main {
   padding: 15px 10px;
 }
 .logo {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 0;
 }
 .bars {
@@ -60,7 +60,7 @@ main {
 .link {
   display: flex;
   color: white;
-  gap: 25px;
+  gap: 26px;
   padding: 4px 9px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -75,8 +75,8 @@ li {
   list-style: none;
 }
 .active {
-background-color: black;
-border-radius: 20px;
+  background-color: black;
+  border-radius: 20px;
 }
 .link_text {
   white-space: nowrap;
@@ -89,10 +89,11 @@ border-radius: 20px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   justify-content: space-between;
+  cursor: pointer;
 }
 .menu_item {
   display: flex;
-  gap: 30px;
+  gap: 26px;
 }
 .menu_container {
   display: flex;
@@ -106,17 +107,16 @@ border-radius: 20px;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background-color: darkslateblue;
+  background-color: #f40009;
   color: white;
 }
 .Nav-logo-container {
   margin-left: 20px;
 }
 .Nav-setting-container {
-  margin-right: 20px;
+  margin-right: 25px;
 }
-.icon{
+.icon {
   font-size: 20px;
   margin-left: 6px;
 }
-

@@ -28,7 +28,7 @@ const Login = () => {
     dispatch(userLogin(payload));
   };
   return (
-    <div style={{ backgroundColor: "darkslateblue", height: 713  }}>
+    <div style={{ backgroundColor: "BLACK", height: 713  }}>
         <h1
         style={{color:"white" , display:"flex", justifyContent:"center"}}
         
@@ -74,7 +74,7 @@ const Login = () => {
           <Link
             style={{
               fontSize: 12,
-              marginLeft: 211,
+              marginLeft: 228,
               textDecoration: "none",
               cursor: "pointer",
             }}

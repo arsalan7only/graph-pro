@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import "../Nav/SideBar.css";
-import SettingsIcon from "@mui/icons-material/Settings";
+import PersonPinIcon from "@mui/icons-material/PersonPin";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,15 +46,14 @@ const SideBar = ({ children }) => {
           <h1>E-Commerce</h1>
         </div>
         <div className="Nav-setting-container">
-          <SettingsIcon
+          <PersonPinIcon
             id="demo-positioned-button"
             aria-controls={open ? "demo-positioned-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            style={{cursor:"pointer"}}
+            style={{ cursor: "pointer", fontSize: 35, marginTop: 7 }}
           />
-
           <Menu
             id="demo-positioned-menu"
             aria-labelledby="demo-positioned-button"
