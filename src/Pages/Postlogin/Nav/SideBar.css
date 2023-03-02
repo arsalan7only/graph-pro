@@ -16,8 +16,7 @@ main {
   place-items: center;
 }
 .sidebar {
-  background-color: #f40009;
-  color: white;
+  background-color:white;
   height: 100vh;
   overflow-y: auto;
 }
@@ -64,6 +63,7 @@ main {
   padding: 4px 9px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  color: black;
 }
 a {
   text-decoration: none;
@@ -75,17 +75,17 @@ li {
   list-style: none;
 }
 .active {
-  background-color: black;
-  border: 3px solid white;
-  border-radius: 20px;
+  background-color: #4B49AC;
+  border: 3px solid black;
+  border-radius: 100px;
+  color: #FFF;
 }
 .link_text {
   white-space: nowrap;
-  font-size: 15px;
 }
 .menu {
   display: flex;
-  color: white;
+  color: black;
   padding: 5px 10px;
   border-right: 4px solid transparent;
   transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -107,8 +107,8 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  background-color: #f40009;
+  height: 65px;
+  background-color: #4B49AC;
   color: white;
 }
 .Nav-logo-container {

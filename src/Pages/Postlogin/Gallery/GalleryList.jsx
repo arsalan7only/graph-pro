@@ -31,17 +31,17 @@ function createData(gallery_name, status, action) {
 const rows = [
   createData(
     "India",
-    <Button variant="contained" color="success">
+    <Button variant="contained" color="success" sx={{borderRadius:"50px"}}>
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{color:"blue"}}></i>
+    <i class="fa-solid fa-pen-to-square" style={{color:"blue", fontSize:25}}></i>
   ),
   createData(
     "Russian",
-    <Button variant="contained" color="success" >
+    <Button variant="contained" color="success" sx={{borderRadius:"50px"}}>
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{color:"blue"}}></i>
+    <i class="fa-solid fa-pen-to-square" style={{color:"blue", fontSize:25}}></i>
   ),
 ];
 const GalleryList = () => {
@@ -60,8 +60,8 @@ const GalleryList = () => {
     <div>
       <div className="Product_Top_container6"></div>
       {/*Top Container closed*/}
-      <div>
-        <h2>Gallery List</h2>
+      <div className="Heading6">
+        <h2 style={{marginBottom:20}}>Gallery List</h2>
       </div>
       <div className="card-container6">
         <Card>
@@ -72,7 +72,7 @@ const GalleryList = () => {
                 placeholder="Search"
                 sx={{ width: 0.4 }}
               />
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" sx={{borderRadius:"50px"}}>Search</Button>
             </div>
             <Paper sx={{ mt: 3 }}>
               <TableContainer>

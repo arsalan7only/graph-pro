@@ -64,10 +64,13 @@ const rows = [
     "khuzishaikh766@gmail.com",
     "",
     "",
-    <Button variant="contained" color="success">
+    <Button variant="contained" color="success" sx={{ borderRadius: "50px" }}>
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{color:"blue"}}></i> 
+    <i
+      class="fa-solid fa-pen-to-square"
+      style={{ color: "blue", fontSize: 25 }}
+    ></i>
   ),
 ];
 const CustomerList = () => {
@@ -86,10 +89,15 @@ const CustomerList = () => {
     <div>
       <div className="Product_Top_container5">
         <div>
-          <h2>Customer List</h2>
+          <h2 style={{ color: "gray" }}>Customer List</h2>
         </div>
         <div className="Product-Top-button5">
-          <Button variant="contained">Add Customer</Button>
+          <Button
+            variant="contained"
+            sx={{ borderRadius: "50px", backgroundColor: " #4B49AC" }}
+          >
+            Add Customer
+          </Button>
         </div>
       </div>
       <div className="card-container5">
@@ -97,7 +105,9 @@ const CustomerList = () => {
           <CardContent>
             <div className="options-container5">
               <TextField variant="outlined" label="Search" />
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" sx={{ borderRadius: "50px" }}>
+                Search
+              </Button>
             </div>
             <Paper>
               <TableContainer>

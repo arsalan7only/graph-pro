@@ -97,7 +97,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  Admin Panal
+                  Khuzi Shaikh
                 </motion.h1>
               )}
             </AnimatePresence>

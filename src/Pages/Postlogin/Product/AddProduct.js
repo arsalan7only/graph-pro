@@ -75,7 +75,7 @@ const AddProduct = () => {
           <h2>Add Product</h2>
         </div>
         <div className="Product-Top-button0">
-          <Button variant="contained">Add Product</Button>
+          <Button variant="contained" sx={{borderRadius:50, backgroundColor:"#4B49AC"}}>Add Product</Button>
         </div>
       </div>
       {/* Top Container Closed */}
@@ -85,13 +85,13 @@ const AddProduct = () => {
             <Card>
               <CardContent>
                 <TextField label="Title" variant="outlined" />
-                <Typography>Short Product Description</Typography>
+                <Typography sx={{fontSize:25, mb:2, mt:5}}>Short Product Description</Typography>
                 <JoditEditorComp
                   setValue={setValue}
                   value={value}
                   config={config}
                 />
-                <Typography>Long Product Description</Typography>
+                <Typography sx={{fontSize:25, mb:2, mt:5}}>Long Product Description</Typography>
                 <JoditEditorComp
                   setValue={setValue}
                   value={value}
@@ -101,7 +101,7 @@ const AddProduct = () => {
             </Card>
             <Card sx={{mt:3}}>
               <CardContent>
-                <Typography>Media</Typography>
+                <Typography sx={{fontSize:25}}>Media</Typography>
                 <Button variant="contained">Upload Media</Button>
               </CardContent>
             </Card>
@@ -126,7 +126,7 @@ const AddProduct = () => {
             </Card>
             <Card sx={{mt:3}}>
               <CardContent>
-                <Typography>Product Category</Typography>
+                <Typography sx={{fontSize:25, mb:2}}>Product Category</Typography>
                 <ul>
                   {category.map((item, index) => {
                     return (
@@ -152,7 +152,7 @@ const AddProduct = () => {
                     );
                   })}
                 </ul>
-                <Typography>Tags</Typography>
+                <Typography sx={{fontSize:25, mt:5,mb:2}}>Tags</Typography>
                 <TextField />
               </CardContent>
             </Card>
@@ -160,7 +160,7 @@ const AddProduct = () => {
         </Grid>
         <Card sx={{mt:3}}>
           <CardContent>
-            <Typography>Product Information</Typography>
+            <Typography sx={{fontSize:25, mb:2}}>Product Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>SKU</Typography>
@@ -179,7 +179,7 @@ const AddProduct = () => {
         </Card>
         <Card sx={{mt:3}}>
           <CardContent>
-            <Typography>Pricing</Typography>
+            <Typography sx={{fontSize:25, mb:2}}>Pricing</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Base Price</Typography>
@@ -198,7 +198,7 @@ const AddProduct = () => {
         </Card>
         <Card sx={{mt:3}}>
           <CardContent>
-            <Typography>Shipping Information</Typography>
+            <Typography  sx={{fontSize:25, mb:2}}>Shipping Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Shipping Changes</Typography>
@@ -213,7 +213,7 @@ const AddProduct = () => {
         </Card>
         <Card sx={{mt:3}}>
           <CardContent>
-            <Typography>Tax Information</Typography>
+            <Typography  sx={{fontSize:25, mb:2}}>Tax Information</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Tax Amount</Typography>
@@ -224,7 +224,7 @@ const AddProduct = () => {
         </Card>
         <Card sx={{mt:3}}>
           <CardContent>
-            <Typography>SEO</Typography>
+            <Typography  sx={{fontSize:25, mb:2}}>SEO</Typography>
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Meta Tags</Typography>
@@ -271,14 +271,14 @@ const AddProduct = () => {
                     <TextField />
                   </TableCell>
                   <TableCell>
-                    <Button variant="outlined" color="error">
+                    <Button variant="outlined" color="error" sx={{borderRadius:50}}>
                       Remove
                     </Button>
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
-            <Button variant="contained">Add</Button>
+            <Button variant="contained" sx={{borderRadius:50, mt:1, ml:1, mb:1}}>Add</Button>
           </TableContainer>
         </Paper>
       </div>

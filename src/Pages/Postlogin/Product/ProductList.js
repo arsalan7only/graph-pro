@@ -68,11 +68,11 @@ const ProductList = () => {
     <div>
       <div className="Product_Top_container11">
         <div>
-          <h2>Product List</h2>
+          <h2 style={{color:"gray"}}>Product List</h2>
         </div>
         <div className="Product-Top-button11">
-          <Button variant="contained">Export CSV</Button>
-          <Button variant="contained">Import CSV</Button>
+          <Button variant="contained" sx={{background:"#4b49ac"}}>Export CSV</Button>
+          <Button variant="contained" sx={{background:"#4b49ac"}}>Import CSV</Button>
           <Button variant="contained" color="success">
             Add Product
           </Button>

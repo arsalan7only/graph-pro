@@ -9,7 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
-import "./CategoryList.css"
+import "./CategoryList.css";
 
 const columns = [
   { id: "category_name", label: "Category Name", minWidth: 10 },
@@ -35,18 +35,24 @@ const rows = [
   createData(
     "India",
     "IN",
-    <Button variant="contained" color="success">
+    <Button variant="contained" color="success" sx={{ borderRadius: "50px" }}>
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{ color: "blue" }}></i>
+    <i
+      class="fa-solid fa-pen-to-square"
+      style={{ color: "blue", fontSize: 25 }}
+    ></i>
   ),
   createData(
     "Russian",
     "RU",
-    <Button variant="contained" color="success">
+    <Button variant="contained" color="success" sx={{ borderRadius: "50px" }}>
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square" style={{ color: "blue" }}></i>
+    <i
+      class="fa-solid fa-pen-to-square"
+      style={{ color: "blue", fontSize: 25 }}
+    ></i>
   ),
 ];
 const CategoryList = () => {
@@ -66,7 +72,12 @@ const CategoryList = () => {
           <h2>Product Category List</h2>
         </div>
         <div className="Product-Top-button3">
-          <Button variant="contained">Add Category</Button>
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: " #4B49AC", borderRadius: "50px" }}
+          >
+            Add Category
+          </Button>
         </div>
       </div>
       <div className="card-container3">
@@ -74,7 +85,9 @@ const CategoryList = () => {
           <CardContent>
             <div className="options-container3">
               <TextField variant="outlined" label="Search" />
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" sx={{ borderRadius: "50px" }}>
+                Search
+              </Button>
             </div>
             <Paper>
               <TableContainer>

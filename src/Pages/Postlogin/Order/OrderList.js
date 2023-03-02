@@ -70,7 +70,7 @@ const OrderList = () => {
     <div>
       <div className="Product_Top_container10">
         <div>
-          <h2>Order List</h2>
+          <h2 style={{color:"gray", marginBottom:20}}>Order List</h2>
         </div>
       </div>
       {/*Top Container closed*/}
@@ -143,8 +143,15 @@ const OrderList = () => {
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
             </Paper>
-          <Button variant="outlined"sx={{mr:2, mt:3}}>Action</Button>
-          <Button variant="contained" sx={{mt:3}}>Apply</Button>
+            <Button
+              variant="outlined"
+              sx={{ mr: 2, mt: 3, borderRadius: "50px" }}
+            >
+              Action
+            </Button>
+            <Button variant="contained" sx={{ mt: 3, borderRadius: "50px" }}>
+              Apply
+            </Button>
           </CardContent>
         </Card>
       </div>

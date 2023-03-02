@@ -3,9 +3,11 @@
   justify-content: space-between;
   align-items: center;
   width: 164%;
+  margin-bottom: 25px;
 }
 .Product-Top-button11 Button {
   margin: 0px 5px;
+  border-radius: 50px;
 }
 .card-container11 {
   width: 164%;
@@ -17,4 +19,5 @@
 }
 .options-container11 Button {
   margin-left: 10px;
+  border-radius: 50px;
 }

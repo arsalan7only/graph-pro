@@ -19,7 +19,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
-import "./BrandList.css"
+import "./BrandList.css";
 
 const columns = [
   { id: "brand", label: "Brand", minWidth: 10 },
@@ -63,10 +63,13 @@ const BrandList = () => {
     <div>
       <div className="Product_Top_container2">
         <div>
-          <h2>Brand List</h2>
+          <h2 style={{color:"gray"}}>Brand List</h2>
         </div>
         <div className="Product-Top-button2">
-          <Button variant="contained">
+          <Button
+            variant="contained"
+            sx={{ borderRadius: "50px", backgroundColor: "#4B49AC" }}
+          >
             Add Brand
           </Button>
         </div>
@@ -90,7 +93,7 @@ const BrandList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" sx={{borderRadius:"50px"}}>Search</Button>
             </div>
             <Paper>
               <TableContainer>
@@ -154,12 +157,12 @@ const BrandList = () => {
               />
             </Paper>
             <div id="button">
-            <Button variant="outlined" color="error">
-              Inactive
-            </Button>{" "}
-            <Button variant="contained" color="success">
-              Apply
-            </Button>
+              <Button variant="outlined" color="error" sx={{borderRadius:"50px"}}>
+                Inactive
+              </Button>{" "}
+              <Button variant="contained" color="success" sx={{borderRadius:"50px"}}>
+                Apply
+              </Button>
             </div>
           </CardContent>
         </Card>

@@ -12,6 +12,7 @@ export const route = [
       {
         path: "/order/orderList",
         name: "Order List",
+        icone: "fa-solid fa-dolly",
       },
     ],
   },
@@ -48,7 +49,7 @@ export const route = [
   {
     path: "/brand",
     name: "Brand",
-    icone: "fa-solid fa-bag-shopping",
+    icone: "fa-solid fa-tags",
     subRoutes: [
       {
         path: "/brand/brandList",
