@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import "../Nav/SideBar.css";
-import PersonPinIcon from "@mui/icons-material/PersonPin";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +46,7 @@ const SideBar = ({ children }) => {
           <h1>E-Commerce</h1>
         </div>
         <div className="Nav-setting-container">
-          <PersonPinIcon
+          <AccountCircleIcon
             id="demo-positioned-button"
             aria-controls={open ? "demo-positioned-menu" : undefined}
             aria-haspopup="true"

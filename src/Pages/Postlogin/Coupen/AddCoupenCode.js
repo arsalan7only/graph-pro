@@ -56,6 +56,8 @@ const AddCoupenCode = () => {
       boxSizing: "border-box",
     },
   }));
+  // const date=new Date().toJSON().slice(0,10)
+  // const time= new Date().toLocaleDateString().slice(0,8)
   return (
     <div className="product_main_container01">
       <div className="Product_Top_Add_container01">

@@ -28,12 +28,13 @@ const Login = () => {
     dispatch(userLogin(payload));
   };
   return (
-    <div style={{ backgroundColor: "BLACK", height: 713  }}>
-        <h1
-        style={{color:"white" , display:"flex", justifyContent:"center"}}
-        
-        >E-COMMERCE Admin Panal</h1>
-        <p style={{color:"white", display:"flex", justifyContent:"center"}}>Made with ♥ by Developer KHUZI</p>
+    <div style={{ backgroundColor: "BLACK", height: 713 }}>
+      <h1 style={{ color: "white", display: "flex", justifyContent: "center" }}>
+        E-COMMERCE Admin Panal
+      </h1>
+      <p style={{ color: "white", display: "flex", justifyContent: "center" }}>
+        Made with ♥ by Developer KHUZI
+      </p>
       <Grid container>
         <img src={i} style={{ width: 700, marginLeft: 100, marginTop: 60 }} />
         <div className="form">
@@ -94,13 +95,40 @@ const Login = () => {
               Sign up
             </Link>{" "}
           </h3>
-          <h4 id="icons">
-            Follow Us  <br />
-            <i class="fa-brands fa-instagram"></i>{" "}
-            <i class="fa-brands fa-facebook"></i>{" "}
-            <i class="fa-brands fa-twitter"></i>{" "}
-            <i class="fa-brands fa-whatsapp"></i>
-          </h4>
+        </div>
+        <div>
+          <ul className="wrapper">
+            <li className="icon facebook">
+              <span className="tooltip">Facebook</span>
+              <span>
+                <i class="fab fa-facebook-f"></i>
+              </span>
+            </li>
+            <li class="icon twitter">
+              <span className="tooltip">Twitter</span>
+              <span>
+                <i class="fab fa-twitter"></i>
+              </span>
+            </li>
+            <li class="icon instagram">
+              <span className="tooltip">Instagram</span>
+              <span>
+                <i class="fab fa-instagram"></i>
+              </span>
+            </li>
+            <li className="icon github">
+              <span className="tooltip">Github</span>
+              <span>
+                <i class="fab fa-github"></i>
+              </span>
+            </li>
+            <li class="icon youtube">
+              <span className="tooltip">Youtube</span>
+              <span>
+                <i class="fab fa-youtube"></i>
+              </span>
+            </li>
+          </ul>
         </div>
       </Grid>
     </div>
