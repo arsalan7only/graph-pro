@@ -1,0 +1,13 @@
+.Product_main_Container{
+    width: 120%;
+}
+.typography_content{
+    display: inline;
+}
+.sub_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+  
+}

@@ -41,8 +41,14 @@ export const route = [
       {
         path: "/category/categorytlist",
         name: "category List",
-        icone: "fa fahome",
+       
       },
+      {
+        path: "/addcategory/addcategory",
+        name: "Add Category",
+       
+      },
+   
     ],
   },
   {
@@ -65,7 +71,12 @@ export const route = [
       {
         path: "/customer/customerList",
         name: "Customer List",
-        icone: "fa fahome",
+       
+      },
+      {
+        path: "/customer/addnewcustomer",
+        name: "Add New Customer",
+       
       },
     ],
   },
@@ -87,8 +98,8 @@ export const route = [
     icone: "fa-solid fa-tag",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/order/addcoupencode",
+        name: "Add Coupen Code",
         icone: "fa fahome",
       },
     ],

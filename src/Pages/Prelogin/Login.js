@@ -36,8 +36,8 @@ const Login = () => {
             height={500}
           />
         </Grid>
-        <Grid item xs={6} sx={{ mt: 10 }}>
-          <h1 style={{ marginLeft: "280px" }}>Login Page</h1>
+        <Grid item xs={6} sx={{ mt: 10 }} >
+          <h1 style={{ marginLeft: "280px" }} >Login Page</h1>
           <TextField
             variant="outlined"
             label="username*"

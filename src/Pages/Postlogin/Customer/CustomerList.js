@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -10,6 +10,8 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import "./CustomerList.css";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
+import { getcustomer } from "../../../Redux/Actions/customerAction";
+import { useDispatch } from "react-redux";
 
 const columns = [
   { id: "customer_name", label: "Customer Name" },
@@ -65,10 +67,35 @@ const rows = [
   createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
    inactive
 </Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
+  createData("Sufiyan", 8668752961, "Sufiyan@gmail.com"," "," ",<Button variant="contained" color="success">
+   inactive
+</Button>, <i class="fa-solid fa-pen-to-square"></i>),
   
 ];
 const CustomerList = () => {
-  const [page, setPage] = React.useState(0);
+  const dispatch=useDispatch();
+  const [page, setPage] = React.useState(1);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
@@ -79,6 +106,14 @@ const CustomerList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  useEffect(()=>{
+    dispatch(getcustomer(rowsPerPage,page+1))
+  },[]);
+
+  useEffect(()=>{
+    dispatch(getcustomer(rowsPerPage,page+1))
+  },[page, rowsPerPage])
 
 
 
