@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -10,6 +10,8 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
 import "./CustomerList.css";
+import { getCustomer } from "../../../Redux/Actions/customerAction";
+import { useDispatch } from "react-redux";
 
 const columns = [
   { id: "customer_name", label: "Customer Name", minWidth: 10 },
@@ -74,6 +76,7 @@ const rows = [
   ),
 ];
 const CustomerList = () => {
+  const dispatch = useDispatch();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -84,7 +87,12 @@ const CustomerList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, []);
+  useEffect(()=>{
+    dispatch(getCustomer(rowsPerPage, page + 1))
+  },[page, rowsPerPage])
   return (
     <div>
       <div className="Product_Top_container5">
