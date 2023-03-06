@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -11,74 +11,18 @@ import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
 import "./CustomerList.css";
 import { getCustomer } from "../../../Redux/Actions/customerAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { CheckBox } from "@mui/icons-material";
 
-const columns = [
-  { id: "customer_name", label: "Customer Name", minWidth: 10 },
-  { id: "mobile_no", label: "Mobile Number", minWidth: 10 },
-  {
-    id: "email",
-    label: "E-mail",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "ordplaced",
-    label: "Order Placed",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "TS",
-    label: "Total Sales",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "status",
-    label: "Status",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "action",
-    label: "Action",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(
-  customer_name,
-  mobile_no,
-  email,
-  ordplaced,
-  TS,
-  status,
-  action
-) {
-  return { customer_name, mobile_no, email, ordplaced, TS, status, action };
-}
-const rows = [
-  createData(
-    "Khuzaim Shaikh",
-    9767744766,
-    "khuzishaikh766@gmail.com",
-    "",
-    "",
-    <Button variant="contained" color="success" sx={{ borderRadius: "50px" }}>
-      Active
-    </Button>,
-    <i
-      class="fa-solid fa-pen-to-square"
-      style={{ color: "blue", fontSize: 25 }}
-    ></i>
-  ),
-];
 const CustomerList = () => {
   const dispatch = useDispatch();
+  const select = useSelector((state) => state);
+  const customer = select.ProductReducer.customer;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = useState([]);
+  const [isOrder, setIsOrder] = useState("ASC");
+  const [search, setSearch] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -87,12 +31,23 @@ const CustomerList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const handleSort = (sortby) => {
+    setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder));
+  };
+  const handleSearch = (sortby, isOrder) => {
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder, search));
+    setSearch('')
+  };
   useEffect(() => {
     dispatch(getCustomer(rowsPerPage, page + 1));
   }, []);
-  useEffect(()=>{
-    dispatch(getCustomer(rowsPerPage, page + 1))
-  },[page, rowsPerPage])
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, [page, rowsPerPage]);
+  useEffect(() => {
+    setData(customer.data);
+  }, [customer]);
   return (
     <div>
       <div className="Product_Top_container5">
@@ -112,8 +67,17 @@ const CustomerList = () => {
         <Card>
           <CardContent>
             <div className="options-container5">
-              <TextField variant="outlined" label="Search" />
-              <Button variant="contained" sx={{ borderRadius: "50px" }}>
+              <TextField
+                variant="outlined"
+                label="Search Here"
+                onChange={(e) => setSearch(e.target.value)}
+                value={search}
+              />
+              <Button
+                variant="contained"
+                onClick={handleSearch}
+                sx={{ borderRadius: "50px" }}
+              >
                 Search
               </Button>
             </div>
@@ -125,53 +89,74 @@ const CustomerList = () => {
                       <TableCell>
                         <Checkbox />
                       </TableCell>
-                      {columns.map((column) => (
-                        <TableCell
-                          key={column.id}
-                          align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}
-                        >
-                          {column.label}
-                          <SwapVertTwoToneIcon sx={{ mb: -1 }} />
-                        </TableCell>
-                      ))}
+                      <TableCell>
+                        Name
+                        <SwapVertTwoToneIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("fname")}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        Mobile Number
+                        <SwapVertTwoToneIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("mobile")}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        E-mail
+                        <SwapVertTwoToneIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("email")}
+                        />
+                      </TableCell>
+                      <TableCell>Total Order</TableCell>
+                      <TableCell>Total Sale</TableCell>
+                      <TableCell>Status</TableCell>
+                      <TableCell>Action</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows
-                      .slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                      .map((row) => {
-                        return (
-                          <TableRow
-                            hover
-                            role="checkbox"
-                            tabIndex={-1}
-                            key={row.code}
-                          >
-                            <TableCell>
-                              <Checkbox />
-                            </TableCell>
-                            {columns.map((column) => {
-                              const value = row[column.id];
-                              return (
-                                <TableCell key={column.id} align={column.align}>
-                                  {value}
-                                </TableCell>
-                              );
-                            })}
-                          </TableRow>
-                        );
-                      })}
+                    {data.map((item, index) => {
+                      return (
+                        <TableRow>
+                          <TableCell>
+                            <Checkbox />
+                          </TableCell>
+                          <TableCell>
+                            {item.fname} {item.lname}
+                          </TableCell>
+                          <TableCell>{item.mobile}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                          <TableCell>{item.totalorder}</TableCell>
+                          <TableCell>{item.totalsale}</TableCell>
+                          <TableCell>
+                            <Button
+                              variant="contained"
+                              sx={{ borderRadius: 50 }}
+                              color={item.status ? "success" : "error"}
+                            >
+                              {item.status ? "ACTIVE" : "Inactive"}
+                            </Button>
+                          </TableCell>
+                          <TableCell>
+                            <Button
+                              variant="contained"
+                              sx={{ borderRadius: 50 }}
+                            >
+                              Edit
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
-                count={rows.length}
+                count={customer.pages.count}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
