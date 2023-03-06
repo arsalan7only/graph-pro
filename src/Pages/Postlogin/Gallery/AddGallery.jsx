@@ -22,7 +22,7 @@ const AddGallery = () => {
     Array.from(imageFile).forEach((item) => {
       formData.append("imageData", item);
     });
-    dispatch(addGallery(formData));
+    dispatch(addGallery(formData)); 
   };
   return (
     <div className="product_main_container">

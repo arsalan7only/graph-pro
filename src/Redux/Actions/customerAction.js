@@ -3,7 +3,7 @@ import {
   ADD_CUSTOMER_API,
   ADD_GALLERY_API,
   GET_CUSTOMER_API,
-} from "../../Api/baseURL";
+} from "../../Api/BaseURL";
 
 export const addCustomer = (payload) => (dispatch, getState) => {
   return new Promise(async (resolve, reject) => {
