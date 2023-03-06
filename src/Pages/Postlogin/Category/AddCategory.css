@@ -1,0 +1,10 @@
+.Product_main_container1g{
+    width: 120%;
+}
+.sub_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    gap: 5px;
+}

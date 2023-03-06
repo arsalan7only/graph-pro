@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CustomerList.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -10,232 +10,19 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
-const columns = [
-  { id: "customer_name", label: "Customer Name", minWidth: 10 },
-  { id: "mobile_number", label: "Mobile Number", minWidth: 10 },
-  {
-    id: "email",
-    label: "Eamil",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "orders_placed",
-    label: "Order Placed",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "total_sales",
-    label: "Total Sales",
-    minWidth: 10,
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "status",
-    label: "Status",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "action",
-    label: "Action",
-    minWidth: 10,
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(
-  customer_name,
-  mobile_number,
-  email,
-  orders_placed,
-  total_sales,
-  status,
-  action
-) {
-  return {
-    customer_name,
-    mobile_number,
-    email,
-    orders_placed,
-    total_sales,
-    status,
-    action,
-  };
-}
-
-const rows = [
-  createData(
-    "India",
-    "IN",
-    1324171354,
-    3287263,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "China",
-    "CN",
-    1403500365,
-    9596961,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Italy",
-    "IT",
-    60483973,
-    301340,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "United States",
-    "US",
-    327167434,
-    9833520,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Canada",
-    "CA",
-    37602103,
-    9984670,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Australia",
-    "AU",
-    25475400,
-    7692024,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Germany",
-    "DE",
-    83019200,
-    357578,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Ireland",
-    "IE",
-    4857000,
-    70273,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Mexico",
-    "MX",
-    126577691,
-    1972550,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Japan",
-    "JP",
-    126317000,
-    377973,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "France",
-    "FR",
-    67022000,
-    640679,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "United Kingdom",
-    "GB",
-    67545757,
-    242495,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Russia",
-    "RU",
-    146793744,
-    17098246,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Nigeria",
-    "NG",
-    200962417,
-    923768,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-  createData(
-    "Brazil",
-    "BR",
-    210147125,
-    8515767,
-    "",
-    <Button variant="contained" color="success">
-      active
-    </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
-  ),
-];
+import { getCustomer } from "../../../Redux/Actions/cutomerAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const CustomerList = () => {
+  const dispatch = useDispatch();
+  const select = useSelector((state) => state);
+  const customer = select.ProductReducer.customer;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = useState([]);
+  const [isOrder, setIsOrder] = useState("ASC");
+  const [search, setSearch] = useState("");
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -244,6 +31,27 @@ const CustomerList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleSort = (sortby) => {
+    setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder));
+  };
+
+  const handleSearch = (sortby, isOrder) => {
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder, search));
+    setSearch('')
+  };
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, [page, rowsPerPage]);
+
+  useEffect(() => {
+    setData(customer.data);
+  }, [customer]);
   return (
     <div>
       <div className="Product_Top_container1">
@@ -261,8 +69,15 @@ const CustomerList = () => {
         <Card>
           <CardContent>
             <div className="opetion-container1">
-              <TextField variant="outlined" label="search" />
-              <Button variant="contained">Searchs</Button>
+              <TextField
+                variant="outlined"
+                label="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Button variant="contained" onClick={handleSearch}>
+                Searchs
+              </Button>
             </div>
             <Paper sx={{ width: "100%" }}>
               <TableContainer>
@@ -272,57 +87,75 @@ const CustomerList = () => {
                       <TableCell>
                         <Checkbox />
                       </TableCell>
-                      {columns.map((column) => (
-                        <TableCell
-                          key={column.id}
-                          align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}
-                        >
-                          {column.label}
-                          <ImportExportIcon sx={{ mb: -1 }} />
-                        </TableCell>
-                      ))}
+
+                      <TableCell>
+                        Name{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("fname")}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        Mobile Number{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("mobile")}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        Email{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("email")}
+                        />
+                      </TableCell>
+                      <TableCell>Total Order</TableCell>
+                      <TableCell>Total Sale</TableCell>
+                      <TableCell>Status</TableCell>
+                      <TableCell>Action</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows
-                      .slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                      .map((row) => {
-                        return (
-                          <TableRow
-                            hover
-                            role="checkbox"
-                            tabIndex={-1}
-                            key={row.code}
-                          >
-                            <TableCell>
-                              <Checkbox />
-                            </TableCell>
-                            {columns.map((column) => {
-                              const value = row[column.id];
-                              return (
-                                <TableCell key={column.id} align={column.align}>
-                                  {value}
-                                </TableCell>
-                              );
-                            })}
-                          </TableRow>
-                        );
-                      })}
+                    {data.map((item, index) => {
+                      return (
+                        <TableRow>
+                          <TableCell>
+                            <Checkbox />
+                          </TableCell>
+                          <TableCell>
+                            {item.fname} {item.lname}
+                          </TableCell>
+                          <TableCell>{item.mobile}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                          <TableCell>{item.totalorder}</TableCell>
+                          <TableCell>{item.totalsale}</TableCell>
+                          <TableCell>
+                            <Button
+                              variant="contained"
+                              color={item.status ? "success" : "error"}
+                            >
+                              {item.status ? "Active" : "Inactive"}
+                            </Button>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant="contained">Edit</Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Button variant="outlined" color="inherit" sx={{ml:2,mt:3}}>
+              <Button variant="outlined" color="inherit" sx={{ ml: 2, mt: 3 }}>
                 Inactive
               </Button>
-              <Button variant="contained" sx={{ml:2,mt:3}}>Apply</Button>
+              <Button variant="contained" sx={{ ml: 2, mt: 3 }}>
+                Apply
+              </Button>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
-                count={rows.length}
+                count={customer.pages.count}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

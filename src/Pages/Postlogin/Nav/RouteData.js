@@ -13,6 +13,10 @@ export const route = [
         path: "/order/orderList",
         name: "Order List",
       },
+      {
+        path: "/order/addorder",
+        name: "Add Order",
+      },
     ],
   },
   {
@@ -38,6 +42,10 @@ export const route = [
       {
         path: "/category/categorylist",
         name: "Category List",
+      },
+      {
+        path: "/category/addcategory",
+        name: "Add Category",
       }]},
   {
     path: "/brand",
@@ -59,6 +67,10 @@ export const route = [
         path: "/customer/customerlist",
         name: "Customer List",
       },
+      {
+        path: "/customer/addnewcustomer",
+        name: "Add New Customer",
+      },
     ],
   },
   {
@@ -78,8 +90,8 @@ export const route = [
     icone: "fa-solid fa-tag",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/coupencode/addcoupencode",
+        name: "Add Coupen Code",
       },
     ],
   },
@@ -111,8 +123,8 @@ export const route = [
     icone: "fa-solid fa-image",
     subRoutes: [
       {
-        path: "/gallery/galleryList",
-        name: "Gallery List",
+        path: "/gallery/addgallery",
+        name: "Add Gallery",
       },
     ],
   },
