@@ -43,6 +43,11 @@ export const route = [
         name: "Category List",
         icone: "fa fahome",
       },
+      {
+        path: "/category/addcategorylist",
+        name: "Add Category List",
+        icone: "fa fahome",
+      },
      
     ],
   },
@@ -68,6 +73,11 @@ export const route = [
         name: "Customer List",
         icone: "fa fahome",
       },
+      {
+        path: "/customer/addnewcustemer",
+        name: "AddNewCustomer",
+        icone: "fa fahome",
+      },
     ],
   },
   {
@@ -88,8 +98,8 @@ export const route = [
     icone: "fa-solid fa-tag",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "/order/addcoupencode",
+        name: "AddCoupon Code",
         icone: "fa fahome",
       },
     ],
@@ -112,8 +122,8 @@ export const route = [
     icone: "fa-solid fa-circle-play",
     subRoutes: [
       {
-        path: "/order/orderList",
-        name: "Order List",
+        path: "",
+        name: "ADD Gallary",
         icone: "fa fahome",
        },
     ],
@@ -126,6 +136,11 @@ export const route = [
       {
         path: "/gallery/gallerylist",
         name: "Gallery List",
+        icone: "fa fahome",
+      },
+      {
+        path: "/gallery/addgallary",
+        name: "ADD Gallery ",
         icone: "fa fahome",
       },
     ],

@@ -4,21 +4,15 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { route } from "./RouteData";
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-
-
-
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-
-
   const showAnimation = {
-
     hidden: {
       width: 0,
       opacity: 0,
@@ -35,7 +29,6 @@ const SideBar = ({ children }) => {
     },
   };
 
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -44,30 +37,33 @@ const SideBar = ({ children }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <>
       <div className="Top-Nav-Container">
         <div className="Nav-logo-comtainer">
-          <h1>Career Naxt</h1>
+          <h1>Career Next</h1>
         </div>
 
         <div className="Nav-setting-container">
           <Button
             id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
+            aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
+            aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
+            variant="contained"
           >
             Setting
           </Button>
+
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              'aria-labelledby': 'basic-button',
+              "aria-labelledby": "basic-button",
             }}
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -76,8 +72,6 @@ const SideBar = ({ children }) => {
           </Menu>
         </div>
       </div>
-
-      
       <div className="main-container">
         <motion.div
           animate={{
@@ -101,7 +95,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  ECOM ADMIN
+                  ADMIN PANEL
                 </motion.h1>
               )}
             </AnimatePresence>

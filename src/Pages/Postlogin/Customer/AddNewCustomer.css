@@ -1,0 +1,12 @@
+.Product_main_container1g{
+    width: 120%;
+}
+.typography_Content{
+    display: inline;
+}
+.sub_container{
+    display:  flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+}

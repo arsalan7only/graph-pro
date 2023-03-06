@@ -1,0 +1,13 @@
+.Product_Top_Container6{
+    width: 120%;
+
+}
+.typograpgy_contained{
+    display: inline;
+}
+.sub_contained{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+}

@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CustomerList.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -9,179 +9,20 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import { useDispatch, useSelector } from "react-redux";
+import { getcustomer } from "../../../Redux/Actions/customerAction";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
 
-const columns = [
-  { id: "customer_name", label: "Customer Name", minWidth: 5 },
-  { id: "mobile_number", label: "Mobile Number", minWidth: 100 },
-  {
-    id: "email",
-    label: "Email",
-    minWidth: 5,
-    //   align: 'right',
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "order_placed",
-    label: "Order Placed",
-    minWidth: 5,
-    //   align: 'right',
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "total_sales",
-    label: "Total Sales",
-    minWidth: 5,
-    //   align: 'right',
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "status",
-    label: "Status",
-    minWidth: 5,
-    //   align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "action",
-    label: "Action",
-    minWidth: 1,
-    //   align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(customer_name, mobile_number, email, order_placed,total_sales, status, action) {
-  return { customer_name, mobile_number, email, order_placed,total_sales, status, action };
-}
-
-const rows = [
-    createData(
-      "India",
-      "IN","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "China",
-      "CN","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Italy",
-      "IT","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "United States",
-      "US","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Canada",
-      "CA","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Australia",
-      "AU","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Germany",
-      "DE","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Ireland",
-      "IE","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Mexico",
-      "MX","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Japan",
-      "JP","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "France",
-      "FR","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "United Kingdom",
-      "GB","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Russia",
-      "RU","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Nigeria",
-      "NG","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-    createData(
-      "Brazil",
-      "BR","","","",
-      <Button variant="contained" color="success">
-        Active
-      </Button>,
-      <i class="fa-solid fa-pen-to-square"></i>
-    ),
-  ];
 const CustomerList = () => {
-  
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const dispatch = useDispatch();
+  const select = useSelector((state) => state);
+  const customer = select.ProductReducer.customer;
 
- 
+  const [page, setPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = useState([]);
+  const [isOrder, setIsOrder] = useState("ASC");
+  const [search, setSearch] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -191,6 +32,35 @@ const CustomerList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const handleSort = (sortby) => {
+    setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
+    dispatch(getcustomer(rowsPerPage, page + 1, sortby, isOrder,search));
+    
+  };
+
+  const handleSearch=(sortby,isOrder,search)=>{
+    dispatch(
+      getcustomer(
+        rowsPerPage,
+        page+1,
+        (sortby=undefined),
+        (isOrder=undefined),
+        setSearch("")
+      )
+    )
+  }
+
+  useEffect(() => {
+    dispatch(getcustomer(rowsPerPage, page + 1));
+  }, []);
+  useEffect(() => {
+    dispatch(getcustomer(rowsPerPage, page + 1));
+  }, [page, rowsPerPage]);
+
+  useEffect(() => {
+    setData(customer.data);
+  }, [customer]);
   return (
     <div>
       <div className="Product_Top_Container3">
@@ -209,9 +79,9 @@ const CustomerList = () => {
         <Card>
           <CardContent>
             <div className="options-contaner3">
-              <TextField variant="outlined" label="search" />
+              <TextField variant="outlined" label="search" value={search} onChange={(e)=>setSearch(e.target.value)} />
 
-              <Button variant="contained">Search</Button>
+              <Button variant="contained" onClick={handleSearch}>Search</Button>
             </div>
 
             <Paper sx={{ width: "100%" }}>
@@ -222,52 +92,60 @@ const CustomerList = () => {
                       <TableCell>
                         <Checkbox></Checkbox>
                       </TableCell>
-                      {columns.map((column) => (
-                        <TableCell
-                          key={column.id}
-                          align={column.align}
-                          style={{ top: 57, minWidth: column.minWidth }}
-                        >
-                          {column.label}
-                        </TableCell>
-                      ))}
+                      <TableCell>
+                        Name{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("fname")}
+                        />
+                      </TableCell>
+                      <TableCell> Mobile Number{" "}
+                        <ImportExportIcon sx={{ mb: -1 }}onClick={() => handleSort("mobile")}/>
+                      </TableCell>
+                      <TableCell>
+                        Email <ImportExportIcon sx={{ mb: -1 }}onClick={() => handleSort("email")}
+                        />
+                      </TableCell>
+                      <TableCell>Total Order</TableCell>
+                      <TableCell>Total Sale</TableCell>
+                      <TableCell>Status</TableCell>
+                      <TableCell>Action</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows
-                      .slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                      .map((row) => {
-                        return (
-                          <TableRow
-                            hover
-                            role="checkbox"
-                            tabIndex={-1}
-                            key={row.code}
-                          >
-                            <TableCell>
-                              <Checkbox />
-                            </TableCell>
-                            {columns.map((column) => {
-                              const value = row[column.id];
-                              return (
-                                <TableCell key={column.id} align={column.align}>
-                                  {value}
-                                </TableCell>
-                              );
-                            })}
-                          </TableRow>
-                        );
-                      })}
+                    {data.map((item, index) => {
+                      return (
+                        <TableRow>
+                          <TableCell>
+                            <Checkbox />
+                          </TableCell>
+                          <TableCell>
+                            {item.fname} {item.lname}
+                          </TableCell>
+                          <TableCell>{item.mobile}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                          <TableCell>{item.totalsale}</TableCell>
+                          <TableCell>
+                            <Button
+                              variant="contained"
+                              color={item.status ? "success" : "error"}
+                            >
+                              {item.status ? "ACTIVE" : "INACTIVE"}
+                            </Button>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant="contained">Edit</Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </TableContainer>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25, 100]}
                 component="div"
-                count={rows.length}
+                count={customer.pages.count}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
