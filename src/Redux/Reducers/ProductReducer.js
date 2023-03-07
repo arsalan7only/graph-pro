@@ -1,6 +1,7 @@
 const initialState = {
   product: [],
-  customer:[]
+  customer:[],
+  gallery:[],
 };
 
 export const ProductReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ export const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         customer: action.payload,
+      };
+    case "GET_GALLERY":
+      return {
+        ...state,
+        gallery: action.payload,
       };
   }
   return state;

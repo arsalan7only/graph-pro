@@ -12,7 +12,6 @@ import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
 import "./CustomerList.css";
 import { getCustomer } from "../../../Redux/Actions/customerAction";
 import { useDispatch, useSelector } from "react-redux";
-import { CheckBox } from "@mui/icons-material";
 
 const CustomerList = () => {
   const dispatch = useDispatch();
@@ -156,7 +155,7 @@ const CustomerList = () => {
               <TablePagination
                 rowsPerPageOptions={[5, 10, 15, 20, 25]}
                 component="div"
-                count={customer.pages.count}
+                count={customer?.pages?.count}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

@@ -12,3 +12,8 @@ li{
 .Add_product-container0{
     width: 106%;
 }
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
