@@ -45,7 +45,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "China",
@@ -53,7 +53,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Italy",
@@ -61,7 +61,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "United States",
@@ -69,7 +69,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Canada",
@@ -77,7 +77,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Australia",
@@ -85,7 +85,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Germany",
@@ -93,7 +93,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Ireland",
@@ -101,7 +101,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Mexico",
@@ -109,7 +109,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Japan",
@@ -117,7 +117,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "France",
@@ -125,7 +125,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "United Kingdom",
@@ -133,7 +133,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Russia",
@@ -141,7 +141,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Nigeria",
@@ -149,7 +149,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
   createData(
     "Brazil",
@@ -157,7 +157,7 @@ const rows = [
     <Button variant="contained" color="success">
       Active
     </Button>,
-    <i class="fa-solid fa-pen-to-square"></i>
+    <i className="fa-solid fa-pen-to-square"></i>
   ),
 ];
 

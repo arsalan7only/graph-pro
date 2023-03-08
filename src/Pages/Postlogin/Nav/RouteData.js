@@ -136,12 +136,12 @@ export const route = [
       {
         path: "/gallery/gallerylist",
         name: "Gallery List",
-        icone: "fa fahome",
+       
       },
       {
         path: "/gallery/addgallary",
         name: "ADD Gallery ",
-        icone: "fa fahome",
+       
       },
     ],
   },

@@ -101,7 +101,7 @@ const SideBar = ({ children }) => {
             </AnimatePresence>
 
             <div className="bars">
-              <i class="fa-solid fa-bars" onClick={toggle}></i>
+              <i className="fa-solid fa-bars" onClick={toggle}></i>
             </div>
           </div>
 
@@ -126,7 +126,7 @@ const SideBar = ({ children }) => {
                   activeClassName="active"
                 >
                   <div className="icon">
-                    <i class={route.icone}></i>
+                    <i className={route.icone}></i>
                   </div>
                   <AnimatePresence>
                     {isOpen && (
