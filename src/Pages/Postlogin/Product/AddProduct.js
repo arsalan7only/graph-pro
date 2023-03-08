@@ -18,14 +18,19 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import ImageModel from "../../../Components/ImageModel";
 import JoditEditorComp from "../../../Components/JoditEditorComp";
+// import { addproduct } from "../../../Redux/Actions/customerAction";
 import "./AddProduct.css";
 
 const AddProduct = () => {
+  // const dispatch = useDispatch()
   const [value, setValue] = useState("");
   const [status, setStatus] = useState("");
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  // const [producyData, setProductData] = useState({});
+  // console.log(producyData);
   const [category, setCategory] = useState([
     {
       name: "Accessories",
@@ -73,6 +78,9 @@ const AddProduct = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  // const handleSubmit = () => {
+  //   dispatch(addproduct(producyData))
+  // }
   return (
     <div className="product_main_container0">
       <div className="Product_Top_Add_container0">
@@ -83,6 +91,7 @@ const AddProduct = () => {
           <Button
             variant="contained"
             sx={{ borderRadius: 50, backgroundColor: "#4B49AC" }}
+            // onClick={handleSubmit}
           >
             Add Product
           </Button>
@@ -94,7 +103,13 @@ const AddProduct = () => {
           <Grid item xs={8}>
             <Card>
               <CardContent>
-                <TextField label="Title" variant="outlined" />
+                <TextField
+                  label="Title"
+                  variant="outlined"
+                  // onChange={(e) =>
+                  //   setProductData({ ...producyData, title: e.target.value })
+                  // }
+                />
                 <Typography sx={{ fontSize: 25, mb: 2, mt: 5 }}>
                   Short Product Description
                 </Typography>
@@ -113,18 +128,20 @@ const AddProduct = () => {
                 />
               </CardContent>
             </Card>
-            <Card sx={{ mt: 3, height:400 }}>
+            <Card sx={{ mt: 3, height: 400 }}>
               <CardContent>
-                <Typography sx={{ fontSize: 25, ml:45, mt:18 }}>Media</Typography>
+                <Typography sx={{ fontSize: 25, ml: 45, mt: 18 }}>
+                  Media
+                </Typography>
                 <div className="button">
-                <Button
-                  variant="contained"
-                  sx={{ borderRadius: 50 }}
-                  onClick={handleClickOpen}
-                >
-                  Upload Media
-                </Button>
-                <ImageModel open={open} setOpen={setOpen} />
+                  <Button
+                    variant="contained"
+                    sx={{ borderRadius: 50 }}
+                    onClick={handleClickOpen}
+                  >
+                    Upload Media
+                  </Button>
+                  <ImageModel open={open} setOpen={setOpen} />
                 </div>
               </CardContent>
             </Card>

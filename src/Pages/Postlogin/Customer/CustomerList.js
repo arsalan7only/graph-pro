@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, CardContent, Checkbox, TextField } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  Checkbox,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,7 +20,10 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import SwapVertTwoToneIcon from "@mui/icons-material/SwapVertTwoTone";
 import "./CustomerList.css";
-import { getCustomer } from "../../../Redux/Actions/customerAction";
+import {
+  customerChangeStatus,
+  getCustomer,
+} from "../../../Redux/Actions/customerAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const CustomerList = () => {
@@ -22,6 +35,10 @@ const CustomerList = () => {
   const [data, setData] = useState([]);
   const [isOrder, setIsOrder] = useState("ASC");
   const [search, setSearch] = useState("");
+  const [action, setAction] = useState("");
+  const [checkData, setCheckData] = useState([]);
+  const [checkDataAll, setCheckDataAll] = useState(false);
+  const [sort, setSort] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -31,13 +48,80 @@ const CustomerList = () => {
     setPage(0);
   };
   const handleSort = (sortby) => {
+    setSort(sortby);
     setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
     dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder));
   };
   const handleSearch = (sortby, isOrder) => {
     dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder, search));
-    setSearch('')
+    setSearch("");
   };
+  const handleChangeAll = (e) => {
+    setCheckData(data.slice().fill(!checkDataAll));
+    setCheckDataAll(!checkDataAll);
+  };
+  const handleSingleChange = (index, val) => {
+    const res = checkData.map((item, ind) => {
+      if (ind == index) {
+        return !val;
+      } else {
+        return item;
+      }
+    });
+    setCheckData(res);
+  };
+  const handleChangeStatus = () => {
+    let id = [];
+    checkData.forEach((item, index) => {
+      if (item == true) {
+        id.push(data[index].id);
+      }
+    });
+    const payload = {
+      id: id,
+      status: action,
+    };
+    setCheckDataAll(false);
+    dispatch(customerChangeStatus(payload));
+    if (sort == "") {
+      dispatch(getCustomer(rowsPerPage, page + 1));
+    } else {
+      dispatch(
+        getCustomer(
+          rowsPerPage,
+          page + 1,
+          sort,
+          isOrder == "ASC" ? "DES" : "ASC"
+        )
+      );
+    }
+    if (search != "") {
+      handleSearch();
+    }
+  };
+  const handleSingleStatusChange = (id, status) => {
+    const payload = {
+      id: [id],
+      status: status ? 0 : 1,
+    };
+    dispatch(customerChangeStatus(payload));
+    if (sort == "") {
+      dispatch(getCustomer(rowsPerPage, page + 1));
+    } else {
+      dispatch(
+        getCustomer(
+          rowsPerPage,
+          page + 1,
+          sort,
+          isOrder == "ASC" ? "DES" : "ASC"
+        )
+      );
+    }
+    if (search != "") {
+      handleSearch();
+    }
+  };
+
   useEffect(() => {
     dispatch(getCustomer(rowsPerPage, page + 1));
   }, []);
@@ -46,7 +130,9 @@ const CustomerList = () => {
   }, [page, rowsPerPage]);
   useEffect(() => {
     setData(customer.data);
+    setCheckData(customer.data.slice().fill(false));
   }, [customer]);
+  console.log(checkData);
   return (
     <div>
       <div className="Product_Top_container5">
@@ -86,26 +172,29 @@ const CustomerList = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell>
-                        <Checkbox />
+                        <Checkbox
+                          checked={checkDataAll}
+                          onChange={handleChangeAll}
+                        />
                       </TableCell>
                       <TableCell>
-                        Name
+                        Name{" "}
                         <SwapVertTwoToneIcon
-                          sx={{ mb: -1 }}
+                          sx={{ mb: -0.6, fontSize: 20 }}
                           onClick={() => handleSort("fname")}
                         />
                       </TableCell>
                       <TableCell>
-                        Mobile Number
+                        Mobile Number{" "}
                         <SwapVertTwoToneIcon
-                          sx={{ mb: -1 }}
+                          sx={{ mb: -0.6, fontSize: 20 }}
                           onClick={() => handleSort("mobile")}
                         />
                       </TableCell>
                       <TableCell>
-                        E-mail
+                        E-mail{" "}
                         <SwapVertTwoToneIcon
-                          sx={{ mb: -1 }}
+                          sx={{ mb: -0.6, fontSize: 20 }}
                           onClick={() => handleSort("email")}
                         />
                       </TableCell>
@@ -120,7 +209,12 @@ const CustomerList = () => {
                       return (
                         <TableRow>
                           <TableCell>
-                            <Checkbox />
+                            <Checkbox
+                              checked={checkData[index]}
+                              onChange={() =>
+                                handleSingleChange(index, checkData[index])
+                              }
+                            />
                           </TableCell>
                           <TableCell>
                             {item.fname} {item.lname}
@@ -134,6 +228,9 @@ const CustomerList = () => {
                               variant="contained"
                               sx={{ borderRadius: 50 }}
                               color={item.status ? "success" : "error"}
+                              onClick={() =>
+                                handleSingleStatusChange(item.id, item.status)
+                              }
                             >
                               {item.status ? "ACTIVE" : "Inactive"}
                             </Button>
@@ -152,15 +249,38 @@ const CustomerList = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 15, 20, 25]}
-                component="div"
-                count={customer?.pages?.count}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-              />
+              <div className="inpubutton">
+                <FormControl sx={{ width: 200 }}>
+                  <InputLabel id="demo-simple-select-label">Action</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={action}
+                    label="action"
+                    onChange={(e) => setAction(e.target.value)}
+                  >
+                    <MenuItem value={1}>Active</MenuItem>
+                    <MenuItem value={0}>Inactive</MenuItem>
+                    <MenuItem value={2}>Delete</MenuItem>
+                  </Select>
+                </FormControl>{" "}
+                <Button
+                  variant="contained"
+                  sx={{ borderRadius: 50, mt: 1 }}
+                  onClick={handleChangeStatus}
+                >
+                  Apply
+                </Button>
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 15, 20, 25]}
+                  component="div"
+                  count={customer?.pages?.count}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                />
+              </div>
             </Paper>
           </CardContent>
         </Card>

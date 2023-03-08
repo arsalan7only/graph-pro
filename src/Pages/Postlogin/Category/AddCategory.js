@@ -47,7 +47,7 @@ const AddCategory = () => {
             <Typography>Category Name</Typography>
             <TextField variant="outlined" label="Category Name" />
           </div>
-          <div style={{ marginTop: "25px" }}>
+          {/* <div style={{ marginTop: "25px" }}>
             <Typography sx={{ fontSize: 25 }}>
               Product Category Image
             </Typography>
@@ -55,7 +55,7 @@ const AddCategory = () => {
             <Button variant="contained" sx={{ borderRadius: "50px" }}>
               Upload Media
             </Button>
-          </div>
+          </div> */}
           <Typography sx={{ fontSize: 25, mt: "25px" }}>
             Custome Attribute
           </Typography>

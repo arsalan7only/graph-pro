@@ -2,13 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 118%;
+    width: 117%;
   }
   .Product-Top-button5 Button {
     margin: 0px 5px;
   }
   .card-container5 {
-    width: 118%;
+    width: 117%;
     margin-top: 20px;
   }
   .options-container5 {
@@ -16,6 +16,10 @@
     align-items: center;
   }
   .options-container5 Button {
+    margin-left: 10px;
+  }
+  .inpubutton{
+    margin-top: 30px;
     margin-left: 10px;
   }
 

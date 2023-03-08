@@ -5,11 +5,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./AddCoupenCode.css";
 import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import Stack from "@mui/material/Stack";
+import moment from "moment/moment";
 
 const AddCoupenCode = () => {
   const AntSwitch = styled(Switch)(({ theme }) => ({
@@ -56,8 +57,15 @@ const AddCoupenCode = () => {
       boxSizing: "border-box",
     },
   }));
-  // const date=new Date().toJSON().slice(0,10)
-  // const time= new Date().toLocaleDateString().slice(0,8)
+  const [date, setDate] = useState(
+    moment(new Date()).format("YYYY-MM-DD[T]HH:mm:ss")
+  );
+  const handleStartDate = (e) => {
+    const changeData = moment(new Date(e.target.value)).format(
+      "YYYY-MM-DD[T]HH:mm:ss"
+    );
+    setDate(changeData);
+  };
   return (
     <div className="product_main_container01">
       <div className="Product_Top_Add_container01">
@@ -89,11 +97,20 @@ const AddCoupenCode = () => {
             </div>
             <div className="sub_container">
               <Typography>Start Date</Typography>
-              <TextField variant="outlined" type="datetime-local" />
+              <TextField
+                variant="outlined"
+                type="datetime-local"
+                value={date}
+                onChange={handleStartDate}
+              />
             </div>
             <div className="sub_container">
               <Typography>End Date</Typography>
-              <TextField variant="outlined" type="datetime-local" />
+              <TextField
+                variant="outlined"
+                type="datetime-local"
+                value={date}
+              />
             </div>
             <Button variant="contained" sx={{ borderRadius: "50px" }}>
               Add

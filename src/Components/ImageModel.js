@@ -74,6 +74,7 @@ export default function ImageModel(props) {
   const fetch = async () => {
     dispatch(getgallery(rowsPerPage, page + 1));
   };
+
   React.useEffect(() => {
     if (open) {
       fetch();
@@ -82,7 +83,7 @@ export default function ImageModel(props) {
   React.useEffect(() => {
     setData(gallery.data);
   }, [gallery]);
-  console.log(gallery);
+
   return (
     <div>
       <BootstrapDialog
