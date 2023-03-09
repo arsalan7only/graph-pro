@@ -11,9 +11,11 @@ import { addCustomer } from "../../../Redux/Actions/customerAction";
 import "./AddCustomer.css";
 
 const AddCustomer = () => {
+  //{useDispatch Starts}//
   const dispatch = useDispatch();
+  //{useStates Starts}//
   const [customerData, setCustomerData] = useState({});
-
+  //{Functions Starts}//
   const handleSubmit = async () => {
     dispatch(addCustomer(customerData));
     setCustomerData({
@@ -73,6 +75,7 @@ const AddCustomer = () => {
             <TextField
               variant="outlined"
               label="Enter Mobile Number"
+              style={{ marginRight: "25px" }}
               value={customerData.mobile}
               onChange={(e) =>
                 setCustomerData({ ...customerData, mobile: e.target.value })

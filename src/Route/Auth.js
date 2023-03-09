@@ -4,10 +4,12 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 
 const Auth = () => {
+  //{useSelectors Starts}//
   const select = useSelector((state) => state);
   const token = select.UserReducer.token;
+  //{useStates Starts}//
   const [Logged, setLogged] = useState(false);
-
+  //{useEffects Starts}
   useEffect(() => {
     if (token.length > 0) {
       setLogged(true);

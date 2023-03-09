@@ -10,13 +10,31 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addcategory } from "../../../Redux/Actions/customerAction";
 import "./AddCategory.css";
 
 const AddCategory = () => {
+  //{useDispatch Starts}//
+  const dispatch = useDispatch();
+  //{useStates Starts}//
   const [selectCategory, setSelectCategory] = useState("");
+  const [categoryData, setCategoryData] = useState("");
+  //{Functions Starts}//
+  const handleAddCategory = async () => {
+    dispatch(addcategory(categoryData));
+    setCategoryData({
+      categoryname: "",
+      groupname: "",
+      fieldlabel: "",
+      fieldname: "",
+      fieldvalue: "",
+      varienttype: "",
+    });
+  };
   return (
-    <div className="product_main_container01">
-      <div className="Product_Top_Add_container01">
+    <div>
+      <div>
         <div>
           <h2 style={{ marginBottom: 20, color: "gray" }}>Add Category</h2>
         </div>
@@ -45,7 +63,17 @@ const AddCategory = () => {
           </div>
           <div className="sub_container">
             <Typography>Category Name</Typography>
-            <TextField variant="outlined" label="Category Name" />
+            <TextField
+              variant="outlined"
+              label="Category Name"
+              value={categoryData.categoryname}
+              onChange={(e) =>
+                setCategoryData({
+                  ...categoryData,
+                  categoryname: e.target.value,
+                })
+              }
+            />
           </div>
           {/* <div style={{ marginTop: "25px" }}>
             <Typography sx={{ fontSize: 25 }}>
@@ -62,15 +90,45 @@ const AddCategory = () => {
           <div>
             <div className="sub_container">
               <Typography>Group Name</Typography>
-              <TextField variant="outlined" label="Group Name" />
+              <TextField
+                variant="outlined"
+                label="Group Name"
+                value={categoryData.groupname}
+                onChange={(e) =>
+                  setCategoryData({
+                    ...categoryData,
+                    groupname: e.target.value,
+                  })
+                }
+              />
             </div>
             <div className="sub_container">
               <Typography>Field Label</Typography>
-              <TextField variant="outlined" label="Field Label" />
+              <TextField
+                variant="outlined"
+                label="Field Label"
+                value={categoryData.fieldlabel}
+                onChange={(e) =>
+                  setCategoryData({
+                    ...categoryData,
+                    fieldlabel: e.target.value,
+                  })
+                }
+              />
             </div>
             <div className="sub_container">
               <Typography>Field Name</Typography>
-              <TextField variant="outlined" label="Field Name" />
+              <TextField
+                variant="outlined"
+                label="Field Name"
+                value={categoryData.fieldname}
+                onChange={(e) =>
+                  setCategoryData({
+                    ...categoryData,
+                    fieldname: e.target.value,
+                  })
+                }
+              />
             </div>
             <div className="sub_container">
               <Typography>Field Type</Typography>
@@ -93,13 +151,47 @@ const AddCategory = () => {
             </div>
             <div className="sub_container">
               <Typography>Field Value</Typography>
-              <TextField variant="outlined" label="Field Value" />
+              <TextField
+                variant="outlined"
+                label="Field Value"
+                value={categoryData.fieldvalue}
+                onChange={(e) =>
+                  setCategoryData({
+                    ...categoryData,
+                    fieldvalue: e.target.value,
+                  })
+                }
+              />
             </div>
             <div className="sub_container">
               <Typography>Is-Variant-Key</Typography>
               <div style={{ marginRight: "100px" }}>
-                <input type="radio" name="y" label="Y" /> <label>Yes</label>{" "}
-                <input type="radio" name="y" label="N" /> <label>No</label>
+                <input
+                  type="radio"
+                  name="varienttype"
+                  value="yes"
+                  checked={categoryData.varienttype == "yes"}
+                  onChange={(e) =>
+                    setCategoryData({
+                      ...categoryData,
+                      varienttype: e.target.value,
+                    })
+                  }
+                />{" "}
+                <label>Yes</label>{" "}
+                <input
+                  type="radio"
+                  name="varienttype"
+                  value="no"
+                  checked={categoryData.varienttype == "no"}
+                  onChange={(e) =>
+                    setCategoryData({
+                      ...categoryData,
+                      varienttype: e.target.value,
+                    })
+                  }
+                />{" "}
+                <label>No</label>
               </div>
             </div>
             <Button
@@ -108,7 +200,7 @@ const AddCategory = () => {
               sx={{ borderRadius: "50px" }}
             >
               Remove
-            </Button>
+            </Button>{" "}
             <Button variant="contained" sx={{ borderRadius: "50px" }}>
               Add
             </Button>
@@ -117,6 +209,7 @@ const AddCategory = () => {
             variant="contained"
             color="success"
             sx={{ borderRadius: "50px", ml: 40, mt: -8 }}
+            onClick={handleAddCategory}
           >
             Add Category
           </Button>

@@ -21,16 +21,22 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import ImageModel from "../../../Components/ImageModel";
 import JoditEditorComp from "../../../Components/JoditEditorComp";
-// import { addproduct } from "../../../Redux/Actions/customerAction";
+import { addproduct } from "../../../Redux/Actions/customerAction";
 import "./AddProduct.css";
 
 const AddProduct = () => {
-  // const dispatch = useDispatch()
+  //{useDispatch}//
+  const dispatch = useDispatch();
+  //{useStates}//
   const [value, setValue] = useState("");
   const [status, setStatus] = useState("");
   const [open, setOpen] = useState(false);
-  // const [producyData, setProductData] = useState({});
-  // console.log(producyData);
+  const [titleData, setTitletData] = useState("");
+  const [productInfoData, setProductInfoData] = useState({});
+  const [pricingData, setPricingData] = useState({});
+  const [shippingInfoData, setShippingInfoData] = useState({});
+  const [taxInfoData, setTaxInfoData] = useState({});
+  const [seoData, setSeoData] = useState({});
   const [category, setCategory] = useState([
     {
       name: "Accessories",
@@ -59,6 +65,7 @@ const AddProduct = () => {
     readonly: false,
     placeholder: "Start typings...",
   };
+  //{Functions}//
   const handleExpendChange = (index, PreExpend) => {
     const changeData = category.map((item, ind) => {
       if (index == ind) {
@@ -78,9 +85,41 @@ const AddProduct = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  // const handleSubmit = () => {
-  //   dispatch(addproduct(producyData))
-  // }
+  const handleSubmit = () => {
+    dispatch(
+      addproduct({
+        title: titleData,
+        productinformation: productInfoData,
+        pricing: pricingData,
+        shippinginformation: shippingInfoData,
+        taxinformation: taxInfoData,
+        seo: seoData,
+      })
+    );
+    setTitletData("");
+    setProductInfoData({
+      sku: "",
+      modelnumber: "",
+      productquantity: "",
+    });
+    setPricingData({
+      baseprice: "",
+      originalprice: "",
+      sellingprice: "",
+    });
+    setShippingInfoData({
+      shippingcharges: "",
+      productweight: "",
+    });
+    setTaxInfoData({
+      taxamount: "",
+    });
+    setSeoData({
+      metatags: "",
+      description: "",
+      keywords: "",
+    });
+  };
   return (
     <div className="product_main_container0">
       <div className="Product_Top_Add_container0">
@@ -91,7 +130,7 @@ const AddProduct = () => {
           <Button
             variant="contained"
             sx={{ borderRadius: 50, backgroundColor: "#4B49AC" }}
-            // onClick={handleSubmit}
+            onClick={handleSubmit}
           >
             Add Product
           </Button>
@@ -106,9 +145,8 @@ const AddProduct = () => {
                 <TextField
                   label="Title"
                   variant="outlined"
-                  // onChange={(e) =>
-                  //   setProductData({ ...producyData, title: e.target.value })
-                  // }
+                  value={titleData}
+                  onChange={(e) => setTitletData(e.target.value)}
                 />
                 <Typography sx={{ fontSize: 25, mb: 2, mt: 5 }}>
                   Short Product Description
@@ -210,15 +248,42 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>SKU</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={productInfoData.sku}
+                  onChange={(e) =>
+                    setProductInfoData({
+                      ...productInfoData,
+                      sku: e.target.value,
+                    })
+                  }
+                />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Model Name</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={productInfoData.modelnumber}
+                  onChange={(e) =>
+                    setProductInfoData({
+                      ...productInfoData,
+                      modelnumber: e.target.value,
+                    })
+                  }
+                />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Quality</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={productInfoData.productquantity}
+                  onChange={(e) =>
+                    setProductInfoData({
+                      ...productInfoData,
+                      productquantity: e.target.value,
+                    })
+                  }
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -229,15 +294,42 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Base Price</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={pricingData.baseprice}
+                  onChange={(e) =>
+                    setPricingData({
+                      ...pricingData,
+                      baseprice: e.target.value,
+                    })
+                  }
+                />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Original Price</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={pricingData.originalprice}
+                  onChange={(e) =>
+                    setPricingData({
+                      ...pricingData,
+                      originalprice: e.target.value,
+                    })
+                  }
+                />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Selling Price</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={pricingData.sellingprice}
+                  onChange={(e) =>
+                    setPricingData({
+                      ...pricingData,
+                      sellingprice: e.target.value,
+                    })
+                  }
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -250,11 +342,29 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Shipping Changes</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={shippingInfoData.shippingcharges}
+                  onChange={(e) =>
+                    setShippingInfoData({
+                      ...shippingInfoData,
+                      shippingcharges: e.target.value,
+                    })
+                  }
+                />
               </Grid>
               <Grid item xs={3}>
                 <Typography>Product Weight</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={shippingInfoData.productweight}
+                  onChange={(e) =>
+                    setShippingInfoData({
+                      ...shippingInfoData,
+                      productweight: e.target.value,
+                    })
+                  }
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -267,7 +377,16 @@ const AddProduct = () => {
             <Grid container spacing={4}>
               <Grid item xs={3}>
                 <Typography>Tax Amount</Typography>
-                <TextField variant="outlined" />
+                <TextField
+                  variant="outlined"
+                  value={taxInfoData.taxamount}
+                  onChange={(e) =>
+                    setTaxInfoData({
+                      ...taxInfoData,
+                      taxamount: e.target.value,
+                    })
+                  }
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -280,7 +399,14 @@ const AddProduct = () => {
                 <Typography>Meta Tags</Typography>
               </Grid>
               <Grid item xs={3}>
-                <TextField variant="outlined" label="Meta Tags" />
+                <TextField
+                  variant="outlined"
+                  label="Meta Tags"
+                  value={seoData.metatags}
+                  onChange={(e) =>
+                    setSeoData({ ...seoData, metatags: e.target.value })
+                  }
+                />
               </Grid>
               <Grid item xs={6}></Grid>
 
@@ -288,7 +414,14 @@ const AddProduct = () => {
                 <Typography>Description</Typography>{" "}
               </Grid>
               <Grid item xs={3}>
-                <TextField variant="outlined" label="Description" />
+                <TextField
+                  variant="outlined"
+                  label="Description"
+                  value={seoData.description}
+                  onChange={(e) =>
+                    setSeoData({ ...seoData, description: e.target.value })
+                  }
+                />
               </Grid>
               <Grid item xs={6}></Grid>
 
@@ -296,7 +429,14 @@ const AddProduct = () => {
                 <Typography>Keyword</Typography>
               </Grid>
               <Grid item xs={3}>
-                <TextField variant="outlined" label="Keyword" />
+                <TextField
+                  variant="outlined"
+                  label="Keyword"
+                  value={seoData.keywords}
+                  onChange={(e) =>
+                    setSeoData({ ...seoData, keywords: e.target.value })
+                  }
+                />
               </Grid>
               <Grid item xs={6}></Grid>
             </Grid>

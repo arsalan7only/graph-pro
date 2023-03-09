@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  ADD_CATEGORY_API,
   ADD_CUSTOMER_API,
   ADD_GALLERY_API,
   ADD_PRODUCT_API,
@@ -8,10 +9,7 @@ import {
   GET_CUSTOMER_API,
   GET_GALLERY_API,
 } from "../../Api/BaseURL";
-
-
-
-
+//{Customers Actions}//
 export const addCustomer = (payload) => (dispatch, getState) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -51,10 +49,7 @@ export const customerChangeStatus = (payload) => (dispatch, getState) => {
     }
   });
 };
-
-
-
-
+//{Galleries Actions}//
 export const addGallery = (payload) => (dispatch, getState) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -84,33 +79,39 @@ export const getgallery =
       }
     });
   };
-
-
-
-  
-export const getparentcategory =
-  () => (dispatch, getState) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const res = await axios.get(GET_CATEGORY_API);
-        dispatch({
-          type: "GET_PARENT_CATEGORY",
-          payload: res.data,
-        });
-        resolve(res);
-      } catch (e) {
-        reject(e);
-      }
-    });
-  };
-
-//   export const addproduct = (payload) => (dispatch, getState) => {
-//   return new Promise(async (resolve, reject) => {
-//     try {
-//       const res = await axios.post(ADD_PRODUCT_API, payload);
-//       resolve(res);
-//     } catch (e) {
-//       reject(e);
-//     }
-//   });
-// };
+//{Categories Actions}//
+export const getparentcategory = () => (dispatch, getState) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.get(GET_CATEGORY_API);
+      dispatch({
+        type: "GET_PARENT_CATEGORY",
+        payload: res.data,
+      });
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+export const addcategory = (payload) => (dispatch, getState) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(ADD_CATEGORY_API, payload);
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+//{Products Actions}//
+export const addproduct = (payload) => (dispatch, getState) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(ADD_PRODUCT_API, payload);
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};

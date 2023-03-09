@@ -10,11 +10,13 @@ import { useDispatch } from "react-redux";
 import { addGallery } from "../../../Redux/Actions/customerAction";
 
 const AddGallery = () => {
+  //{useDispatch Starts}//
   const dispatch = useDispatch();
+  //{useStates Starts}//
   const [title, setTitle] = useState("");
   const [imageCategory, setImageCategory] = useState("");
   const [imageFile, setImageFile] = useState("");
-
+  //{Functions Starts}//
   const handleAddGallery = () => {
     const formData = new FormData();
     formData.append("title", title);
@@ -22,7 +24,7 @@ const AddGallery = () => {
     Array.from(imageFile).forEach((item) => {
       formData.append("imageData", item);
     });
-    dispatch(addGallery(formData)); 
+    dispatch(addGallery(formData));
   };
   return (
     <div className="product_main_container">

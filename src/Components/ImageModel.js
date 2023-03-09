@@ -51,16 +51,20 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function ImageModel(props) {
+  //{Props Starts}//
   const { open, setOpen } = props;
+  //{useDispatch Starts}//
   const dispatch = useDispatch();
+  //{useSelectors Starts}//
   const select = useSelector((state) => state);
   const gallery = select.ProductReducer.gallery;
+  //{useStates Starts}//
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [data, setData] = React.useState([]);
   const [isOrder, setIsOrder] = React.useState("ASC");
   const [search, setSearch] = React.useState("");
-
+  //{Functions Starts}//
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -74,7 +78,7 @@ export default function ImageModel(props) {
   const fetch = async () => {
     dispatch(getgallery(rowsPerPage, page + 1));
   };
-
+  //{useEffects Starts}
   React.useEffect(() => {
     if (open) {
       fetch();

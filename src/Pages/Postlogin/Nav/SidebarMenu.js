@@ -36,12 +36,13 @@ const menuItemAnimation = {
 };
 
 const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
+  //{useStates Starts}//
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
   };
-
+  //{useEffects Starts}//
   useEffect(() => {
     if (!isOpen) {
       setIsMenuOpen(false);

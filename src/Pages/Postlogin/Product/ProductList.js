@@ -49,10 +49,11 @@ function createData(product, product_type, category, quantity, status, action) {
 }
 const rows = [createData("India", "IN"), createData("Russian", "RU")];
 const ProductList = () => {
+  //{useStates Starts}//
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  //{Functions Starts}//
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -68,11 +69,15 @@ const ProductList = () => {
     <div>
       <div className="Product_Top_container11">
         <div>
-          <h2 style={{color:"gray"}}>Product List</h2>
+          <h2 style={{ color: "gray" }}>Product List</h2>
         </div>
         <div className="Product-Top-button11">
-          <Button variant="contained" sx={{background:"#4b49ac"}}>Export CSV</Button>
-          <Button variant="contained" sx={{background:"#4b49ac"}}>Import CSV</Button>
+          <Button variant="contained" sx={{ background: "#4b49ac" }}>
+            Export CSV
+          </Button>
+          <Button variant="contained" sx={{ background: "#4b49ac" }}>
+            Import CSV
+          </Button>
           <Button variant="contained" color="success">
             Add Product
           </Button>

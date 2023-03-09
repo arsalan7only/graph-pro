@@ -8,8 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import ImportExportIcon from '@mui/icons-material/ImportExport';
-import "./Transaction.css"
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+import "./Transaction.css";
 
 const columns = [
   { id: "customer_name", label: "Customer Name", minWidth: 10 },
@@ -59,10 +59,11 @@ function createData(
 }
 const rows = [];
 const Transaction = () => {
+  //{useStates Starts}//
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  //{Functions Starts}//
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -79,13 +80,17 @@ const Transaction = () => {
       <div className="Product_Top_container12"></div>
       {/*Top Container closed*/}
       <div>
-        <h2 style={{marginBottom:20, color:"gray"}}>Transaction</h2>
+        <h2 style={{ marginBottom: 20, color: "gray" }}>Transaction</h2>
       </div>
       <div className="card-container12">
         <Card>
           <CardContent>
             <div className="options-container12">
-              <TextField variant="outlined" placeholder="Search" sx={{width:0.4}} />
+              <TextField
+                variant="outlined"
+                placeholder="Search"
+                sx={{ width: 0.4 }}
+              />
             </div>
             <Paper sx={{ mt: 3 }}>
               <TableContainer>
@@ -102,7 +107,7 @@ const Transaction = () => {
                           style={{ top: 57, minWidth: column.minWidth }}
                         >
                           {column.label}
-                          <ImportExportIcon sx={{mb:-1}}/>
+                          <ImportExportIcon sx={{ mb: -1 }} />
                         </TableCell>
                       ))}
                     </TableRow>

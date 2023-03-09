@@ -31,8 +31,10 @@ const SideBar = ({ children }) => {
       },
     },
   };
+  //{useStates Starts}//
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  //{Functions Starts}//
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
