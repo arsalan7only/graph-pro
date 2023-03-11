@@ -11,6 +11,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { userLogin } from "../../Redux/Actions/userAction";
 import { useDispatch } from "react-redux";
 import { WidthFull } from "@mui/icons-material";
+import "./Login.css"
 const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [username, setUserName] = useState("");
@@ -36,8 +37,10 @@ const Login = () => {
             height={500}
           />
         </Grid>
+        <div className="main">
         <Grid item xs={6} sx={{ mt: 10 }} >
-          <h1 style={{ marginLeft: "280px" }} >Login Page</h1>
+          {/* <h1 style={{ marginLeft: "280px" }} >Login Page</h1> */}
+           <span> <i> <h1 className="Login"> Login Page</h1> </i></span>
           <TextField
             variant="outlined"
             label="username*"
@@ -69,13 +72,11 @@ const Login = () => {
           </FormControl>
           <Button
             variant="contained"
-            sx={{ mt: 2, ml: 36 }}
-            onClick={handleLogin}
-          >
-            Login
-          </Button> <br /><br /> <br />
+            sx={{ mt: 3, ml: 10 }}onClick={handleLogin}>Login</Button> 
+            <br /><br /> <br />
           <a href="">Forget Password</a>
         </Grid>
+        </div>
       </Grid>
     </div>
   );

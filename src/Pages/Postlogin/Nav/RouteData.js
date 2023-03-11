@@ -134,8 +134,8 @@ export const route = [
     icone: "fa-solid fa-image",
     subRoutes: [
       {
-        path: "/gallery/galleryList",
-        name: "Gallery List",
+        path: "/gallery/addgallery",
+        name: "Add Gallery ",
         icone: "fa fahome",
       },
     ],

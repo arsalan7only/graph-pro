@@ -6,7 +6,7 @@ import CategoryList from "../Pages/Postlogin/Category/CategoryList";
 import AddCoupenCode from "../Pages/Postlogin/Coupen/AddCoupenCode";
 import AddNewCustomer from "../Pages/Postlogin/Customer/AddNewCustomer";
 import CustomerList from "../Pages/Postlogin/Customer/CustomerList";
-import GalleryList from "../Pages/Postlogin/Gallery/GalleryList";
+import AddGallery from "../Pages/Postlogin/Gallery/AddGallery";
 import Home from "../Pages/Postlogin/Home";
 import SideBar from "../Pages/Postlogin/Nav/SideBar";
 import OrderList from "../Pages/Postlogin/Order/OrderList";
@@ -30,7 +30,7 @@ const PrivateRoute = () => {
             <Route path="/addcategory/addcategory" element={<AddCategory />} />
             <Route path="/customer/customerList" element={<CustomerList />} />
             <Route path="/customer/addnewcustomer" element={<AddNewCustomer />} />
-            <Route path="/gallery/galleryList" element={<GalleryList />} />
+            <Route path="/gallery/addgallery" element={<AddGallery />} />
             <Route path="/transaction" element={<Transaction />} />
             <Route path="*" element={<> not found</>} />
           </Routes>

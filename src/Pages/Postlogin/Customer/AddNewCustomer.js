@@ -42,7 +42,7 @@ const handleSubmit=async()=>{
             value={customerData.fname}
             onChange={(e)=>setCustomerData({...customerData, fname:e.target.value})}/>
           </div>
-          <div className="sub_container">
+          <div className="sub_container"> 
             <Typography>Last Name</Typography>
             <TextField variant="outlined" label="Last Name" 
              value={customerData.lname}

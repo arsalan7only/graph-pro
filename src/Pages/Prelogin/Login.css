@@ -1,0 +1,32 @@
+.main{
+    width: 500px;
+    height: 400px;
+    border: 2px solid rgb(236, 120, 5);
+    border-radius: 30px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px ;
+    color: rgb(56, 65, 145);
+    background-color: darkcyan;
+    margin-left: 50px;
+}
+.main label{
+  color: rgb(17, 234, 249);
+}
+
+.main h1{
+    color: black;
+    text-shadow: 0px 0px 10px;
+   
+}
+.button{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.Login{
+    margin-left: 30px;
+    margin-top: -40px;
+}
+
