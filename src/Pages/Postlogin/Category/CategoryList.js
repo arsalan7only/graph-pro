@@ -59,6 +59,7 @@ const CategoryList = () => {
   //!{useStates Starts}//
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   //!{Functions Starts}//
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -67,6 +68,7 @@ const CategoryList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   return (
     <div>
       <div className="Product_Top_container3">
@@ -76,7 +78,12 @@ const CategoryList = () => {
         <div className="Product-Top-button3">
           <Button
             variant="contained"
-            sx={{ backgroundColor: " #4B49AC", borderRadius: "50px" }}
+            sx={{
+              borderRadius: "50px",
+              backgroundColor: "#Becae6",
+              color: "black",
+              border: "3px solid gray ",
+            }}
           >
             Add Category
           </Button>

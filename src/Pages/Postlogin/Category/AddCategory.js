@@ -18,12 +18,15 @@ const AddCategory = () => {
   //!useSelector//
   const select = useSelector((state) => state);
   const parentCategory = select.ProductReducer.parentcategory;
+
   //!useDispatch Starts//
   const dispatch = useDispatch();
+
   //! useStates Starts//
   const [selectCategory, setSelectCategory] = useState("");
   const [categoryData, setCategoryData] = useState("");
   const [custom, setCustom] = useState([0]);
+
   //!Functions Starts//
   const handleAddCategory = async () => {
     dispatch(addcategory(categoryData));
@@ -43,6 +46,7 @@ const AddCategory = () => {
     const deletes = custom.filter((elem, ind) => index != ind);
     setCustom(deletes);
   };
+  
   return (
     <div>
       <div>

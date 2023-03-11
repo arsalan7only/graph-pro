@@ -50,6 +50,7 @@ const BrandList = () => {
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   //!{Functions Starts}//
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -61,16 +62,22 @@ const BrandList = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   return (
     <div>
       <div className="Product_Top_container2">
         <div>
-          <h2 style={{color:"gray"}}>Brand List</h2>
+          <h2 style={{ color: "gray" }}>Brand List</h2>
         </div>
         <div className="Product-Top-button2">
           <Button
             variant="contained"
-            sx={{ borderRadius: "50px", backgroundColor: "#4B49AC" }}
+            sx={{
+              borderRadius: "50px",
+              backgroundColor: "#Becae6",
+              color: "black",
+              border: "3px solid gray ",
+            }}
           >
             Add Brand
           </Button>
@@ -95,7 +102,9 @@ const BrandList = () => {
                   <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
-              <Button variant="contained" sx={{borderRadius:"50px"}}>Search</Button>
+              <Button variant="contained" sx={{ borderRadius: "50px" }}>
+                Search
+              </Button>
             </div>
             <Paper>
               <TableContainer>
@@ -159,10 +168,18 @@ const BrandList = () => {
               />
             </Paper>
             <div id="button">
-              <Button variant="outlined" color="error" sx={{borderRadius:"50px"}}>
+              <Button
+                variant="outlined"
+                color="error"
+                sx={{ borderRadius: "50px" }}
+              >
                 Inactive
               </Button>{" "}
-              <Button variant="contained" color="success" sx={{borderRadius:"50px"}}>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{ borderRadius: "50px" }}
+              >
                 Apply
               </Button>
             </div>

@@ -38,6 +38,7 @@ const AddProduct = () => {
   const [shippingInfoData, setShippingInfoData] = useState({});
   const [taxInfoData, setTaxInfoData] = useState({});
   const [seoData, setSeoData] = useState({});
+  const [custom, setCustom] = useState([0]);
   const [category, setCategory] = useState([
     {
       name: "Accessories",
@@ -122,7 +123,14 @@ const AddProduct = () => {
       keywords: "",
     });
   };
-  
+  const handleAddCustom = () => {
+    setCustom([...custom, custom.length + 1]);
+  };
+  const handleRemoveCustom = (index) => {
+    const remove = custom.filter((elem, ind) => index != ind);
+    setCustom(remove);
+  };
+
   return (
     <div className="product_main_container0">
       <div className="Product_Top_Add_container0">
@@ -132,7 +140,12 @@ const AddProduct = () => {
         <div className="Product-Top-button0">
           <Button
             variant="contained"
-            sx={{ borderRadius: 50, backgroundColor: "#4B49AC" }}
+            sx={{
+              borderRadius: 50,
+              backgroundColor: "#Becae6",
+              color: "black",
+              border: "3px solid gray ",
+            }}
             onClick={handleSubmit}
           >
             Add Product
@@ -427,7 +440,6 @@ const AddProduct = () => {
                 />
               </Grid>
               <Grid item xs={6}></Grid>
-
               <Grid item xs={3}>
                 <Typography>Keyword</Typography>
               </Grid>
@@ -445,44 +457,51 @@ const AddProduct = () => {
             </Grid>
           </CardContent>
         </Card>
-        <Paper sx={{ mt: 3 }}>
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Question</TableCell>
-                  <TableCell>Answer</TableCell>
-                  <TableCell>Action</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell>
-                    <TextField />
-                  </TableCell>
-                  <TableCell>
-                    <TextField />
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      variant="outlined"
-                      color="error"
-                      sx={{ borderRadius: 50 }}
-                    >
-                      Remove
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-            <Button
-              variant="contained"
-              sx={{ borderRadius: 50, mt: 1, ml: 1, mb: 1 }}
-            >
-              Add
-            </Button>
-          </TableContainer>
-        </Paper>
+        {custom.map((item, index) => {
+          return (
+            <Paper sx={{ mt: 3 }}>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Question</TableCell>
+                      <TableCell>Answer</TableCell>
+                      <TableCell>Action</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>
+                        <TextField />
+                      </TableCell>
+                      <TableCell>
+                        <TextField />
+                      </TableCell>
+                      <TableCell>
+                        <Button
+                          variant="outlined"
+                          color="error"
+                          sx={{ borderRadius: 50 }}
+                          onClick={() => handleRemoveCustom(index)}
+                          disabled={index == 0}
+                        >
+                          Remove
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+                <Button
+                  variant="contained"
+                  sx={{ borderRadius: 50, mt: 1, ml: 1, mb: 1 }}
+                  onClick={handleAddCustom}
+                >
+                  Add
+                </Button>
+              </TableContainer>
+            </Paper>
+          );
+        })}
       </div>
     </div>
   );

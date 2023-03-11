@@ -27,7 +27,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 const CustomerList = () => {
-
   //!{useDispatch Starts}//
   const dispatch = useDispatch();
 
@@ -45,7 +44,7 @@ const CustomerList = () => {
   const [checkData, setCheckData] = useState([]);
   const [checkDataAll, setCheckDataAll] = useState(false);
   const [sort, setSort] = useState("");
-  
+
   //!{Functions Starts}//
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -150,7 +149,12 @@ const CustomerList = () => {
         <div className="Product-Top-button5">
           <Button
             variant="contained"
-            sx={{ borderRadius: "50px", backgroundColor: " #4B49AC" }}
+            sx={{
+              borderRadius: "50px",
+              backgroundColor: "#Becae6",
+              color: "black",
+              border: "3px solid gray ",
+            }}
           >
             Add Customer
           </Button>

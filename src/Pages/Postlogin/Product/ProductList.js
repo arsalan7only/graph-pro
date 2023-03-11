@@ -73,13 +73,31 @@ const ProductList = () => {
           <h2 style={{ color: "gray" }}>Product List</h2>
         </div>
         <div className="Product-Top-button11">
-          <Button variant="contained" sx={{ background: "#4b49ac" }}>
+          <Button
+            variant="contained"
+            sx={{
+              background: "#Becae6",
+              color: "black",
+              border: "2px solid gray",
+            }}
+          >
             Export CSV
           </Button>
-          <Button variant="contained" sx={{ background: "#4b49ac" }}>
+          <Button
+            variant="contained"
+            sx={{
+              background: "#Becae6",
+              color: "black",
+              border: "2px solid gray",
+            }}
+          >
             Import CSV
           </Button>
-          <Button variant="contained" color="success">
+          <Button
+            variant="contained"
+            color="success"
+            sx={{ border: "2px solid black" }}
+          >
             Add Product
           </Button>
         </div>
