@@ -36,24 +36,26 @@ const menuItemAnimation = {
 };
 
 const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
-  //{useStates Starts}//
+  //!{useStates Starts}//
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
   };
-  //{useEffects Starts}//
+
+  //!{useEffects Starts}//
   useEffect(() => {
     if (!isOpen) {
       setIsMenuOpen(false);
     }
   }, [isOpen]);
+
   return (
     <>
       <div className="menu" onClick={toggleMenu}>
         <div className="menu_item">
           <div className="icon">
-            <i class={route.icone}></i>
+            <i className={route.icone}></i>
           </div>
           <AnimatePresence>
             {isOpen && (
@@ -96,7 +98,7 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
               <motion.div variants={menuItemAnimation} key={i} custom={i}>
                 <NavLink to={subRoute.path} className="link">
                   <div className="icon">
-                    <i class={route.icone}></i>
+                    <i className={route.icone}></i>
                   </div>
                   <motion.div className="link_text">{subRoute.name}</motion.div>
                 </NavLink>

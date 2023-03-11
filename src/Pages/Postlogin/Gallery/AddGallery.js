@@ -10,13 +10,15 @@ import { useDispatch } from "react-redux";
 import { addGallery } from "../../../Redux/Actions/customerAction";
 
 const AddGallery = () => {
-  //{useDispatch Starts}//
+  //!{useDispatch Starts}//
   const dispatch = useDispatch();
-  //{useStates Starts}//
+
+  //!{useStates Starts}//
   const [title, setTitle] = useState("");
   const [imageCategory, setImageCategory] = useState("");
   const [imageFile, setImageFile] = useState("");
-  //{Functions Starts}//
+  
+  //!{Functions Starts}//
   const handleAddGallery = () => {
     const formData = new FormData();
     formData.append("title", title);

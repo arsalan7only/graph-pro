@@ -49,11 +49,12 @@ function createData(product, product_type, category, quantity, status, action) {
 }
 const rows = [createData("India", "IN"), createData("Russian", "RU")];
 const ProductList = () => {
-  //{useStates Starts}//
+  //!{useStates Starts}//
   const [age, setAge] = React.useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  //{Functions Starts}//
+
+  //!{Functions Starts}//
   const handleChange = (event) => {
     setAge(event.target.value);
   };

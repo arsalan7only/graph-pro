@@ -11,11 +11,13 @@ import { addCustomer } from "../../../Redux/Actions/customerAction";
 import "./AddCustomer.css";
 
 const AddCustomer = () => {
-  //{useDispatch Starts}//
+  //!{useDispatch Starts}//
   const dispatch = useDispatch();
-  //{useStates Starts}//
+
+  //!{useStates Starts}//
   const [customerData, setCustomerData] = useState({});
-  //{Functions Starts}//
+
+  //!{Functions Starts}//
   const handleSubmit = async () => {
     dispatch(addCustomer(customerData));
     setCustomerData({

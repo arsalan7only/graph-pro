@@ -14,13 +14,14 @@ import "./Login.css";
 import EmailIcon from "@mui/icons-material/Email";
 
 const Login = () => {
-  //{useStates Starts}//
+  //!{useStates Starts}//
   const [showPassword, setShowPassword] = React.useState(false);
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  //{Functions Starts}//
+
+  //!{Functions Starts}//
   const handleLogin = async () => {
     const payload = {
       username: username,
@@ -28,6 +29,7 @@ const Login = () => {
     };
     dispatch(userLogin(payload));
   };
+  
   return (
     <div style={{ backgroundColor: "BLACK", height: 713 }}>
       <h1 style={{ color: "white", display: "flex", justifyContent: "center" }}>

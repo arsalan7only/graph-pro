@@ -25,9 +25,10 @@ import { addproduct } from "../../../Redux/Actions/customerAction";
 import "./AddProduct.css";
 
 const AddProduct = () => {
-  //{useDispatch}//
+  //!{useDispatch}//
   const dispatch = useDispatch();
-  //{useStates}//
+
+  //!{useStates}//
   const [value, setValue] = useState("");
   const [status, setStatus] = useState("");
   const [open, setOpen] = useState(false);
@@ -65,7 +66,8 @@ const AddProduct = () => {
     readonly: false,
     placeholder: "Start typings...",
   };
-  //{Functions}//
+
+  //!{Functions}//
   const handleExpendChange = (index, PreExpend) => {
     const changeData = category.map((item, ind) => {
       if (index == ind) {
@@ -120,6 +122,7 @@ const AddProduct = () => {
       keywords: "",
     });
   };
+  
   return (
     <div className="product_main_container0">
       <div className="Product_Top_Add_container0">

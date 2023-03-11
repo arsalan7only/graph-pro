@@ -31,16 +31,19 @@ const SideBar = ({ children }) => {
       },
     },
   };
-  //{useStates Starts}//
+
+  //!{useStates Starts}//
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  //{Functions Starts}//
+
+  //!{Functions Starts}//
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <>
       <div className="Top-Nav-container">
@@ -104,7 +107,7 @@ const SideBar = ({ children }) => {
               )}
             </AnimatePresence>
             <div className="bars">
-              <i class="fa-solid fa-bars" onClick={toggle}></i>
+              <i className="fa-solid fa-bars" onClick={toggle}></i>
             </div>
           </div>
           <section className="routes">
@@ -124,10 +127,10 @@ const SideBar = ({ children }) => {
                   to={route.path}
                   key={index}
                   className="link"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   <div className="icon">
-                    <i class={route.icone}></i>
+                    <i className={route.icone}></i>
                   </div>
                   <AnimatePresence>
                     {isOpen && (

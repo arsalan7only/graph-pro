@@ -56,10 +56,10 @@ const rows = [
   ),
 ];
 const CategoryList = () => {
-  //{useStates Starts}//
+  //!{useStates Starts}//
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  //{Functions Starts}//
+  //!{Functions Starts}//
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };

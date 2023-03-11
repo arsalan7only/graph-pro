@@ -27,12 +27,15 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 const CustomerList = () => {
-  //{useDispatch Starts}//
+
+  //!{useDispatch Starts}//
   const dispatch = useDispatch();
-  //{useSelectors Starts}//
+
+  //!{useSelectors Starts}//
   const select = useSelector((state) => state);
   const customer = select.ProductReducer.customer;
-  //{useStates Starts}//
+
+  //!{useStates Starts}//
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [data, setData] = useState([]);
@@ -42,7 +45,8 @@ const CustomerList = () => {
   const [checkData, setCheckData] = useState([]);
   const [checkDataAll, setCheckDataAll] = useState(false);
   const [sort, setSort] = useState("");
-  //{Functions Starts}//
+  
+  //!{Functions Starts}//
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -124,7 +128,8 @@ const CustomerList = () => {
       handleSearch();
     }
   };
-  //{useEffects Starts}//
+
+  //!{useEffects Starts}//
   useEffect(() => {
     dispatch(getCustomer(rowsPerPage, page + 1));
   }, []);
