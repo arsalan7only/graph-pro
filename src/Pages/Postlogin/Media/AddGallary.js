@@ -4,14 +4,11 @@ import { useDispatch } from "react-redux";
 import { addGallary } from "../../../Redux/Actions/customerAction";
 
 
-
-
 const AddGallary = () => {
     const dispatch= useDispatch()
     const [title, setTitle] = useState("")
     const [imagecategory, setImageCategory] = useState("")
     const [imageFile, setImageFile] = useState([])
-
 
     const handleAddGallary = () => {
 

@@ -7,10 +7,13 @@ import { route } from "./RouteData";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useDispatch } from "react-redux";
 
 const SideBar = ({ children }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const dispatch = useDispatch()
 
   const showAnimation = {
     hidden: {
@@ -36,6 +39,17 @@ const SideBar = ({ children }) => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleSetting = (value) => {
+    if (value ==="logout") {
+      dispatch({
+        type: "USER_LOG_OUT",
+      });
+      handleClose();
+    } else {
+      handleClose();
+    }
   };
 
   return (
@@ -66,9 +80,13 @@ const SideBar = ({ children }) => {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={() => handleSetting("setting")}>
+              Setting
+            </MenuItem>
+            <MenuItem onClick={() => handleSetting("account")}>
+              My account
+            </MenuItem>
+            <MenuItem onClick={() => handleSetting("logout")}>Logout</MenuItem>
           </Menu>
         </div>
       </div>
@@ -114,6 +132,7 @@ const SideBar = ({ children }) => {
                     route={route}
                     showAnimation={showAnimation}
                     isOpen={isOpen}
+                    key={index}
                   />
                 );
               }
@@ -123,7 +142,7 @@ const SideBar = ({ children }) => {
                   to={route.path}
                   key={index}
                   className="link"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   <div className="icon">
                     <i className={route.icone}></i>

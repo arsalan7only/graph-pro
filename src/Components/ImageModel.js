@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
@@ -53,19 +53,18 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function ImageModel(props) {
-
   const { open, setOpen } = props;
 
   const dispatch = useDispatch();
   const select = useSelector((state) => state);
-  console.log(select);
-  const gallary = select.ProductReducer.gallary;
- console.log("gallary",gallary);
+ 
+  // const gallary = select.ProductReducer.gallary;
+  // console.log("gallary", gallary);
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(0);
   const [data, setData] = React.useState([]);
- 
+
   const [isOrder, setIsOrder] = React.useState("ASC");
   const [search, setSearch] = React.useState("");
 
@@ -83,19 +82,19 @@ export default function ImageModel(props) {
   };
 
   const fetch = async () => {
-    dispatch(getGallary(rowsPerPage, page+1));
+    dispatch(getGallary(rowsPerPage, page + 1));
   };
 
   React.useEffect(() => {
     if (open) {
       fetch();
     }
-  },[open]);
+  }, [open]);
 
-  React.useEffect(() => {
-    setData(gallary?.data);
-  },[gallary]);
-console.log("data",data)
+  // React.useEffect(() => {
+  //   setData(gallary?.data);
+  // }, [gallary]);
+  // console.log("data", data);
   return (
     <div>
       <BootstrapDialog
@@ -122,7 +121,11 @@ console.log("data",data)
                 <Grid item xs={4}>
                   <Card>
                     <CardContent>
-                      <img src={`data:image/png;base64,${base64String}`} width={400} height={400}/>
+                      <img
+                        src={`data:image/png;base64,${base64String}`}
+                        width={450}
+                        height={200}
+                      />
                       <CheckBox />
                       <Typography>{item.title}</Typography>
                     </CardContent>

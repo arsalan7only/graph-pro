@@ -1,7 +1,9 @@
 import axios from "axios";
 import {
+  ADD_CATEGORY_API,
   ADD_CUSTOMER_API,
   ADD_GALLARY_API,
+  ADD_PRODUCT_API,
   CUSTOMER_CHANGESTATUS_API,
   GET_CATEGORY_API,
   GET_CUSTOMER_API,
@@ -93,6 +95,31 @@ export const getparentcategory = () => (dispatch, getState) => {
         type: "GET_PARENT_CATEGORY",
         payload: res.data,
       });
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+
+export const addProduct = (payload) => (dispatch, getState) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(ADD_PRODUCT_API, payload);
+
+      resolve(res);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+export const addCategories = (payload) => (dispatch, getState) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(ADD_CATEGORY_API, payload);
+
       resolve(res);
     } catch (e) {
       reject(e);

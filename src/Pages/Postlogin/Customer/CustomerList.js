@@ -52,7 +52,7 @@ const CustomerList = () => {
 
   const handleSort = (sortby) => {
     setSort(sortby);
-    setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
+    setIsOrder(isOrder === "ASC" ? "DES" : "ASC");
     dispatch(getcustomer(rowsPerPage, page + 1, sortby, isOrder, search));
   };
 
@@ -68,7 +68,7 @@ const CustomerList = () => {
 
   const handleSingleChange = (index, val) => {
     const res = checkData.map((item, ind) => {
-      if (ind == index) {
+      if (ind === index) {
         return !val;
       } else {
         return item;
@@ -81,7 +81,7 @@ const CustomerList = () => {
     let id = [];
 
     checkData.forEach((item, index) => {
-      if (item == true) {
+      if (item === true) {
         id.push(data[index].id);
       }
     });
@@ -92,16 +92,16 @@ const CustomerList = () => {
 
     setCheckDataAll(false);
     dispatch(changeChangeStatus(payload));
-    if(sort=="")
+    if(sort==="")
     dispatch(
       getcustomer(rowsPerPage,page + 1,))
       else{
         dispatch(getcustomer(
           rowsPerPage,page+1,
-          isOrder=="ASC"?"DES":"ASC"
+          isOrder==="ASC"?"DES":"ASC"
         ))
       }
-      if(search!=""){
+      if(search!==""){
         handleSearch()
       }
   };
@@ -114,7 +114,7 @@ const CustomerList = () => {
     }
 
       dispatch(changeChangeStatus(payload));
-    if(sort=="")
+    if(sort==="")
       dispatch(
         getcustomer(rowsPerPage,page+1)
     );else{
@@ -122,27 +122,27 @@ const CustomerList = () => {
           rowsPerPage,
           page + 1,
           sort,
-          isOrder == "ASC" ? "DES" : "ASC",
+          isOrder === "ASC" ? "DES" : "ASC",
           
         ))
     }
-    if(search!=""){
+    if(search!==""){
       handleSearch()
     }
   }
 
   useEffect(() => {
     dispatch(getcustomer(rowsPerPage, page + 1));
-  }, []);
+  },[]);
   useEffect(() => {
     dispatch(getcustomer(rowsPerPage, page + 1));
-  }, [page, rowsPerPage]);
+  },[page,rowsPerPage]);
 
   useEffect(() => {
     setData(customer.data);
-    setCheckData(customer.data.slice().fill(false));
-  }, [customer]);
-  console.log(checkData);
+    setCheckData(customer?.data?.slice()?.fill(false));
+  },[customer]);
+  
   return (
     <div>
       <div className="Product_Top_Container3">

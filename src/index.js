@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import configStore from "./Redux/Store";
 import { persistStore } from "redux-persist";
-import { BrowserRouter } from "react-router-dom";
+
 
 const store = configStore();
 
