@@ -137,9 +137,9 @@ const CustomerList = () => {
   }, [page, rowsPerPage]);
   useEffect(() => {
     setData(customer.data);
-    setCheckData(customer.data.slice().fill(false));
+    setCheckData(customer?.data?.slice()?.fill(false));
   }, [customer]);
-  console.log(checkData);
+
   return (
     <div>
       <div className="Product_Top_container5">

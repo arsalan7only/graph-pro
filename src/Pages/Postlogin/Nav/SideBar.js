@@ -10,6 +10,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import "../Nav/SideBar.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useDispatch } from "react-redux";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,12 +37,25 @@ const SideBar = ({ children }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
+  //!{useDispatch Starts}
+  const dispatch = useDispatch();
+
   //!{Functions Starts}//
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleSetting = (value) => {
+    if (value == "logout") {
+      dispatch({
+        type: "USER_LOG_OUT",
+      });
+      handleClose();
+    } else {
+      handleClose();
+    }
   };
 
   return (
@@ -74,9 +88,13 @@ const SideBar = ({ children }) => {
               horizontal: "left",
             }}
           >
-            <MenuItem onClick={handleClose}>Setting</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={() => handleSetting("setting")}>
+              Setting
+            </MenuItem>
+            <MenuItem onClick={() => handleSetting("account")}>
+              My account
+            </MenuItem>
+            <MenuItem onClick={() => handleSetting("logout")}>Logout</MenuItem>
           </Menu>
         </div>
       </div>

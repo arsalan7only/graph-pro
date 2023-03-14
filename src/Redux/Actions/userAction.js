@@ -7,7 +7,7 @@ export const userLogin = (payload) => (dispatch, getState) => {
       const res = await axios.post(LOGIN_API, payload);
       dispatch({
         type:"USER_LOGGED",
-        payload:res.data.token
+        payload:res.data
       })
       resolve(res);
     } catch (e) {
