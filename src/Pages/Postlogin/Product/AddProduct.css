@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  width: 110%;
+  width: 90%;
 }
 
 li {
@@ -12,7 +12,7 @@ li {
 }
 
 .Add_product_container {
-  width: 110%;
+  width: 90%;
 }
 /* 
 .Product_main_container {

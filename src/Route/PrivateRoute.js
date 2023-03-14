@@ -8,6 +8,10 @@ import CatogeryList from "../Pages/Postlogin/Category/CatogeryList";
 import BrandList from "../Pages/Postlogin/Brand/BrandList";
 import CustomerList from "../Pages/Postlogin/Customer/CustomerList";
 import AddProduct from "../Pages/Postlogin/Product/AddProduct";
+import AddCategory from "../Pages/Postlogin/Category/AddCategory";
+import AddCustomer from "../Pages/Postlogin/Customer/AddCustomer";
+import AddCoupen from "../Pages/Postlogin/Coupen/AddCoupen";
+import AddGallery from "../Pages/Postlogin/Gallery/AddGallery";
 
 const PrivateRoute = () => {
   return (
@@ -20,8 +24,12 @@ const PrivateRoute = () => {
             <Route path="/product/productlist" element={<ProductList />} />
             <Route path="/product/addproduct" element={<AddProduct />} />
             <Route path="/catogery/catogeryList" element={<CatogeryList />} />
+            <Route path="/category/addcategory" element={<AddCategory />} />
             <Route path="/brand/brandList" element={<BrandList />} />
             <Route path="/customer/customerlist" element={<CustomerList />} />
+            <Route path="/customer/addcustomer" element={<AddCustomer />} />
+            <Route path="/coupen/addcoupen" element={<AddCoupen />} />
+            <Route path="/gallery/addgallery" element={<AddGallery />} />
             <Route path="*" element={<> not found</>} />
           </Routes>
         </SideBar>

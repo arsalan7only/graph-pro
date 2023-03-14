@@ -9,7 +9,6 @@ const Auth = () => {
 
   const [Logged, setLogged] = useState(false);
 
-
   useEffect(() => {
     if (token.length > 0) {
       setLogged(true);

@@ -1,181 +1,289 @@
 import {
-    Button,
-    Card,
-    CardContent,
-    Checkbox,
-    TextField,
-  } from "@mui/material";
-  import React, { useState } from "react";
-  import "./CustomerList.css";
-  import Paper from "@mui/material/Paper";
-  import Table from "@mui/material/Table";
-  import TableBody from "@mui/material/TableBody";
-  import TableCell from "@mui/material/TableCell";
-  import TableContainer from "@mui/material/TableContainer";
-  import TableHead from "@mui/material/TableHead";
-  import TablePagination from "@mui/material/TablePagination";
-  import TableRow from "@mui/material/TableRow";
-  import ImportExportIcon from '@mui/icons-material/ImportExport';
-  const columns = [
-    { id: "customer_name", label: "Customer Name", minWidth: 10 },
-    { id: "mobile_number", label: "Mobile Number", minWidth: 10 },
-    {
-      id: "email",
-      label: "Eamil",
-      minWidth: 10,
-      format: (value) => value.toLocaleString("en-US"),
-    },
-    {
-      id: "orders_placed",
-      label: "Order Placed",
-      minWidth: 10,
-      format: (value) => value.toLocaleString("en-US"),
-    },
-    {
-      id: "total_sales",
-      label: "Total Sales",
-      minWidth: 10,
-      format: (value) => value.toLocaleString("en-US"),
-    },
-    {
-      id: "status",
-      label: "Status",
-      minWidth: 10,
-      format: (value) => value.toFixed(2),
-    },
-    {
-      id: "action",
-      label: "Action",
-      minWidth: 10,
-      format: (value) => value.toFixed(2),
-    },
-  ];
-  
-  function createData(customer_name, mobile_number, email, orders_placed,total_sales, status, action) {
-    return { customer_name, mobile_number, email, orders_placed,total_sales, status, action };
-  }
-  
-  const rows = [
-    createData("India", "IN", 1324171354, 3287263),
-    createData("China", "CN", 1403500365, 9596961),
-    createData("Italy", "IT", 60483973, 301340),
-    createData("United States", "US", 327167434, 9833520),
-    createData("Canada", "CA", 37602103, 9984670),
-    createData("Australia", "AU", 25475400, 7692024),
-    createData("Germany", "DE", 83019200, 357578),
-    createData("Ireland", "IE", 4857000, 70273),
-    createData("Mexico", "MX", 126577691, 1972550),
-    createData("Japan", "JP", 126317000, 377973),
-    createData("France", "FR", 67022000, 640679),
-    createData("United Kingdom", "GB", 67545757, 242495),
-    createData("Russia", "RU", 146793744, 17098246),
-    createData("Nigeria", "NG", 200962417, 923768),
-    createData("Brazil", "BR", 210147125, 8515767),
-  ];
-  
-  const CustomerList = () => {
-  
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const handleChangePage = (event, newPage) => {
-      setPage(newPage);
+  Button,
+  Card,
+  CardContent,
+  Checkbox,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import "./CustomerList.css";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  customerChangeStatus,
+  getCustomer,
+} from "../../../Redux/Actions/customerAction";
+
+const CustomerList = () => {
+  const dispatch = useDispatch();
+  const select = useSelector((state) => state);
+  const customer = select.ProductReducer.customer;
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [data, setData] = useState([]);
+  const [isOrder, setIsOrder] = useState("ASC");
+  const [search, setSearch] = useState("");
+  const [action, setAction] = useState("");
+  const [checkData, setCheckData] = useState([]);
+  const [checkDataAll, setCheckDataAll] = useState(false);
+  const [sort, setSort] = useState("");
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const handleSort = (sortby) => {
+    setSort(sortby);
+    setIsOrder(isOrder == "ASC" ? "DES" : "ASC");
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder));
+  };
+
+  const handleSearch = (sortby, isOrder) => {
+    dispatch(getCustomer(rowsPerPage, page + 1, sortby, isOrder, search));
+  };
+
+  const handleChangeAll = (e) => {
+    setCheckData(data.slice().fill(!checkDataAll));
+    setCheckDataAll(!checkDataAll);
+  };
+
+  const handleSingleChange = (index, val) => {
+    const res = checkData.map((item, ind) => {
+      if (ind == index) {
+        return !val;
+      } else {
+        return item;
+      }
+    });
+    setCheckData(res);
+  };
+
+  const handleChangeStatus = () => {
+    let id = [];
+    checkData.forEach((item, index) => {
+      if (item == true) {
+        id.push(data[index].id);
+      }
+    });
+    const paylaod = {
+      id: id,
+      status: action,
     };
-  
-    const handleChangeRowsPerPage = (event) => {
-      setRowsPerPage(+event.target.value);
-      setPage(0);
+
+    setCheckDataAll(false);
+    dispatch(customerChangeStatus(paylaod));
+    if (sort == "") {
+      dispatch(getCustomer(rowsPerPage, page + 1));
+    } else {
+      dispatch(
+        getCustomer(
+          rowsPerPage,
+          page + 1,
+          sort,
+          isOrder == "ASC" ? "DES" : "ASC"
+        )
+      );
+    }
+    if (search != "") {
+      handleSearch();
+    }
+  };
+
+  const handleSingleStatusChange = (id, status) => {
+    const payload = {
+      id: [id],
+      status: status ? 0 : 1,
     };
-    return (
-      <div>
-        <div className="Product_Top_container1">
-          <div>
-            <h3>Customer List</h3>
-          </div>
-          <div className="Product-Top-button1">
-            <Button variant="contained" color="success">
-              Add Customer
-            </Button>
-          </div>
+    dispatch(customerChangeStatus(payload));
+    if (sort == "") {
+      dispatch(getCustomer(rowsPerPage, page + 1));
+    } else {
+      dispatch(
+        getCustomer(
+          rowsPerPage,
+          page + 1,
+          sort,
+          isOrder == "ASC" ? "DES" : "ASC"
+        )
+      );
+    }
+
+    if (search != "") {
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getCustomer(rowsPerPage, page + 1));
+  }, [page, rowsPerPage]);
+
+  useEffect(() => {
+    setData(customer.data);
+    setCheckData(customer?.data?.slice()?.fill(false));
+  }, [customer]);
+
+  console.log(checkData);
+  return (
+    <div>
+      <div className="Product_Top_container1">
+        <div>
+          <h3>Customer List</h3>
         </div>
-        {/* Top container closed */}
-        <div className="Card-container1">
-          <Card>
-            <CardContent>
-              <div className="opetion-container">
-                <TextField variant="outlined" label="search" />
-                <Button variant="contained">Searchs</Button>
-              </div>
-              <Paper sx={{ width: "100%" }}>
-                <TableContainer>
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>
-                          <Checkbox />
-                        </TableCell>
-                        {columns.map((column) => (
-                          <TableCell
-                            key={column.id}
-                            align={column.align}
-                            style={{ top: 57, minWidth: column.minWidth }}
-                          >
-                            {column.label}
-                            <ImportExportIcon sx={{mb:-1}}/>
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rows
-                        .slice(
-                          page * rowsPerPage,
-                          page * rowsPerPage + rowsPerPage
-                        )
-                        .map((row) => {
-                          return (
-                            <TableRow
-                              hover
-                              role="checkbox"
-                              tabIndex={-1}
-                              key={row.code}
-                            >
-                              <TableCell>
-                                <Checkbox />
-                              </TableCell>
-                              {columns.map((column) => {
-                                const value = row[column.id];
-                                return (
-                                  <TableCell key={column.id} align={column.align}>
-                                    {value}
-                                  </TableCell>
-                                );
-                              })}
-                            </TableRow>
-                          );
-                        })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-                <Button variant="outlined" color="error">
-                Inactive
-              </Button>
-              <Button variant="contained">Apply</Button>
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 15, 20, 25]}
-                  component="div"
-                  count={rows.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-              </Paper>
-            </CardContent>
-          </Card>
+        <div className="Product-Top-button1">
+          <Button variant="contained" color="success">
+            Add Customer
+          </Button>
         </div>
       </div>
-    );
-  };
-  
-  export default CustomerList;
-  
+      {/* Top container closed */}
+      <div className="Card-container1">
+        <Card>
+          <CardContent>
+            <div className="opetion-container">
+              <TextField
+                variant="outlined"
+                label="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Button variant="contained" onClick={handleSearch}>
+                Searchs
+              </Button>
+            </div>
+            <Paper sx={{ width: "100%" }}>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        <Checkbox
+                          checked={checkDataAll}
+                          onChange={handleChangeAll}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        Name{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("fname")}
+                        />{" "}
+                      </TableCell>
+                      <TableCell>
+                        Mobile Number{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("mobile")}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        Email{" "}
+                        <ImportExportIcon
+                          sx={{ mb: -1 }}
+                          onClick={() => handleSort("email")}
+                        />
+                      </TableCell>
+                      <TableCell>Total Order</TableCell>
+                      <TableCell>Total Sale</TableCell>
+                      <TableCell>Status</TableCell>
+                      <TableCell>Action</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {data.map((item, index) => {
+                      return (
+                        <TableRow
+                          hover
+                          role="checkbox"
+                          tabIndex={-1}
+                          key={item.id}
+                        >
+                          <TableCell>
+                            <Checkbox
+                              checked={checkData[index]}
+                              onChange={() =>
+                                handleSingleChange(index, checkData[index])
+                              }
+                            />
+                          </TableCell>
+                          <TableCell>
+                            {item.fname} {item.lname}
+                          </TableCell>
+                          <TableCell>{item.mobile}</TableCell>
+                          <TableCell>{item.email}</TableCell>
+                          <TableCell>{item.totalorder}</TableCell>
+                          <TableCell>{item.totalsale}</TableCell>
+                          <TableCell>
+                            <Button
+                              variant="contained"
+                              color={item.status ? "success" : "error"}
+                              onClick={() =>
+                                handleSingleStatusChange(item.id, item.status)
+                              }
+                            >
+                              {item.status ? "ACTIVE" : "Inactive"}
+                            </Button>
+                          </TableCell>
+                          <TableCell>
+                            <Button variant="contained">Edit</Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <FormControl sx={{ width: 200 }}>
+                <InputLabel id="demo-simple-select-label">Action</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={action}
+                  label="Action"
+                  onChange={(e) => setAction(e.target.value)}
+                >
+                  <MenuItem value={1}>Active</MenuItem>
+                  <MenuItem value={0}>Inactive</MenuItem>
+                  <MenuItem value={2}>Delete</MenuItem>
+                </Select>
+              </FormControl>
+              <Button variant="contained" onClick={handleChangeStatus}>
+                Apply
+              </Button>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 15, 20, 25]}
+                component="div"
+                count={customer?.pages?.count}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Paper>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default CustomerList;

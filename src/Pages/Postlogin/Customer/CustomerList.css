@@ -2,13 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 110%;
+  width: 100%;
 }
 .Product-Top-button button {
   margin: 0px 5px;
 }
 .Card-container1 {
-  width: 110%;
+  width: 100%;
 }
 .opetion-container {
   display: flex;

@@ -84,6 +84,7 @@ main {
 .link_text {
   white-space: nowrap;
   font-size: 15px;
+  text-decoration: none;
 }
 
 .menu {

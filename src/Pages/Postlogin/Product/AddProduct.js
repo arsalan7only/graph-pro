@@ -20,9 +20,12 @@ import {
 } from "@mui/material";
 import JoditEditorComp from "../../../Components/JoditEditorComp";
 import "./AddProduct.css";
+import ImageModel from "../../../Components/ImageModel";
 const AddProduct = () => {
   const [value, setValue] = useState("");
   const [status, setStatus] = useState("");
+  const [open, setOpen] = React.useState(false);
+
   const [category, setCategory] = useState([
     {
       name: "Accessories",
@@ -68,6 +71,10 @@ const AddProduct = () => {
     setCategory(changeData);
   };
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <div className="Product_main_container">
       <div className="Product_Top_Add_container">
@@ -105,7 +112,10 @@ const AddProduct = () => {
             <Card sx={{ mt: 3 }}>
               <CardContent>
                 <Typography>Media</Typography>
-                <Button variant="contained">Upload Media</Button>
+                <Button variant="contained" onClick={handleClickOpen}>
+                  Upload Media
+                </Button>
+                <ImageModel open={open} setOpen={setOpen} />
               </CardContent>
             </Card>
           </Grid>
