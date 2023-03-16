@@ -72,7 +72,7 @@ const AddCoupenCode = () => {
     <div className="product_main_container01">
       <div className="Product_Top_Add_container01">
         <div>
-          <h2 style={{ color: "gray", marginBottom: 20 }}>Add Coupen Code</h2>
+          <h2 style={{ marginBottom: 20 }}>Add Coupen Code</h2>
         </div>
       </div>
       <div>

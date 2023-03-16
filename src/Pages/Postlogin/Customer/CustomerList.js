@@ -144,7 +144,7 @@ const CustomerList = () => {
     <div>
       <div className="Product_Top_container5">
         <div>
-          <h2 style={{ color: "gray" }}>Customer List</h2>
+          <h2>Customer List</h2>
         </div>
         <div className="Product-Top-button5">
           <Button
@@ -153,7 +153,7 @@ const CustomerList = () => {
               borderRadius: "50px",
               backgroundColor: "#Becae6",
               color: "black",
-              border: "3px solid gray ",
+              border: "3px solid black ",
             }}
           >
             Add Customer
@@ -217,7 +217,7 @@ const CustomerList = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data.map((item, index) => {
+                    {data?.map((item, index) => {
                       return (
                         <TableRow>
                           <TableCell>

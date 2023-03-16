@@ -32,7 +32,7 @@ const AddCustomer = () => {
     <div>
       <div>
         <div>
-          <h2 style={{ color: "gray", marginBottom: 20 }}>Add New Customer</h2>
+          <h2 style={{ marginBottom: 20 }}>Add New Customer</h2>
         </div>
       </div>
       {/* TOP NAV CONTAINER ENDS*/}

@@ -17,7 +17,7 @@ const AddGallery = () => {
   const [title, setTitle] = useState("");
   const [imageCategory, setImageCategory] = useState("");
   const [imageFile, setImageFile] = useState("");
-  
+
   //!{Functions Starts}//
   const handleAddGallery = () => {
     const formData = new FormData();
@@ -32,7 +32,7 @@ const AddGallery = () => {
     <div className="product_main_container">
       <div className="Product_Top_ADD_container5">
         <div>
-          <h2 style={{ color: "gray" }}>Add Gallery</h2>
+          <h2 style={{ marginBottom: 20 }}>Add Gallery</h2>
         </div>
       </div>
       <Card>

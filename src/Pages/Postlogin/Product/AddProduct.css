@@ -1,19 +1,18 @@
-.Product_Top_Add_container0{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 106%;
-    color: gray;
+.Product_Top_Add_container0 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 106%;
 }
-li{
-    list-style: none;
-    margin-top: 5px;
+li {
+  list-style: none;
+  margin-top: 5px;
 }
-.Add_product-container0{
-    width: 106%;
+.Add_product-container0 {
+  width: 106%;
 }
-.button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

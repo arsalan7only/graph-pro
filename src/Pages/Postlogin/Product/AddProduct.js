@@ -23,6 +23,8 @@ import ImageModel from "../../../Components/ImageModel";
 import JoditEditorComp from "../../../Components/JoditEditorComp";
 import { addproduct } from "../../../Redux/Actions/customerAction";
 import "./AddProduct.css";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const AddProduct = () => {
   //!{useDispatch}//
@@ -144,7 +146,7 @@ const AddProduct = () => {
               borderRadius: 50,
               backgroundColor: "#Becae6",
               color: "black",
-              border: "3px solid gray ",
+              border: "3px solid black ",
             }}
             onClick={handleSubmit}
           >
@@ -230,7 +232,15 @@ const AddProduct = () => {
                         <span
                           onClick={() => handleExpendChange(index, item.expend)}
                         >
-                          {item.expend ? "-" : "+"}
+                          {item.expend ? 
+                            <RemoveCircleIcon
+                              sx={{ fontSize: 12, cursor: "pointer" }}
+                            />
+                           : 
+                            <AddCircleIcon
+                              sx={{ fontSize: 12, cursor: "pointer" }}
+                            />
+                          }
                           {item.name}
                         </span>
                         <ul>

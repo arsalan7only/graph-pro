@@ -70,7 +70,7 @@ const ProductList = () => {
     <div>
       <div className="Product_Top_container11">
         <div>
-          <h2 style={{ color: "gray" }}>Product List</h2>
+          <h2>Product List</h2>
         </div>
         <div className="Product-Top-button11">
           <Button
@@ -78,7 +78,7 @@ const ProductList = () => {
             sx={{
               background: "#Becae6",
               color: "black",
-              border: "2px solid gray",
+              border: "2px solid black",
             }}
           >
             Export CSV
@@ -88,7 +88,7 @@ const ProductList = () => {
             sx={{
               background: "#Becae6",
               color: "black",
-              border: "2px solid gray",
+              border: "2px solid black",
             }}
           >
             Import CSV
