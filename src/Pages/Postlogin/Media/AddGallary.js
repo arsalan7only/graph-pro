@@ -11,7 +11,6 @@ const AddGallary = () => {
     const [imageFile, setImageFile] = useState([])
 
     const handleAddGallary = () => {
-
         const formData = new FormData()
         console.log(imageFile);
         formData.append("title",title)
@@ -33,7 +32,7 @@ const AddGallary = () => {
             </div>
 
             <Card>
-                <CardContent>s
+                <CardContent>
                     <div className="sub_container">
                         <Typography>Title</Typography>
                         <TextField label="Add Title" variant="outlined"

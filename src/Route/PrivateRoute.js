@@ -15,6 +15,7 @@ import Transaction from "../Pages/Postlogin/Transaction/Transaction";
 import AddCoupenCode from "../Pages/Postlogin/Coupen/AddCouponCode";
 import AddNewCustomer from "../Pages/Postlogin/Customer/AddNewCustomer";
 import AddGallary from "../Pages/Postlogin/Media/AddGallary";
+import EditCustomer from "../Pages/Postlogin/Customer/EditCustomer";
 
 const PrivateRoute = () => {
   return (
@@ -28,6 +29,7 @@ const PrivateRoute = () => {
             <Route path="/product/productList" element={<ProductList />} />
             <Route path="/category/categorylist" element={<CategoryList />} />
             <Route path="/customer/addnewcustemer" element={<AddNewCustomer />} />
+            <Route path="/customer/editcustemer/:id" element={<EditCustomer />} />
             <Route path="/category/addcategorylist" element={<AddCategory />} />
             <Route path="/product/addproduct" element={<AddProduct />} />
             <Route path="/brand/brandList" element={<Brand />} />

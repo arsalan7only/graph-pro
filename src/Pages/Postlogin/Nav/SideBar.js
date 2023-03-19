@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
@@ -14,6 +14,7 @@ const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const showAnimation = {
     hidden: {
@@ -42,6 +43,7 @@ const SideBar = ({ children }) => {
   };
 
   const handleSetting = (value) => {
+    navigate("/")
     if (value ==="logout") {
       dispatch({
         type: "USER_LOG_OUT",

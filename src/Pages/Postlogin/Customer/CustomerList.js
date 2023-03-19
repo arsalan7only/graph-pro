@@ -25,13 +25,15 @@ import {
   getcustomer,
 } from "../../../Redux/Actions/customerAction";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
+import { useNavigate } from "react-router-dom";
 
 const CustomerList = () => {
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const select = useSelector((state) => state);
   const customer = select.ProductReducer.customer;
 
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [data, setData] = useState([]);
   const [isOrder, setIsOrder] = useState("ASC");
@@ -40,6 +42,7 @@ const CustomerList = () => {
   const [checkData, setCheckData] = useState([]);
   const [checkDataAll, setCheckDataAll] = useState(false);
   const [sort, setSort] = useState("");
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -131,9 +134,18 @@ const CustomerList = () => {
     }
   }
 
+  const handleNavigate=()=>{
+    navigate("/customer/addnewcustemer")
+  }
+
+  const handleEdit=(id)=>{
+    navigate(`/customer/editcustemer/${id}`)
+  }
+
   useEffect(() => {
     dispatch(getcustomer(rowsPerPage, page + 1));
   },[]);
+  
   useEffect(() => {
     dispatch(getcustomer(rowsPerPage, page + 1));
   },[page,rowsPerPage]);
@@ -150,7 +162,8 @@ const CustomerList = () => {
           <h1>Customer List</h1>
         </div>
         <div className="Product_Top_Button3">
-          <Button variant="contained" color="success">
+          <Button variant="contained" color="success" 
+          onClick={handleNavigate} >
             ADD CUSTOMER
           </Button>
         </div>
@@ -213,7 +226,7 @@ const CustomerList = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data.map((item, index) => {
+                    {data?.map((item, index) => {
                       return (
                         <TableRow>
                           <TableCell>
@@ -242,7 +255,7 @@ const CustomerList = () => {
                             </Button>
                           </TableCell>
                           <TableCell>
-                            <Button variant="contained">Edit</Button>
+                            <Button variant="contained" onClick={()=>handleEdit(item.id)} >Edit</Button>
                           </TableCell>
                         </TableRow>
                       );
