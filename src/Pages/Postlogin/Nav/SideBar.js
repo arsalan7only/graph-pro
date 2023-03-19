@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -37,8 +37,11 @@ const SideBar = ({ children }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  //!{useDispatch Starts}
+  //!{useDispatch Starts}//
   const dispatch = useDispatch();
+
+  //!{useNavigate Starts}//
+  const navigate =useNavigate()
 
   //!{Functions Starts}//
   const handleClick = (event) => {
@@ -48,6 +51,7 @@ const SideBar = ({ children }) => {
     setAnchorEl(null);
   };
   const handleSetting = (value) => {
+    navigate("/")
     if (value == "logout") {
       dispatch({
         type: "USER_LOG_OUT",

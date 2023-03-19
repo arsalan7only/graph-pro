@@ -5,28 +5,36 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Toaster from "../../../Components/Toaster";
-import { addCustomer } from "../../../Redux/Actions/customerAction";
+import {
+  addEditCustomer,
+  getEditCustomer,
+} from "../../../Redux/Actions/customerAction";
 import "./AddCustomer.css";
 
-const AddCustomer = () => {
+const EditCustomer = () => {
   //!{useDispatch Starts}//
   const dispatch = useDispatch();
 
   //!{useNavigate}//
   const navigate = useNavigate();
 
+  //!{useParams Starts}
+  const param = useParams();
+  const id = param.id;
+
   //!{useStates Starts}//
   const [customerData, setCustomerData] = useState({});
 
   //!{Functions Starts}//
   const handleSubmit = async () => {
-    const res = await dispatch(addCustomer(customerData));
+    const res = await dispatch(addEditCustomer(id, customerData));
+    console.log("res", res);
     if (res.status == 200) {
-      Toaster(true, res.data);
+      Toaster(true, res.data.message);
       navigate("/costomer/costomerList");
     }
     setCustomerData({
@@ -37,11 +45,23 @@ const AddCustomer = () => {
       gender: "",
     });
   };
+  const fetch = async () => {
+    const res = await dispatch(getEditCustomer(id));
+    if (res.data.length > 0) {
+      setCustomerData(res.data[0]);
+    }
+    console.log(res);
+  };
+
+  //!{useEffects Starts}//
+  useEffect(() => {
+    fetch();
+  }, []);
   return (
     <div>
       <div>
         <div>
-          <h2 style={{ marginBottom: 20 }}>Add New Customer</h2>
+          <h2 style={{ marginBottom: 20 }}>Edit Customer</h2>
         </div>
       </div>
       {/* TOP NAV CONTAINER ENDS*/}
@@ -52,7 +72,6 @@ const AddCustomer = () => {
             <Typography>First Name</Typography>
             <TextField
               variant="outlined"
-              label="Enter First Name"
               value={customerData.fname}
               onChange={(e) =>
                 setCustomerData({ ...customerData, fname: e.target.value })
@@ -63,7 +82,6 @@ const AddCustomer = () => {
             <Typography>Last Name</Typography>
             <TextField
               variant="outlined"
-              label="Enter Last Name"
               value={customerData.lname}
               onChange={(e) =>
                 setCustomerData({ ...customerData, lname: e.target.value })
@@ -74,7 +92,6 @@ const AddCustomer = () => {
             <Typography>E-Mail</Typography>
             <TextField
               variant="outlined"
-              label="Enter E-Mail"
               value={customerData.email}
               onChange={(e) =>
                 setCustomerData({ ...customerData, email: e.target.value })
@@ -85,7 +102,6 @@ const AddCustomer = () => {
             <Typography>Mobile Number</Typography>
             <TextField
               variant="outlined"
-              label="Enter Mobile Number"
               style={{ marginRight: "25px" }}
               value={customerData.mobile}
               onChange={(e) =>
@@ -133,7 +149,7 @@ const AddCustomer = () => {
             sx={{ borderRadius: "50px" }}
             onClick={handleSubmit}
           >
-            Add Customer
+            Save Customer
           </Button>
         </CardContent>
       </Card>
@@ -141,4 +157,4 @@ const AddCustomer = () => {
   );
 };
 
-export default AddCustomer;
+export default EditCustomer;

@@ -81,7 +81,7 @@ const Transaction = () => {
       <div className="Product_Top_container12"></div>
       {/*Top Container closed*/}
       <div>
-        <h2 style={{ marginBottom: 20, color: "gray" }}>Transaction</h2>
+        <h2 style={{ marginBottom: 20 }}>Transaction</h2>
       </div>
       <div className="card-container12">
         <Card>

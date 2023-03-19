@@ -72,7 +72,7 @@ const OrderList = () => {
     <div>
       <div className="Product_Top_container10">
         <div>
-          <h2 style={{ color: "gray", marginBottom: 20 }}>Order List</h2>
+          <h2 style={{ marginBottom: 15 }}>Order List</h2>
         </div>
       </div>
       {/*Top Container closed*/}

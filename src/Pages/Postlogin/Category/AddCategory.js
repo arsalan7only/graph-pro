@@ -51,7 +51,7 @@ const AddCategory = () => {
     <div>
       <div>
         <div>
-          <h2 style={{ marginBottom: 20, color: "gray" }}>Add Category</h2>
+          <h2 style={{ marginBottom: 20 }}>Add Category</h2>
         </div>
       </div>
       {/* TOP NAV CONTAINER ENDS*/}

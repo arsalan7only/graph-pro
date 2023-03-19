@@ -67,7 +67,7 @@ const BrandList = () => {
     <div>
       <div className="Product_Top_container2">
         <div>
-          <h2 style={{ color: "gray" }}>Brand List</h2>
+          <h2>Brand List</h2>
         </div>
         <div className="Product-Top-button2">
           <Button

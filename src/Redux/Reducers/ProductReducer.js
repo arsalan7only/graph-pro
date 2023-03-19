@@ -3,6 +3,7 @@ const initialState = {
   customer: [],
   gallery: [],
   parentcategory: [],
+  category: [],
 };
 
 export const ProductReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ export const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         parentcategory: action.payload,
+      };
+    case "GET_CATEGORY":
+      return {
+        ...state,
+        category: action.payload,
       };
   }
   return state;

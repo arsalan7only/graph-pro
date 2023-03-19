@@ -25,10 +25,14 @@ import {
   getCustomer,
 } from "../../../Redux/Actions/customerAction";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const CustomerList = () => {
   //!{useDispatch Starts}//
   const dispatch = useDispatch();
+
+  //!{useNavigate Statrs}//
+  const navigate = useNavigate();
 
   //!{useSelectors Starts}//
   const select = useSelector((state) => state);
@@ -127,6 +131,12 @@ const CustomerList = () => {
       handleSearch();
     }
   };
+  const handleNavigate = () => {
+    navigate("/costomer/addcustomer");
+  };
+  const handleEdit = (id) => {
+    navigate(`/costomer/editcustomer/${id}`);
+  };
 
   //!{useEffects Starts}//
   useEffect(() => {
@@ -149,6 +159,7 @@ const CustomerList = () => {
         <div className="Product-Top-button5">
           <Button
             variant="contained"
+            onClick={handleNavigate}
             sx={{
               borderRadius: "50px",
               backgroundColor: "#Becae6",
@@ -250,6 +261,7 @@ const CustomerList = () => {
                           <TableCell>
                             <Button
                               variant="contained"
+                              onClick={() => handleEdit(item.id)}
                               sx={{ borderRadius: 50 }}
                             >
                               Edit
