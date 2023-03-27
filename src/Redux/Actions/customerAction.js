@@ -6,11 +6,11 @@ import {
   ADD_GALLERY_API,
   ADD_PRODUCT_API,
   CUSTOMER_CHANGESTATUS_API,
-  GET_CATEGORYS_API,
   GET_CATEGORY_API,
   GET_CUSTOMER_API,
   GET_EDIT_CUSTOMER_API,
   GET_GALLERY_API,
+  GET_PARENTCATEGORY_API,
 } from "../../Api/BaseURL";
 import Toaster from "../../Components/Toaster";
 
@@ -117,7 +117,7 @@ export const getgallery =
 export const getparentcategory = () => (dispatch, getState) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const res = await axios.get(GET_CATEGORY_API);
+      const res = await axios.get(GET_PARENTCATEGORY_API);
       dispatch({
         type: "GET_PARENT_CATEGORY",
         payload: res.data,
@@ -143,7 +143,7 @@ export const getcategory =
     return new Promise(async (resolve, reject) => {
       try {
         const res = await axios.get(
-          `${GET_CATEGORYS_API}?rowperpage=${rowperpage}&page=${page}&sortby=${sortby}&order=${order}&search=${
+          `${GET_CATEGORY_API}?rowperpage=${rowperpage}&page=${page}&sortby=${sortby}&order=${order}&search=${
             search ? search : ""
           }`
         );

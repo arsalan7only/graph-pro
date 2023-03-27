@@ -5,12 +5,12 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
 import { route } from "./RouteData";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import "../Nav/SideBar.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useDispatch } from "react-redux";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const SideBar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ const SideBar = ({ children }) => {
   const dispatch = useDispatch();
 
   //!{useNavigate Starts}//
-  const navigate =useNavigate()
+  const navigate = useNavigate();
 
   //!{Functions Starts}//
   const handleClick = (event) => {
@@ -51,7 +51,7 @@ const SideBar = ({ children }) => {
     setAnchorEl(null);
   };
   const handleSetting = (value) => {
-    navigate("/")
+    navigate("/");
     if (value == "logout") {
       dispatch({
         type: "USER_LOG_OUT",
@@ -92,13 +92,10 @@ const SideBar = ({ children }) => {
               horizontal: "left",
             }}
           >
-            <MenuItem onClick={() => handleSetting("setting")}>
-              Setting
+            <MenuItem onClick={() => handleSetting("logout")}>
+              <LogoutIcon sx={{ color: "red" }} />
+              Logout
             </MenuItem>
-            <MenuItem onClick={() => handleSetting("account")}>
-              My account
-            </MenuItem>
-            <MenuItem onClick={() => handleSetting("logout")}>Logout</MenuItem>
           </Menu>
         </div>
       </div>
@@ -137,6 +134,7 @@ const SideBar = ({ children }) => {
               if (route.subRoutes) {
                 return (
                   <SidebarMenu
+                    key={index}
                     setIsOpen={setIsOpen}
                     route={route}
                     showAnimation={showAnimation}

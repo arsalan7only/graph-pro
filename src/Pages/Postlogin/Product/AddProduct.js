@@ -25,6 +25,7 @@ import { addproduct } from "../../../Redux/Actions/customerAction";
 import "./AddProduct.css";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 const AddProduct = () => {
   //!{useDispatch}//
@@ -233,12 +234,12 @@ const AddProduct = () => {
                           onClick={() => handleExpendChange(index, item.expend)}
                         >
                           {item.expend ? 
-                            <RemoveCircleIcon
-                              sx={{ fontSize: 12, cursor: "pointer" }}
+                            <RemoveCircleOutlineIcon
+                              sx={{ fontSize: 15, cursor: "pointer" }}
                             />
                            : 
                             <AddCircleIcon
-                              sx={{ fontSize: 12, cursor: "pointer" }}
+                              sx={{ fontSize: 15, cursor: "pointer" }}
                             />
                           }
                           {item.name}
@@ -427,7 +428,6 @@ const AddProduct = () => {
               <Grid item xs={3}>
                 <TextField
                   variant="outlined"
-                  label="Meta Tags"
                   value={seoData.metatags}
                   onChange={(e) =>
                     setSeoData({ ...seoData, metatags: e.target.value })
@@ -442,7 +442,6 @@ const AddProduct = () => {
               <Grid item xs={3}>
                 <TextField
                   variant="outlined"
-                  label="Description"
                   value={seoData.description}
                   onChange={(e) =>
                     setSeoData({ ...seoData, description: e.target.value })
@@ -456,7 +455,6 @@ const AddProduct = () => {
               <Grid item xs={3}>
                 <TextField
                   variant="outlined"
-                  label="Keyword"
                   value={seoData.keywords}
                   onChange={(e) =>
                     setSeoData({ ...seoData, keywords: e.target.value })

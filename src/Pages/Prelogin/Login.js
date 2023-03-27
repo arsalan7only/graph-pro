@@ -104,31 +104,31 @@ const Login = () => {
             <li className="icon facebook">
               <span className="tooltip">Facebook</span>
               <span>
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"></i>
               </span>
             </li>
-            <li class="icon twitter">
+            <li className="icon twitter">
               <span className="tooltip">Twitter</span>
               <span>
-                <i class="fab fa-twitter"></i>
+                <i className="fab fa-twitter"></i>
               </span>
             </li>
-            <li class="icon instagram">
+            <li className="icon instagram">
               <span className="tooltip">Instagram</span>
               <span>
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </span>
             </li>
             <li className="icon github">
               <span className="tooltip">Github</span>
               <span>
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </span>
             </li>
-            <li class="icon youtube">
+            <li className="icon youtube">
               <span className="tooltip">Youtube</span>
               <span>
-                <i class="fab fa-youtube"></i>
+                <i className="fab fa-youtube"></i>
               </span>
             </li>
           </ul>
