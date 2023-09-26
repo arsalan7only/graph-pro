@@ -71,7 +71,7 @@ const Login = () => {
             sx={{ mt: 2, ml: 36 }}
             onClick={handleLogin}
           >
-            Login
+            Logins
           </Button>
         </Grid>
       </Grid>
