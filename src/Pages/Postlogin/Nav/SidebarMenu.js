@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import { FaAngleDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const menuAnimation = {
   hidden: {
@@ -78,7 +78,8 @@ const SidebarMenu = ({ route, showAnimation, isOpen, setIsOpen }) => {
                 : { rotate: 0 }
             }
           >
-            <FaAngleDown />
+            {<KeyboardArrowDownIcon/>}
+            {/* <FaAngleDown /> */}
           </motion.div>
         )}
       </div>{" "}

@@ -1,0 +1,19 @@
+.Product_Top_container1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 115%;   
+}
+.Product-Top-button button{
+margin: 0px 5px;
+}
+.Card-container1{
+    width: 115%;
+}
+.opetion-container{
+    display: flex;
+    align-items: center;
+}
+.opetion-container button{
+    margin-left: 10px
+}

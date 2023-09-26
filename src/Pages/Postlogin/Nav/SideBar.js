@@ -28,7 +28,6 @@ const SideBar = ({ children }) => {
       },
     },
   };
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -72,7 +71,7 @@ const SideBar = ({ children }) => {
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "200px" : "45px",
+            width: isOpen ? "220px" : "60px",
 
             transition: {
               duration: 0.5,
@@ -92,7 +91,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  ECOM ADMIN
+                  Ecom Admin
                 </motion.h1>
               )}
             </AnimatePresence>
